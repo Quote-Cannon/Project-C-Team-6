@@ -17,20 +17,22 @@
 }
 
 .dif-header{
-	background-color: #33cc33;
+	background-color: #b3dea2;
     height: 62px;
 }
 
 .prosearch{
     height: 33px;
+    border-radius: 5px;
 }
 
 .submitprosearch{
     height: 33px;
+    border-radius: 5px;
 }
 
 .menu{
-    background-color: #33cc33;
+    background-color: #b3dea2;
     height: 62px;
     opacity: 80%;
 }
@@ -97,8 +99,6 @@ html, body {
     padding: 0;
     width: 100%;
 }
-
-
 
 /*voorbeeldcode
 a:hover {
