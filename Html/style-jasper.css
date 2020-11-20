@@ -4,11 +4,16 @@
 	padding:10px 30px;
 	background-color: #e1e1e1;
 	display: inline-block;
+	text-align: center;
 }
 
 .filter-row{
-	width: 20%;
+	width: 200px;
 	display: inline-block;
+}
+
+.filter-row h2{
+	text-align: left;
 }
 
 .filter-row p{
@@ -43,8 +48,12 @@
     float: right;
 }
 
+.products-row h1{
+	margin-left: 40px;
+}
+
 .product{
-	margin-right: 40px;
+	margin-left: 40px;
     width: 275px;
     display: inline-block;
 }
@@ -109,4 +118,16 @@ start of Profile.html pagina*/
 .profile-image button:hover{
 	background-color: #b3dea2;
 	color:#000;
+}
+
+@media screen and (max-width: 925px){
+	.filter-row{
+		width: 100%;
+		display: inline-block;
+	}
+
+	.products-row{
+		width: 100%;
+	}
+
 }

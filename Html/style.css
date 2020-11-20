@@ -100,6 +100,85 @@ html, body {
     width: 100%;
 }
 
+@media screen and (max-width: 1000px){
+	.menu{
+		height: 120px;
+	}
+
+	.main-navigation{
+		width: 100%;
+	}
+
+	.search{
+		margin-right: 0px;
+		width: 100%;
+		float: left;
+		padding-top: 0px;
+		margin-left: 60px;
+	}
+
+	.searchbalk{
+		float: left;
+		margin-left: 60px;
+	}
+
+	.main-navigation{
+		margin-bottom: 10px;
+	}
+
+	.slider-text{
+		margin-top: 30px;
+	}
+}
+
+@media screen and (max-width: 550px){
+	.start-header {
+    	height: 370px;
+    }
+	.menu{
+		height: 250px;
+	}
+
+	.menu-item{
+		width: 100%;
+		padding: 0px;
+	}
+
+	.main-navigation a{
+		font-size: 20px;
+	}
+
+	.search{
+		margin-left: 40px;
+	}
+
+	.main-navigation{
+		margin-bottom: 10px;
+	}
+
+	.slider-text{
+		margin-top: 20px;
+		height: 80px;
+		width: 170px;
+	}
+
+	.slider-text h1 {
+    	margin-top: 10px;
+    	font-size: 25px;
+    }
+
+    .searchbalk{
+		margin-left: 0px;
+		width: 100%;
+		margin-top: 10px;
+    }
+
+    .slider-text p{
+    	margin-top: 5px;
+    	font-size: 15px;
+    }
+}
+
 /*voorbeeldcode
 a:hover {
     background: #338033;
