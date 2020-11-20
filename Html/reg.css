@@ -1,0 +1,80 @@
+.pfp{
+    margin-right: auto;
+    margin-left: auto;
+    width: 15%;
+}
+
+a.edit {
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    border: 0.1em solid black;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: initial;
+    color:white;
+    background-color: #475E48;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.edit:hover{
+    background-color: greenyellow;
+    
+    color:black;
+}
+
+.edit:active{
+    background-color: green;
+    color:white;
+}
+
+.inp{
+    text-align: center;
+}
+.editacc{
+    width: 20em;
+    font-size: 1.3em;
+    padding: 0.5em;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0.5em;
+    border: 0.01em solid rgb(110, 109, 109);
+    border-radius: 0.2em;
+}
+
+#ph{
+    display: inline-block;
+    width: 13em;
+}
+#pc{
+    display: inline-block;
+    width: 5.7em;
+}
+
+
+
+#upload{
+    background-color: white;
+    color: black;
+    border: 0.1em solid #475E48;
+    margin-left: 50%;
+    text-align: center;
+}
+
+#rst{
+    margin-left: 50%;
+    text-align: center;
+    width:  20em;
+    margin-top: 1em;
+}
+
+#sv{
+    margin-left: 50%;
+    text-align: center;
+    margin-top: 1em;
+    width:  20em;
+    padding: 1em;
+    font-size: 2em;
+}
