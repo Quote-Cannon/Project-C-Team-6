@@ -1,53 +1,38 @@
-﻿using System;
-using System.Windows.Forms;
-using Npgsql; 
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Windows.Forms;
 
 namespace PgSql
 {
-   public class PostGreSQL
-   {
-      List<string> dataItems = new List<string>();
+    public class PostGreSQL
+    {
+        List<string> dataItems = new List<string>();
 
-      public void PostgreSQL()
-      {
-      }
+        public void PostgreSQL()
+        {
+        }
 
-      public List<string> PostgreSQLtest1()
-      {
-         try
-         {
-            string connstring = "Server=127.0.0.1; Port=5432; Username=postgres; Password=User_Password;  Database=TestVanProject;";
-            NpgsqlConnection connection = new NpgsqlConnection(connstring);
-            connection.Open();
-            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM Product", connection);
-            NpgsqlDataReader dataReader = command.ExecuteReader();
-            for (int i=0; dataReader.Read(); i++)
-            {
-               dataItems.Add(dataReader[0].ToString() + "," + dataReader[1].ToString() + "," +  "\r\n");
-            }
-            connection.Close();
-            return dataItems;
-         }
-         catch (Exception msg)
-         {
-            MessageBox.Show(msg.ToString());
-            throw;
-         }
-      }
-
-        public List<string> PostgreSQLtest2()
+        public List<string> readSQL()
         {
             try
             {
-                string connstring = "Server=127.0.0.1; Port=5432; User Id=postgres; Password=1234; Database=my_geo_database;";
+                string connstring = "Server=localhost; Port=5432; Username=fetcher; Password=fetch;  Database=postgres;";
                 NpgsqlConnection connection = new NpgsqlConnection(connstring);
                 connection.Open();
-                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM bike_route.points WHERE point_names > '005' AND point_names < '010'", connection);
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM product", connection);
                 NpgsqlDataReader dataReader = command.ExecuteReader();
                 for (int i = 0; dataReader.Read(); i++)
                 {
-                    dataItems.Add(dataReader[0].ToString() + "," + dataReader[1].ToString() + "," + dataReader[2].ToString() + "\r\n");
+                    string output = "";
+                    for (int j = 0; j < dataReader.FieldCount; j++)
+                    {
+                        output += dataReader[j].ToString() + ", ";
+                    }
+                    output = output.Substring(0, output.Length - 2);
+                    output += "\r\n";
+                    dataItems.Add(output);
                 }
                 connection.Close();
                 return dataItems;
@@ -59,5 +44,57 @@ namespace PgSql
             }
         }
 
+        public void deleteSQL()
+        {
+            try
+            {
+                string connstring = "Server=localhost; Port=5432; Username=fetcher; Password=fetch;  Database=postgres;";
+                NpgsqlConnection connection = new NpgsqlConnection(connstring);
+                connection.Open();
+                NpgsqlCommand command = new NpgsqlCommand("DELETE FROM product WHERE dutchName = 'test'", connection);
+                command.ExecuteReader();
+                connection.Close();
+            }
+            catch (Exception msg)
+            {
+                MessageBox.Show(msg.ToString());
+                throw;
+            }
+        }
+        public void createSQL(string input)
+        {
+            try
+            {
+                string connstring = "Server=localhost; Port=5432; Username=fetcher; Password=fetch;  Database=postgres;";
+                NpgsqlConnection connection = new NpgsqlConnection(connstring);
+                connection.Open();
+                NpgsqlCommand command = new NpgsqlCommand($"INSERT INTO product VALUES (99, 10, 'test', 'testia primus', '{input}', 'picture', 'seed', 'herb', 'high', 'mid', false)", connection);
+                command.ExecuteReader();
+                connection.Close();
+            }
+            catch (Exception msg)
+            {
+                MessageBox.Show(msg.ToString());
+                throw;
+            }
+        }
+
+        public void updateSQL(string input)
+        {
+            try
+            {
+                string connstring = "Server=localhost; Port=5432; Username=fetcher; Password=fetch;  Database=postgres;";
+                NpgsqlConnection connection = new NpgsqlConnection(connstring);
+                connection.Open();
+                NpgsqlCommand command = new NpgsqlCommand($"UPDATE product SET description = '{input}' WHERE dutchName = 'test'", connection);
+                command.ExecuteReader();
+                connection.Close();
+            }
+            catch (Exception msg)
+            {
+                MessageBox.Show(msg.ToString());
+                throw;
+            }
+        }
     }
 }
