@@ -67,7 +67,7 @@ a.edit {
     border: 0.1em solid #475E48;
     text-align: center;
     width: fit-content;
-    padding: 0.2rem 2rem ;
+    padding: 0.2rem 1rem ;
     height: auto;
     margin: 0 auto;
     margin-bottom: 2rem;
@@ -93,10 +93,4 @@ a.edit {
     width: fit-content;
     height: auto;
     margin: 0 auto;
-}
-
-#cr{
-    margin-top: 1rem;
-    font-size: 2rem;
-    border: 0.1rem solid black;
 }
