@@ -53,7 +53,8 @@
 }
 
 .product{
-	margin-left: 40px;
+	margin-left: 20px;
+    margin-right: 20px;
     width: 275px;
     display: inline-block;
 }
@@ -129,5 +130,4 @@ start of Profile.html pagina*/
 	.products-row{
 		width: 100%;
 	}
-
 }
