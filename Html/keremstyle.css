@@ -1,15 +1,18 @@
-
-
+.editdiv{
+    text-align: left;
+    margin-left: 3rem;
+    
+}
 a.edit {
     display: inline-block;
-    margin: 1em 0em 1em -32em;
     padding: 0.5em 1.5em;
     border: 0.1em solid black;
     border-radius: 0.4em;
     text-decoration: none;
     color: initial;
-     color:white;
+    color:white;
     background-color: #475E48;
+    margin: 1rem 1rem;
 }
 a.edit:hover {
     background-color: yellowgreen;
@@ -17,12 +20,14 @@ a.edit:hover {
 }
 
 .pdiv{
+    margin-top: 1rem;
     text-align: center;
 }
 .pfpdiv{
-    display: inline;
+    display: inline-block;
 }
 .pfp{
+    display: block;
     width: 6rem;
     border-radius: 50%;
     border: 0.02rem solid rgba(0,0,0,0.1);
