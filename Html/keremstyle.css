@@ -1,0 +1,84 @@
+
+
+a.edit {
+    display: inline-block;
+    margin: 1em 0em 1em -32em;
+    padding: 0.5em 1.5em;
+    border: 0.1em solid black;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: initial;
+     color:white;
+    background-color: #475E48;
+}
+a.edit:hover {
+    background-color: yellowgreen;
+    transition: background-color 1s ;
+}
+
+.pdiv{
+    text-align: center;
+}
+.pfpdiv{
+    display: inline;
+}
+.pfp{
+    width: 6rem;
+    border-radius: 50%;
+    border: 0.02rem solid rgba(0,0,0,0.1);
+}
+.hiprofile{
+    font-size: 1.6rem;
+    text-align: center;
+    color: #6e6e6e;
+    margin-bottom: 3rem;
+}
+
+
+
+.profilebuttons{
+    text-align: center;
+}
+.profilebuttons > .pfbutton{
+    margin: 5em;
+    letter-spacing: 15em;
+}
+.but{
+    display: inline-block;
+}
+.butid{
+    width: 12em;
+    border: 0.01em solid black;
+    border-radius: 5%;
+    padding: 5%;
+}
+
+
+.butext{
+    font-size: 2em;
+}
+
+#add{
+    margin: 1em 5em 1em 5em;
+}
+#myprods{
+    margin: 1em 5em 1em 5em;
+}
+#viewchat{
+    margin: 1em 5em 1em 5em;
+}
+
+
+.butid:hover{
+    cursor: pointer;
+    background-color: rgb(122, 184, 0);
+    transition: background-color 1s ;
+    transition-timing-function: ease-out;
+        
+}
+
+.butid:active , a.edit:active{
+    background-color: rgb(170, 255, 0);
+    transition: background-color 0.3s, color 0.3s ;
+    color:black;
+}
