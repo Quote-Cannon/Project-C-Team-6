@@ -3,22 +3,6 @@
     margin-left: 3rem;
     
 }
-a.edit {
-    display: inline-block;
-    padding: 0.5em 1.5em;
-    border: 0.1em solid black;
-    border-radius: 0.4em;
-    text-decoration: none;
-    color: initial;
-    color:white;
-    background-color: #475E48;
-    margin: 1rem 1rem;
-}
-a.edit:hover {
-    background-color: yellowgreen;
-    transition: background-color 1s ;
-}
-
 .pdiv{
     margin-top: 1rem;
     text-align: center;
@@ -86,4 +70,20 @@ a.edit:hover {
     background-color: rgb(170, 255, 0);
     transition: background-color 0.3s, color 0.3s ;
     color:black;
+}
+
+a.edit {
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    border: 0.1em solid black;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: initial;
+    color:white;
+    background-color: #475E48;
+    margin: 1rem 1rem;
+}
+a.edit:hover {
+    background-color: yellowgreen;
+    transition: background-color 1s ;
 }

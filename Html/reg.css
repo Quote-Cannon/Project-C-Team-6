@@ -49,16 +49,21 @@ a.edit {
     text-align: center;
 }
 
-.edit:hover{
-    background-color: greenyellow;
+
+.edit:hover, #upload:hover{
     
-    color:black;
+    background-color: rgb(138, 206, 3);
+    transition: background-color 0.5s ;
+    transition-timing-function: ease-out;
 }
 
-.edit:active{
+.edit:active, #upload:active{
     background-color: green;
-    color:white;
+    color:black;
+    background-color: rgb(170, 255, 0);
+    transition: background-color 0.3s, color 0.3s ;
 }
+
 
 
 #upload{
