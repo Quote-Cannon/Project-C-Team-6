@@ -1,0 +1,96 @@
+.pfp{
+    
+    margin-top: 2em;
+    margin-right: auto;
+    margin-left: auto;
+    width: 10rem;
+}
+
+.pfpdiv{
+    width: fit-content;
+    height: auto;
+    margin: 0 auto;
+}
+
+.inp{
+    text-align: center;
+}
+.editacc{
+    width: 95%;
+    font-size: 1.3rem;
+    padding: 0.5em;
+    display: block;
+    margin-top: 0.5em;
+    border: 0.01em solid rgb(110, 109, 109);
+    border-radius: 0.2em;
+}
+
+#ph{
+    display: inline-block;
+    width: 16rem;
+}
+#pc{
+    display: inline-block;
+    width: 10rem;
+}
+
+
+
+
+a.edit {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    border: 0.1em solid black;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: initial;
+    color:white;
+    background-color: #475E48;
+    text-align: center;
+}
+
+.edit:hover{
+    background-color: greenyellow;
+    
+    color:black;
+}
+
+.edit:active{
+    background-color: green;
+    color:white;
+}
+
+
+#upload{
+    background-color: white;
+    color: black;
+    border: 0.1em solid #475E48;
+    text-align: center;
+    width: fit-content;
+    padding: 0.2rem 1rem ;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+#rst{
+    width:  26rem;
+    margin-top: 1em;
+    display: block;
+    font-size: 1rem;
+}
+
+#sv{
+    margin-top: 1rem;
+    width:  26rem;
+    display: block;
+    font-size: 2rem;
+    padding: 1.5rem;
+    border: 0.1rem solid black;
+}
+
+.r{
+    width: fit-content;
+    height: auto;
+    margin: 0 auto;
+}

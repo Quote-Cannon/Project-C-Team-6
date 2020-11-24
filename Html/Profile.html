@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>De kas</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="style-jasper.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="keremstyle.css">
     <link rel="shortcut icon" type="image/jpg" href=”OIP.jpg”/>
 </head>
+
 <header class="dif-header">
     <ul class="main-navigation">
         <li class="menu-item">
@@ -31,28 +33,37 @@
         </div>
     </div>
 </header>
+
 <body>
-    <div class="profile-image">
-        <img src="memoji.png">
-        <hr>
+
+    <div class="pdiv">  
+        <div class="editdiv">
+            <a href="EditAccount.html" class="edit">Edit Account</a>
+        </div>
+        <div class="pfpdiv">
+            <img class="pfp" src="http://img4.wikia.nocookie.net/__cb20140328190757/pokemon/images/thumb/2/21/001Bulbasaur.png/100px-001Bulbasaur.png" alt="">
+        </div> 
     </div>
-    <div class="your-products">
-        <h1>Your Product(s)</h1>
-        <div class="product">
-            <img src="OIP.jpg">
-            <p>Name</p>
+    
+    <p class="hiprofile">Hi, Bulba010!</p>
+    
+    <div class="profilebuttons">
+        <div class="but">
+            <a href="EditAccount.html" class="pfbutton" id="add"><img class="butid" src="Layer 2.png" alt=""></a>
+
+            <p class="butext" id="add">Add product</p>
         </div>
-        <div class="product">
-            <img src="OIP.jpg">
-            <p>Name</p>
+
+        <div class="but">
+            <a href="ProfileProducts.html" class="pfbutton" id="myprods"><img class="butid" src="Layer 3.png" alt=""></a>
+
+            <p class="butext" id="myprods">Your products</p>
         </div>
-        <div class="product">
-            <img src="OIP.jpg">
-            <p>Name</p>
-        </div>
-        <div class="product">
-            <img src="OIP.jpg">
-            <p>Name</p>
+
+        <div class="but">
+            <a href="EditAccount.html" class="pfbutton" id="viewchat"><img class="butid" src="Layer 4.png" alt=""></a>
+            
+            <p class="butext" id="viewchat">Your chat</p>
         </div>
     </div>
 </body>
