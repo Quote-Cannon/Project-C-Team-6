@@ -47,30 +47,10 @@
     font-size: 2em;
 }
 
-#add{
-    margin: 1em 5em 1em 5em;
-}
-#myprods{
-    margin: 1em 5em 1em 5em;
-}
-#viewchat{
+#add, #myprods, #viewchat{
     margin: 1em 5em 1em 5em;
 }
 
-
-.butid:hover{
-    cursor: pointer;
-    background-color: rgb(122, 184, 0);
-    transition: background-color 1s ;
-    transition-timing-function: ease-out;
-        
-}
-
-.butid:active , a.edit:active{
-    background-color: rgb(170, 255, 0);
-    transition: background-color 0.3s, color 0.3s ;
-    color:black;
-}
 
 a.edit {
     display: inline-block;
@@ -83,7 +63,19 @@ a.edit {
     background-color: #475E48;
     margin: 1rem 1rem;
 }
-a.edit:hover {
-    background-color: yellowgreen;
-    transition: background-color 1s ;
+
+
+
+.butid:hover, a.edit:hover{
+    cursor: pointer;
+    background-color: rgb(122, 184, 0);
+    transition: background-color 0.5s ;
+    transition-timing-function: ease-out;
+        
+}
+
+.butid:active , a.edit:active{
+    background-color: rgb(170, 255, 0);
+    transition: background-color 0.3s, color 0.3s ;
+    color:black;
 }
