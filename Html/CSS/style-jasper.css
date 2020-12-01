@@ -131,3 +131,37 @@ start of Profile.html pagina*/
 		width: 100%;
 	}
 }
+
+/*chatbox*/
+.all-chats{
+    width:260px;
+    margin-left: 60px;
+}
+
+.chatpage{
+    background: #E1E1E1;
+}
+
+.chatsearch{
+    width: 100%;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 20px;
+    margin: 20px 0px;
+}
+
+.one-chats{
+    border: 3px solid #000;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.one-chats img{
+    float: left;
+    border-radius: 30px;
+}
+
+.one-chats p{
+    margin: 0px;
+    margin-left: 80px;
+}
