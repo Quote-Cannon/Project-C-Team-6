@@ -22,7 +22,8 @@ namespace PlantWebsite.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Products.ToListAsync());
+            var plants = await _context.Products.ToListAsync();
+            return View(plants);
         }
 
         // GET: Products/Details/5
