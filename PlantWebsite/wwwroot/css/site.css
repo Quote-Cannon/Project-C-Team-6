@@ -69,3 +69,60 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/*chatbox*/
+.all-chats {
+    width: 260px;
+    float: left;
+    margin-right: 40px;
+}
+
+.chatpage {
+    background: #E1E1E1;
+}
+
+.chatsearch {
+    width: 100%;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 20px;
+    margin: 20px 0px;
+}
+
+.one-chats {
+    border: 3px solid #000;
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+    .one-chats img {
+        float: left;
+        border-radius: 30px;
+        height: 55px;
+    }
+
+.one-chats p {
+    margin: 0px;
+    margin-left: 80px;
+    height: 55px;
+}
+
+app-chat{
+    margin-left:10px;
+}
+
+chat-person {
+}
+
+chat-person img {
+    float: left;
+    border-radius: 30px;
+    height: 55px;
+}
+
+chat-personp {
+    margin: 0px;
+    margin-left: 80px;
+    height: 55px;
+}
