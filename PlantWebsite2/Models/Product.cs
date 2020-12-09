@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.ComponentModel.DataAnnotations;
 
 namespace PlantWebsite.Models
@@ -14,8 +15,6 @@ namespace PlantWebsite.Models
         [Required]
         [StringLength(300)]
         public string Description { get; set; }
-        [Required]
-        public string Picture { get; set; }
         public string Kind { get; set; }
         public string Type { get; set; }
         public string Water { get; set; }
@@ -23,6 +22,14 @@ namespace PlantWebsite.Models
         [DataType(DataType.Date)]
         public DateTime ProductDate { get; set; }
         public bool Trade { get; set; }
+        [Required]
+        public string Picture { get; set; }
+
+        public Product()
+        {
+            ProductDate = DateTime.UtcNow;
+            Picture = File.ReadAllText(Directory.GetCurrentDirectory() + "/varbinoutput.txt");
+        }
 
     }
 }
