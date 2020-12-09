@@ -43,6 +43,23 @@ namespace PlantWebsite.Controllers
             return View(user);
         }
 
+
+       /* public string getFlags() //Admin Only function
+        {
+            if (flags.Length == 0)
+                return "User has 0 flags";
+            string s = "";
+            foreach (string flag in flags)
+                s += flag + "\n";
+            return s;
+        }
+
+        public string FlagUser(string flagreason, int flaggerid)
+        {
+            flags[flags.Length] = $"Flag ID: {flags.Length}, Flagger:{flaggerid}\nReason for flag:\n{flagreason}";
+            return ("You have reported" + this.FullName + "for:\n" + flagreason);
+        }*/
+
         // GET: Users/Create
         public IActionResult Create()
         {
@@ -54,8 +71,9 @@ namespace PlantWebsite.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FullName,Email,PostalCode,MobileNumber,Flagged,UserDate")] User user)
+        public async Task<IActionResult> Create([Bind("Id,FullName,Email,PostalCode,MobileNumber,UserDate,Password,ConfirmPassword")] User user)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Add(user);
@@ -149,5 +167,7 @@ namespace PlantWebsite.Controllers
         {
             return _context.Users.Any(e => e.Id == id);
         }
+
+
     }
 }

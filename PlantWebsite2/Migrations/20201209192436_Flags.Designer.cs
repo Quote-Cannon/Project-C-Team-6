@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PlantWebsite.Data;
@@ -9,9 +10,10 @@ using PlantWebsite.Data;
 namespace PlantWebsite.Migrations
 {
     [DbContext(typeof(WebsiteDbContext))]
-    partial class WebsiteDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201209192436_Flags")]
+    partial class Flags
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,10 +122,6 @@ namespace PlantWebsite.Migrations
                     b.Property<string>("MobileNumber")
                         .HasColumnType("text");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("PostalCode")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -131,9 +129,6 @@ namespace PlantWebsite.Migrations
 
                     b.Property<DateTime>("UserDate")
                         .HasColumnType("timestamp without time zone");
-
-                    b.Property<string[]>("flags")
-                        .HasColumnType("text[]");
 
                     b.HasKey("Id");
 
