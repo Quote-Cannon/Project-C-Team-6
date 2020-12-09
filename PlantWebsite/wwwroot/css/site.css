@@ -108,21 +108,26 @@ body {
     height: 55px;
 }
 
-app-chat{
-    margin-left:10px;
+.app-chat {
+    margin-left: 10px;
+    float: left;
+    margin-top: 20px;
+    width: 700px;
 }
 
-chat-person {
+.chat-person {
 }
 
-chat-person img {
+.chat-person img {
     float: left;
     border-radius: 30px;
-    height: 55px;
+    height: 100px;
 }
 
-chat-personp {
-    margin: 0px;
-    margin-left: 80px;
-    height: 55px;
-}
+    .chat-person p {
+        margin: 0px;
+        margin-left: 125px;
+        height: 100px;
+        padding-top: 25px;
+        font-size: 30px;
+    }
