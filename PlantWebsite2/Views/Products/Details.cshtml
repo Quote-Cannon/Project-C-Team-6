@@ -1,0 +1,131 @@
+﻿@model PlantWebsite.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Item Page</title>
+    <link rel="stylesheet" href="./CSS/MauriceStyle.css">
+    <link rel="shortcut icon" type="image/jpg" href=”./Images/OIP.jpg” />
+
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style-jasper.css">
+    <link rel="shortcut icon" type="image/jpg" href=”./Images/OIP.jpg” />
+</head>
+
+@*<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LatinName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LatinName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Picture)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kind)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kind)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Water)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Water)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Light)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Light)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Trade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Trade)
+        </dd>
+    </dl>
+</div>*@
+
+<body>
+
+    <div class="textbox-grey">
+
+        <div class="image1">
+            @*
+                @Html.DisplayNameFor(model => model.Picture)
+                @Html.DisplayFor(model => model.Trade)
+            *@
+            <img src="https://p0.pikrepo.com/preview/526/679/green-leaves-of-monstera-plant-growing-at-home.jpg" style="width: 50%; height: 50%; display: inline-block; border-radius: 15px;">
+        </div>
+        <div class="plantdesc">
+            <h1>@Html.DisplayFor(model => model.Name)</h1>
+            <p><i>@Html.DisplayFor(model => model.LatinName)</i></p>
+            <h2><u>Description</u></h2>
+            <p>@Html.DisplayFor(model => model.Description)</p>
+            <ul>
+                <li>Plant kind: @Html.DisplayFor(model => model.Kind)</li>
+                <li>Plant type: @Html.DisplayFor(model => model.Type)</li>
+                <li>Water: @Html.DisplayFor(model => model.Water)</li>
+                <li>Light: @Html.DisplayFor(model => model.Light) </li>
+            </ul>
+            <p>This producted was posted on: @Html.DisplayFor(model => model.ProductDate)</p>
+        </div>
+
+        <a href="" class="edit" id="sv">Chat</a>
+
+    </div>
+    <div class="title">
+        <h1><u>Other photos of this product</u></h1>
+
+    </div>
+    <div class="image2">
+        <img src="https://www.freeimageslive.co.uk/files/images009/seeds.jpg" style="width: 100%; height: 100%; display: inline-block; border-radius: 15px;">
+    </div>
+    <div class="image2">
+        <img src="https://p2.piqsels.com/preview/949/891/620/herbs-home.jpg" style="width: 100%; height: 100%; display: inline-block; border-radius: 15px;">
+
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+
+</body>
+</html>
