@@ -121,10 +121,12 @@
             <h1>New</h1>
             @foreach (var item in Model)
             {
-                <div class="product">
-                    <img src="./Images/OIP.jpg">
-                    <p>@item.Name</p>
-                </div>
+        <div class="product">
+            <img src="./Images/OIP.jpg">
+            
+            <a href="Products/Details/@item.Id">@item.Name</a>
+            
+        </div>
             }
             <!--<div class="product">
         <img src="./Images/OIP.jpg">
