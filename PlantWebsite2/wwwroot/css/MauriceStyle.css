@@ -28,20 +28,22 @@
     display: inline-block;
     width: 50%;
     height: 80%;
-    margin-top: -23px;
     text-align: left;
     /*border: solid #000 3px;*/
     background-color: #fff0;
     opacity: 100%;
     font-size: 20px;
-    
-
-    
-    
 }
 
-.plantdesc h1{
-    
+.button-details{
+    float: left;
+    width: 100%;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.plantdesc h1 {
     font-size: 45px;
 }
 
@@ -164,12 +166,12 @@ a.edit {
     font-size: 1rem;
 }
 
-#sv{
-    
-    width:  13rem;
+#sv {
+    width: 140px;
+    margin-top: -60px;
     display: block;
     font-size: 2rem;
-    height: 50px;
+    padding: 20px;
     margin-left: 30px;
     border: 0.1rem solid black;
 }

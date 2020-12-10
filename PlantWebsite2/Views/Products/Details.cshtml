@@ -83,7 +83,7 @@
 </div>*@
 
 <body>
-
+    <div class="container">
     <div class="textbox-grey">
 
         <div class="image1">
@@ -91,12 +91,12 @@
                 @Html.DisplayNameFor(model => model.Picture)
                 @Html.DisplayFor(model => model.Trade)
             *@
-            <img src="https://p0.pikrepo.com/preview/526/679/green-leaves-of-monstera-plant-growing-at-home.jpg" style="width: 50%; height: 50%; display: inline-block; border-radius: 15px;">
+            <img src="https://p0.pikrepo.com/preview/526/679/green-leaves-of-monstera-plant-growing-at-home.jpg" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;">
         </div>
         <div class="plantdesc">
             <h1>@Html.DisplayFor(model => model.Name)</h1>
             <p><i>@Html.DisplayFor(model => model.LatinName)</i></p>
-            <h2><u>Description</u></h2>
+            <h2 style="text-align:left;">Description</h2>
             <p>@Html.DisplayFor(model => model.Description)</p>
             <ul>
                 <li>Plant kind: @Html.DisplayFor(model => model.Kind)</li>
@@ -122,8 +122,11 @@
 
     </div>
     <div>
-        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-        <a asp-action="Index">Back to List</a>
+        <div class="button-details">
+            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+            <a class="btn btn-primary" asp-action="Index">Back to productpage</a>
+        </div>
+    </div>
     </div>
 
 
