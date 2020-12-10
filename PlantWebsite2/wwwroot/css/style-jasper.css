@@ -221,6 +221,66 @@ footer .container{
         width: 100%;
         height:auto;
     }
-
-
 }
+
+/*chatpage*/
+.all-chats {
+    width: 260px;
+    float: left;
+    margin-right: 40px;
+}
+
+.chatpage {
+    background: #E1E1E1;
+}
+
+.chatsearch {
+    width: 100%;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 20px;
+    margin: 20px 0px;
+}
+
+.one-chats {
+    border: 3px solid #000;
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+    .one-chats img {
+        float: left;
+        border-radius: 30px;
+        height: 55px;
+    }
+
+    .one-chats p {
+        margin: 0px;
+        margin-left: 80px;
+        height: 55px;
+    }
+
+.app-chat {
+    margin-left: 10px;
+    float: left;
+    margin-top: 20px;
+    width: 700px;
+}
+
+.chat-person {
+}
+
+    .chat-person img {
+        float: left;
+        border-radius: 30px;
+        height: 100px;
+    }
+
+    .chat-person p {
+        margin: 0px;
+        margin-left: 125px;
+        height: 100px;
+        padding-top: 25px;
+        font-size: 30px;
+    }
