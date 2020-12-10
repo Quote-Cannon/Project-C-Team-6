@@ -104,8 +104,8 @@ html, body {
     width: 100%;
 }
 
-@media screen and (max-width: 1000px){
-	.menu{
+@media screen and (max-width: 1000px) {
+    .menu{
 		height: 120px;
 	}
 
