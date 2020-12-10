@@ -3,87 +3,113 @@
 @{
     ViewData["Title"] = "Index";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>De kas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-jasper.css">
+    <link rel="shortcut icon" type="image/jpg" href=”OIP.jpg” />
+</head>
 
-<h1>Index</h1>
+<header class="start-header">
+    <div class="slider">
+        <div class="slider2">
+            <div class="slider-text">
+                <h1>Products</h1>
+                <p>... product(s) found</p>
+            </div>
+        </div>
+    </div>
+    
+</header>
+<body>
+    <div class="body-row">
+        <div class="filter-row">
+            <a class="btn btn-primary" asp-action="Create">Add a product</a>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LatinName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Picture)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kind)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Water)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Light)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Trade)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LatinName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Picture)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kind)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Water)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Light)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Trade)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            <h2>Filter</h2>
+            <div class="post">
+                <input type="radio" id="post" name="post" value="post" checked="checked">
+                <p>Delivered by post</p>
+            </div>
+            <div class="meetup">
+                <input type="radio" id="meetup" name="post" value="meetup">
+                <p>Meetup in person</p>
+            </div>
+            <hr>
+            <div class="trade">
+                <input type="radio" id="trade" name="trade" value="trade" checked="checked">
+                <p>Trading</p>
+            </div>
+            <div class="notrade">
+                <input type="radio" id="notrade" name="trade" value="nodtrade">
+                <p>No trading</p>
+            </div>
+            <div class="select-boxes">
+                <div class="productsselect">
+                    <form>
+                        <select name="product" required="required">
+                            <option value="" disabled selected hidden>Products</option>
+                            <option value="seed">Seed</option>
+                            <option value="cutting">Cutting</option>
+                            <option value="bud">Bud</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="typeselect">
+                    <form>
+                        <select name="type" required="required">
+                            <option value="" disabled selected hidden>Type</option>
+                            <option value="herb">Herb</option>
+                            <option value="cutting">Cutting</option>
+                            <option value="creeper">Creeper</option>
+                            <option value="shrub">Shrub</option>
+                            <option value="climber">Climber</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="lightselect">
+                    <form>
+                        <select name="light" required="required">
+                            <option value="" disabled selected hidden>Light</option>
+                            <option value="low">Low</option>
+                            <option value="mid">Mid</option>
+                            <option value="high">High</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="waterselect">
+                    <form>
+                        <select name="water" required="required">
+                            <option value="" disabled selected hidden>Water</option>
+                            <option value="low">Low</option>
+                            <option value="mid">Mid</option>
+                            <option value="high">High</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="pro-page products-row">
+            @foreach (var item in Model)
+            {
+                <div class="product">
+                    <img src="./Images/OIP.jpg">
+                    <a href="Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
+
+                    <p></p>
+                    @*@Html.DisplayFor(modelItem => item.Picture)*@
+                </div>
+                @*@Html.DisplayFor(modelItem => item.Kind)
+            @Html.DisplayFor(modelItem => item.Type)
+            @Html.DisplayFor(modelItem => item.Trade)*@
+
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+            <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+            }
+        </div>
+    </div>
+</body>
+</html>
