@@ -21,9 +21,12 @@ namespace PlantWebsite.Models
         public string Light { get; set; }
         [DataType(DataType.Date)]
         public DateTime ProductDate { get; set; }
+        [Required]
         public bool Trade { get; set; }
         [Required]
         public string Picture { get; set; }
+        [Required]
+        public bool Post { get; set; }
 
         public Product()
         {
