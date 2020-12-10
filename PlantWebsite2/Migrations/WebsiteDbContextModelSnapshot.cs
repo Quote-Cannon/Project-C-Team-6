@@ -135,6 +135,7 @@ namespace PlantWebsite.Migrations
                     b.Property<string[]>("flags")
                         .HasColumnType("text[]");
 
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");

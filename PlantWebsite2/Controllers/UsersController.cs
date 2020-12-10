@@ -43,7 +43,6 @@ namespace PlantWebsite.Controllers
             return View(user);
         }
 
-
        /* public string getFlags() //Admin Only function
         {
             if (flags.Length == 0)
@@ -60,6 +59,7 @@ namespace PlantWebsite.Controllers
             return ("You have reported" + this.FullName + "for:\n" + flagreason);
         }*/
 
+
         // GET: Users/Create
         public IActionResult Create()
         {
@@ -73,6 +73,7 @@ namespace PlantWebsite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FullName,Email,PostalCode,MobileNumber,UserDate,Password,ConfirmPassword")] User user)
         {
+
 
             if (ModelState.IsValid)
             {
@@ -167,7 +168,5 @@ namespace PlantWebsite.Controllers
         {
             return _context.Users.Any(e => e.Id == id);
         }
-
-
     }
 }

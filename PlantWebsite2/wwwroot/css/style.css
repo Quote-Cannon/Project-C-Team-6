@@ -32,7 +32,7 @@
 }
 
 .menu{
-    background-color: #b3dea2;
+    
     height: 62px;
     opacity: 80%;
 }
@@ -42,7 +42,6 @@
 }
 
 .main-navigation{
-    width: 500px;
     float: left;
     margin-top:10px;
 }
@@ -61,12 +60,13 @@
     text-decoration: none;
 }
 
-.start-header{
+.start-header {
     height: 330px;
-    background-image: url(./Images/OIP.jpg);
+    background-image: url(/images/OIP.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 20px;
+    padding-top: 30px;
+    margin-top: -17px;
 }
 
 .slider-text{
@@ -81,7 +81,11 @@
     margin-top: 60px;
 }
 
-.slider-text h1{
+.navbar-expand-sm {
+    background-color: #b3dea2 !important;
+}
+
+.slider-text h1 {
     margin-top: 18px;
     margin-bottom: 0px;
     font-size: 45px;
@@ -100,10 +104,14 @@ html, body {
     width: 100%;
 }
 
-@media screen and (max-width: 1000px){
-	.menu{
+@media screen and (max-width: 1000px) {
+    .menu{
 		height: 120px;
 	}
+
+    .start-header {
+        height: 250px;
+    }
 
 	.main-navigation{
 		width: 100%;
@@ -136,8 +144,8 @@ html, body {
 }
 
 @media screen and (max-width: 550px){
-	.start-header {
-    	height: 370px;
+    .start-header {
+        height: 190px;
     }
 
     .dif-header{

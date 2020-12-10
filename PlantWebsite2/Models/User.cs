@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace PlantWebsite.Models
 {
     public class User
     {
         public string[] flags { get; set; }
+
         public int Id { get; set; }
         [Required]
         [StringLength(50)]
@@ -35,6 +37,7 @@ namespace PlantWebsite.Models
 
         public User()
         {
+
         }
     }
 }
