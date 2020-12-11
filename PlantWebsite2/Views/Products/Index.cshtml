@@ -26,7 +26,22 @@
 <body>
     <div class="body-row">
         <div class="filter-row">
-            <a class="btn btn-primary" asp-action="Create">Add a product</a>
+            <br />
+            @*<div>
+                <a class="btn btn-primary" asp-action="Create">Add a product</a>
+            </div>*@
+            <p>
+
+            </p>
+            <div>
+                <form asp-controller="Products" asp-action="Index" method="get">
+                    <p>
+                        Search: <input type="text" name="SearchString" />
+                        <input type="submit" value="Search" />
+                    </p>
+
+                </form>
+            </div>
 
             <h2>Filter</h2>
             <div class="post">
@@ -91,7 +106,15 @@
                 </div>
             </div>
         </div>
+        
         <div class="pro-page products-row">
+            <div>
+                <a class="btn btn-primary" asp-action="Create">Add a product</a>
+                <br />
+            </div>
+            <p>
+
+            </p>
             @foreach (var item in Model)
             {
                 <div class="product">

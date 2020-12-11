@@ -20,10 +20,17 @@ namespace PlantWebsite.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var plants = await _context.Products.ToListAsync();
-            return View(plants);
+            //var plants = await _context.Products.ToListAsync();
+            //return View(plants);
+            var products = from p in _context.Products
+                           select p;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(s => s.Name.Contains(searchString) || s.Description.Contains(searchString) || s.Kind.Contains(searchString) || s.Type.Contains(searchString) || s.LatinName.Contains(searchString));
+            }
+            return View(await products.ToListAsync());
         }
 
         // GET: Products/Details/5
