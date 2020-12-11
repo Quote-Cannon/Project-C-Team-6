@@ -15,6 +15,15 @@
     float: left;
 }
 
+.image3{
+
+    margin: 0px 30px;
+    margin-top: 00px;
+    width: 30%; 
+    
+    float: right;
+}
+
 .image2{
     width: 330px; 
     height: 210px;
@@ -50,6 +59,38 @@
     font-size: 30px;
 }
 .plantdesc p{
+    
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+.aboutus{
+    display: inline-block;
+    width: 80%;
+    height: 80%;
+    margin-top: -23px;
+    margin-left: 40px;
+    text-align: left;
+    /*border: solid #000 3px;*/
+    background-color: #fff0;
+    opacity: 100%;
+    font-size: 20px;
+    
+
+    
+    
+}
+
+.aboutus h1{
+    
+    font-size: 45px;
+}
+
+.aboutus h2{
+
+    font-size: 30px;
+}
+.aboutus p{
     
     margin-top: 10px;
     font-size: 25px;
