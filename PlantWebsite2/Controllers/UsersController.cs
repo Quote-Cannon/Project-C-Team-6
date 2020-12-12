@@ -25,6 +25,7 @@ namespace PlantWebsite.Controllers
             return View(await _context.Users.ToListAsync());
         }
 
+
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -43,21 +44,44 @@ namespace PlantWebsite.Controllers
             return View(user);
         }
 
-       /* public string getFlags() //Admin Only function
+        // GET: Users/MyProfile/0
+        [HttpGet("MyProfile")]
+        public async Task<IActionResult> MyProfile()
         {
-            if (flags.Length == 0)
-                return "User has 0 flags";
-            string s = "";
-            foreach (string flag in flags)
-                s += flag + "\n";
-            return s;
+            int id = 10;
+            var user = await _context.Users
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
         }
 
-        public string FlagUser(string flagreason, int flaggerid)
+        public async Task<IActionResult> Login()
         {
-            flags[flags.Length] = $"Flag ID: {flags.Length}, Flagger:{flaggerid}\nReason for flag:\n{flagreason}";
-            return ("You have reported" + this.FullName + "for:\n" + flagreason);
-        }*/
+            return View();
+        }
+        public async Task<IActionResult> Signup()
+        {
+            return View();
+        }
+        /* public string getFlags() //Admin Only function
+         {
+             if (flags.Length == 0)
+                 return "User has 0 flags";
+             string s = "";
+             foreach (string flag in flags)
+                 s += flag + "\n";
+             return s;
+         }
+
+         public string FlagUser(string flagreason, int flaggerid)
+         {
+             flags[flags.Length] = $"Flag ID: {flags.Length}, Flagger:{flaggerid}\nReason for flag:\n{flagreason}";
+             return ("You have reported" + this.FullName + "for:\n" + flagreason);
+         }*/
 
 
         // GET: Users/Create
@@ -79,7 +103,7 @@ namespace PlantWebsite.Controllers
             {
                 _context.Add(user);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(MyProfile));
             }
             return View(user);
         }
@@ -105,13 +129,12 @@ namespace PlantWebsite.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,Email,PostalCode,MobileNumber,Flagged,UserDate")] User user)
+        public async Task<IActionResult> Edit(int id,  [Bind("Id,FullName,Password,ConfirmPassword,Email,PostalCode,MobileNumber,UserDate")] User user)
         {
             if (id != user.Id)
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try
@@ -130,7 +153,7 @@ namespace PlantWebsite.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(MyProfile));
             }
             return View(user);
         }

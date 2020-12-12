@@ -10,6 +10,7 @@ namespace PlantWebsite.Models
         public User User { get; set; }
         [Required]
         [StringLength(50)]
+       
         public string Name { get; set; }
         public string LatinName { get; set; }
         [Required]

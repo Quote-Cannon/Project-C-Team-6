@@ -6,6 +6,10 @@
     width: 10rem;
 }
 
+#uploadpfp{
+    border-radius:100%;
+}
+
 .pfpdiv{
     width: fit-content;
     height: auto;
@@ -104,4 +108,8 @@ a.edit {
     margin-top: 1rem;
     font-size: 2rem;
     border: 0.1rem solid black;
+}
+
+.row{
+    text-align: center;
 }

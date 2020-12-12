@@ -10,6 +10,7 @@ namespace PlantWebsite.Models
 {
     public class User
     {
+
         public string[] flags { get; set; }
 
         public int Id { get; set; }
@@ -31,7 +32,6 @@ namespace PlantWebsite.Models
         public string Password { get; set; }
 
         
-        [NotMapped]
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
 

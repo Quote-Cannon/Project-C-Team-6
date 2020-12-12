@@ -3,65 +3,71 @@
 @{
     ViewData["Title"] = "Register";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>De kas</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/reg.css">
+    <link rel="shortcut icon" type="image/jpg" href=”./Images/OIP.jpg” />
+</head>
 
-<h1>Register User</h1>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+                <div class="pfpdiv" id="uploadpfp">
+                    <img class="pfp" src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="">
+                </div>
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <input type="file" id="myFile" name="filename">
-            </div>
-            <div class="form-group">
-                <label asp-for="FullName" class="control-label">Full Name</label>
+                <div class="form-group">
+                    <input type="file" class="edit" id="myFile" name="filename">
+                </div>
 
-                <input asp-for="FullName" class="form-control" />
-                <span asp-validation-for="FullName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label">Email address</label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PostalCode" class="control-label">Postal Code</label>
-                <input asp-for="PostalCode" class="form-control" />
-                <span asp-validation-for="PostalCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MobileNumber" class="control-label">Phone number</label>
-                <input asp-for="MobileNumber" class="form-control" />
-                <span asp-validation-for="MobileNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserDate" class="control-label">Date of birth</label>
-                <input asp-for="UserDate" class="form-control" />
-                <span asp-validation-for="UserDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label">Password</label>
-                <input type="password" asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConfirmPassword" class="control-label">Confirm Password</label>
-                <input type="password" asp-for="ConfirmPassword" class="form-control" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
+                <div class="r">
+                    <div class="form-group">
 
-            <div class="form-group">
-                <input type="submit" name="registr" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                        <input asp-for="FullName" class="form-control" placeholder="Full name" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Email" class="form-control" placeholder="Email Adress" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input id="pc" asp-for="PostalCode" class="form-control" placeholder="Zip code" />
+                        <span asp-validation-for="PostalCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input id="ph" asp-for="MobileNumber" class="form-control" placeholder="Phone number" />
+                        <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" asp-for="Password" class="form-control" placeholder="Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="UserDate" class="control-label">Date of birth</label>
+                        <input asp-for="UserDate" class="form-control" />
+                        <span asp-validation-for="UserDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="registr" value="Create" class="btn btn-primary" id="cr" />
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+</body>
 
-<div>
-    <a asp-action="Index">Back to Home</a>
-</div>
+</html>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
