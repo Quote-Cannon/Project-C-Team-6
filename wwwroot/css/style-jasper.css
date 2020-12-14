@@ -1,16 +1,24 @@
 /*hoofd en productpagina*/
 .body-row {
     margin: 0px auto;
-    padding: 10px 30px;
+    padding: 10px 60px;
     background-color: #e1e1e1;
     text-align:center;
     display:inline-block;
     width:100%;
 }
 
-.filter-row{
-	width: 200px;
-	display: inline-block;
+.body-row2 {
+    margin: 0px auto;
+    padding: 10px 60px;
+    display: inline-block;
+    width: 100%;
+}
+
+.filter-row {
+    width: 200px;
+    display: inline-block;
+    float: left;
 }
 
 .filter-row h2{
@@ -20,8 +28,8 @@
 .filter-row p{
     display: inline-block;
     float: left;
-    font-size: 20px;
-    margin: 0px 10px;
+    font-size: 15px;
+    margin: 1px 10px;
 
 }
 .filter-row input{
@@ -29,29 +37,37 @@
     float: left;
 }
 
+.filter-row input[type=radio] {
+    margin-top: 5px;
+}
+
 .filter-row div{
 	width: 100%;
 	display:inline-block;
-	margin: 2px 0px;
+}
+
+.filter-row hr{
+    margin-bottom: 10px;
+    margin-top:5px;
 }
 
 .select-boxes select{
 	width: 100%;
     padding: 5px;
-    font-size: 20px;
+    font-size: 15px;
     margin: 10px 0px;
     border-radius:5px;
 }
 
-.products-row{
-	width: 75%;
+.products-row {
+    width: 75%;
     display: inline-block;
     float: right;
+    margin-top: 25px;
 }
 
-.product{
-	margin-left: 20px;
-    margin-right: 20px;
+.product {
+    margin: 10px 20px;
     width: 275px;
     display: inline-block;
 }
@@ -62,10 +78,11 @@
     border: 1px solid;
 }
 
-.product p{
-	font-size: 20px;
+.product a {
+    font-size: 15px;
     text-align: center;
     margin: 0px;
+    color: #000;
     margin-bottom: 20px;
 }
 
@@ -174,24 +191,83 @@ start of Profile.html pagina*/
     text-align: right;
 }
 
+html {
+    font-family: sans-serif !important;
+}
 .button-cre{
     float:left;
     width:50%;
 }
 
-header .container{
-    margin-bottom: 0px;
+header .container {
+    margin-bottom: 0px !important;
+    padding: 0px 45px !important;
 }
 
-footer .container{
-    margin-bottom:0px;
+footer .container {
+    margin-bottom: 0px !important;
+    padding: 0px 45px !important;
 }
-.container {
-    margin-bottom: 45px;
+body .container {
+    margin-bottom: 38px;
+    max-width: 4000px !important;
+    padding: 0px;
 }
+
+.get-product {
+    width: 100%;
+    text-align: left;
+}
+
+.add-pro{
+    width:100%;
+    text-align:center;
+}
+
+.add-pro .edit {
+    width: 200px !important;
+    margin-top: 5px !important;
+    display: inline-block !important;
+    padding: 15px !important;
+}
+
+.get-product input[type=text] {
+    width: 68%;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+}
+
+.search-pr {
+    margin-bottom: -25px;
+    margin-top: 25px;
+}
+
+.get-product input[type=submit] {
+    border-radius: 5px;
+    width: 32% !important;
+    font-size: 15px !important;
+    height: 36px !important;
+    padding: 0px !important;
+    margin-top: 10px !important;
+    color: white;
+    background-color: #475E48;
+}
+    .get-product input[type=submit]:hover {
+        cursor: pointer;
+        background-color: rgb(122, 184, 0);
+        transition: background-color 0.5s;
+        transition-timing-function: ease-out;
+    }
+
+    .get-product p {
+        margin-left: 0px;
+        width: 100%;
+    }
 
 @media screen and (max-width: 767px) {
-
     .select-box {
         width: 48%;
         padding-right: 0px;

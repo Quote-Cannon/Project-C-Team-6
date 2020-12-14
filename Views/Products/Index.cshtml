@@ -26,20 +26,11 @@
 <body>
     <div class="body-row">
         <div class="filter-row">
-            <br />
-            @*<div>
-                <a class="btn btn-primary" asp-action="Create">Add a product</a>
-            </div>*@
-            <p>
-
-            </p>
-            <div>
-                <form asp-controller="Products" asp-action="Index" method="get">
-                    <p>
-                        Search: <input type="text" name="SearchString" />
-                        <input type="submit" value="Search" />
-                    </p>
-
+            <div class="search-pr">
+                <form asp-controller="Products" asp-action="Index" method="get" class="get-product">
+                    <p>Search: </p>
+                    <input type="text" name="SearchString" />
+                    <input class="edit" id="sv" type="submit" value="Search" />
                 </form>
             </div>
 
@@ -108,8 +99,8 @@
         </div>
         
         <div class="pro-page products-row">
-            <div>
-                <a class="btn btn-primary" asp-action="Create">Add a product</a>
+            <div class="add-pro">
+                <a class="edit" id="sv" asp-action="Create">Add a product</a>
                 <br />
             </div>
             <p>
