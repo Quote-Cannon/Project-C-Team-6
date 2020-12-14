@@ -8,6 +8,13 @@
     width:100%;
 }
 
+.body-row2 {
+    margin: 0px auto;
+    padding: 10px 60px;
+    display: inline-block;
+    width: 100%;
+}
+
 .filter-row {
     width: 200px;
     display: inline-block;
@@ -22,7 +29,7 @@
     display: inline-block;
     float: left;
     font-size: 15px;
-    margin: 0px 10px;
+    margin: 1px 10px;
 
 }
 .filter-row input{
@@ -37,7 +44,11 @@
 .filter-row div{
 	width: 100%;
 	display:inline-block;
-	margin: 2px 0px;
+}
+
+.filter-row hr{
+    margin-bottom: 10px;
+    margin-top:5px;
 }
 
 .select-boxes select{
@@ -48,10 +59,11 @@
     border-radius:5px;
 }
 
-.products-row{
-	width: 75%;
+.products-row {
+    width: 75%;
     display: inline-block;
     float: right;
+    margin-top: 25px;
 }
 
 .product {
@@ -197,13 +209,43 @@ footer .container {
     padding: 0px 45px !important;
 }
 body .container {
-    margin-bottom: 40px;
+    margin-bottom: 38px;
     max-width: 4000px !important;
     padding: 0px;
 }
 
-@media screen and (max-width: 767px) {
+.get-product {
+    width: 100%;
+    text-align: left;
+}
 
+.add-pro{
+    width:100%;
+    text-align:center;
+}
+
+.add-pro .edit {
+    width: 200px !important;
+    margin-top: 0px !important;
+    display: inline-block !important;
+}
+
+.get-product input[type=text] {
+    width: 68%;
+    border-radius: 5px;
+}
+
+.get-product input[type=submit] {
+    border-radius: 5px;
+    width: 32%;
+}
+
+.get-product p{
+    margin-left: 0px;
+    width:100%;
+}
+
+@media screen and (max-width: 767px) {
     .select-box {
         width: 48%;
         padding-right: 0px;
