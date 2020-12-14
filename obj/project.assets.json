@@ -7499,19 +7499,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kerem\\.nuget\\packages\\": {}
+    "C:\\Users\\jaspe\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kerem\\Documents\\GitHub\\Project-C-Team-6\\AuthSystem.csproj",
+      "projectUniqueName": "C:\\Users\\jaspe\\OneDrive\\Documents\\GitHub\\Project-C\\AuthSystem.csproj",
       "projectName": "AuthSystem",
-      "projectPath": "C:\\Users\\kerem\\Documents\\GitHub\\Project-C-Team-6\\AuthSystem.csproj",
-      "packagesPath": "C:\\Users\\kerem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kerem\\Documents\\GitHub\\Project-C-Team-6\\obj\\",
+      "projectPath": "C:\\Users\\jaspe\\OneDrive\\Documents\\GitHub\\Project-C\\AuthSystem.csproj",
+      "packagesPath": "C:\\Users\\jaspe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jaspe\\OneDrive\\Documents\\GitHub\\Project-C\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\kerem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jaspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
