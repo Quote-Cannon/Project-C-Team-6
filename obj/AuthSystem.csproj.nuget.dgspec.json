@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kerem\\Desktop\\Register\\test\\AuthSystem\\AuthSystem.csproj": {}
+    "C:\\Users\\kerem\\Documents\\GitHub\\Project-C-Team-6\\AuthSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kerem\\Desktop\\Register\\test\\AuthSystem\\AuthSystem.csproj": {
+    "C:\\Users\\kerem\\Documents\\GitHub\\Project-C-Team-6\\AuthSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kerem\\Desktop\\Register\\test\\AuthSystem\\AuthSystem.csproj",
+        "projectUniqueName": "C:\\Users\\kerem\\Documents\\GitHub\\Project-C-Team-6\\AuthSystem.csproj",
         "projectName": "AuthSystem",
-        "projectPath": "C:\\Users\\kerem\\Desktop\\Register\\test\\AuthSystem\\AuthSystem.csproj",
+        "projectPath": "C:\\Users\\kerem\\Documents\\GitHub\\Project-C-Team-6\\AuthSystem.csproj",
         "packagesPath": "C:\\Users\\kerem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kerem\\Desktop\\Register\\test\\AuthSystem\\obj\\",
+        "outputPath": "C:\\Users\\kerem\\Documents\\GitHub\\Project-C-Team-6\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kerem\\AppData\\Roaming\\NuGet\\NuGet.Config",
