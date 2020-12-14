@@ -1,16 +1,17 @@
 /*hoofd en productpagina*/
 .body-row {
     margin: 0px auto;
-    padding: 10px 30px;
+    padding: 10px 60px;
     background-color: #e1e1e1;
     text-align:center;
     display:inline-block;
     width:100%;
 }
 
-.filter-row{
-	width: 200px;
-	display: inline-block;
+.filter-row {
+    width: 200px;
+    display: inline-block;
+    float: left;
 }
 
 .filter-row h2{
@@ -20,13 +21,17 @@
 .filter-row p{
     display: inline-block;
     float: left;
-    font-size: 20px;
+    font-size: 15px;
     margin: 0px 10px;
 
 }
 .filter-row input{
 	display: inline-block;
     float: left;
+}
+
+.filter-row input[type=radio] {
+    margin-top: 5px;
 }
 
 .filter-row div{
@@ -38,7 +43,7 @@
 .select-boxes select{
 	width: 100%;
     padding: 5px;
-    font-size: 20px;
+    font-size: 15px;
     margin: 10px 0px;
     border-radius:5px;
 }
@@ -49,9 +54,8 @@
     float: right;
 }
 
-.product{
-	margin-left: 20px;
-    margin-right: 20px;
+.product {
+    margin: 10px 20px;
     width: 275px;
     display: inline-block;
 }
@@ -62,10 +66,11 @@
     border: 1px solid;
 }
 
-.product p{
-	font-size: 20px;
+.product a {
+    font-size: 15px;
     text-align: center;
     margin: 0px;
+    color: #000;
     margin-bottom: 20px;
 }
 
@@ -174,20 +179,27 @@ start of Profile.html pagina*/
     text-align: right;
 }
 
+html {
+    font-family: sans-serif !important;
+}
 .button-cre{
     float:left;
     width:50%;
 }
 
-header .container{
-    margin-bottom: 0px;
+header .container {
+    margin-bottom: 0px !important;
+    padding: 0px 45px !important;
 }
 
-footer .container{
-    margin-bottom:0px;
+footer .container {
+    margin-bottom: 0px !important;
+    padding: 0px 45px !important;
 }
-.container {
-    margin-bottom: 45px;
+body .container {
+    margin-bottom: 40px;
+    max-width: 4000px !important;
+    padding: 0px;
 }
 
 @media screen and (max-width: 767px) {
