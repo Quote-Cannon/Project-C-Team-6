@@ -226,24 +226,46 @@ body .container {
 
 .add-pro .edit {
     width: 200px !important;
-    margin-top: 0px !important;
+    margin-top: 5px !important;
     display: inline-block !important;
+    padding: 15px !important;
 }
 
 .get-product input[type=text] {
     width: 68%;
     border-radius: 5px;
+    padding: 5px;
+    font-size: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+}
+
+.search-pr {
+    margin-bottom: -25px;
+    margin-top: 25px;
 }
 
 .get-product input[type=submit] {
     border-radius: 5px;
-    width: 32%;
+    width: 32% !important;
+    font-size: 15px !important;
+    height: 36px !important;
+    padding: 0px !important;
+    margin-top: 10px !important;
+    color: white;
+    background-color: #475E48;
 }
+    .get-product input[type=submit]:hover {
+        cursor: pointer;
+        background-color: rgb(122, 184, 0);
+        transition: background-color 0.5s;
+        transition-timing-function: ease-out;
+    }
 
-.get-product p{
-    margin-left: 0px;
-    width:100%;
-}
+    .get-product p {
+        margin-left: 0px;
+        width: 100%;
+    }
 
 @media screen and (max-width: 767px) {
     .select-box {
