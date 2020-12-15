@@ -4,3 +4,5 @@ bin/Debug/netcoreapp3.1/AuthSystem.Views.pdb
 bin/Debug/netcoreapp3.1/AuthSystem.Views.dll
 bin/Debug/netcoreapp3.1/AuthSystem.Views.pdb
 obj/Debug/netcoreapp3.1/AuthSystem.csprojAssemblyReference.cache
+.vs/AuthSystem/DesignTimeBuild/.dtbcache.v2
+.vs/AuthSystem/v16/.suo
