@@ -47,9 +47,10 @@
         <div class="sel-boxes">
             <div class="select-box">
                 <div class="form-group">
-                    <label asp-for="Kind" class="control-label"></label>
+                    <label asp-for="Kind" class="control-label">Product</label>
                     <select asp-for="Kind" class="form-control" required="required">
                         <option value="" disabled selected hidden>Products</option>
+                        <option value="not sure">Not sure</option>
                         <option value="seed">Seed</option>
                         <option value="cutting">Cutting</option>
                         <option value="bud">Bud</option>
@@ -59,9 +60,10 @@
             </div>
             <div class="select-box">
                 <div class="form-group">
-                    <label asp-for="Type" class="control-label"></label>
+                    <label asp-for="Type" class="control-label">Product Type</label>
                     <select asp-for="Type" class="form-control" required="required">
                         <option value="" disabled selected hidden>Type</option>
+                        <option value="not sure">Not sure</option>
                         <option value="herb">Herb</option>
                         <option value="cutting">Cutting</option>
                         <option value="creeper">Creeper</option>
@@ -76,6 +78,7 @@
                     <label asp-for="Water" class="control-label"></label>
                     <select asp-for="Water" class="form-control" required="required">
                         <option value="" disabled selected hidden>Water</option>
+                        <option value="not sure">Not sure</option>
                         <option value="low">Low</option>
                         <option value="mid">Mid</option>
                         <option value="high">High</option>
@@ -88,6 +91,7 @@
                     <label asp-for="Light" class="control-label"></label>
                     <select asp-for="Light" class="form-control" required="required">
                         <option value="" disabled selected hidden>Light</option>
+                        <option value="not sure">Not sure</option>
                         <option value="low">Low</option>
                         <option value="mid">Mid</option>
                         <option value="high">High</option>
