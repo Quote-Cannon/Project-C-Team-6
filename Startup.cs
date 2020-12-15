@@ -28,7 +28,11 @@ namespace AuthSystem
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddDbContext<Data.AuthDbContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("AuthDbContextConnection")));
+                // lokale db
+                //options.UseNpgsql(Configuration.GetConnectionString("AuthDbContextConnection")));
+                // live db
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -18,7 +18,10 @@ namespace AuthSystem.Areas.Identity
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<AuthDbContext>(options =>
                     options.UseNpgsql(
-                        context.Configuration.GetConnectionString("AuthDbContextConnection")));
+                        // lokale db
+                        // context.Configuration.GetConnectionString("AuthDbContextConnection")));
+                        // live db
+                        context.Configuration.GetConnectionString("DefaultConnection")));
 
                 services.AddDefaultIdentity<ApplicationUser>(options =>
                 {
