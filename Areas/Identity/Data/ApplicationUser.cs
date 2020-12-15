@@ -14,5 +14,8 @@ namespace AuthSystem.Areas.Identity.Data
         [Column(TypeName = "varchar(100)")]
         public string Nickname { get; set; }
 
+        [PersonalData]
+        [Column(TypeName = "varchar(6)")]
+        public string PostCode { get; set; }
     }
 }

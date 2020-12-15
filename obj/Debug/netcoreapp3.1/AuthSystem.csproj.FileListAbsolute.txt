@@ -827,3 +827,4 @@ C:\Users\jaspe\OneDrive\Documents\GitHub\Project-C\obj\Debug\netcoreapp3.1\AuthS
 C:\Users\jaspe\OneDrive\Documents\GitHub\Project-C\obj\Debug\netcoreapp3.1\AuthSystem.dll
 C:\Users\jaspe\OneDrive\Documents\GitHub\Project-C\obj\Debug\netcoreapp3.1\AuthSystem.pdb
 C:\Users\jaspe\OneDrive\Documents\GitHub\Project-C\obj\Debug\netcoreapp3.1\AuthSystem.genruntimeconfig.cache
+C:\Users\kerem\Documents\GitHub\Project-C-Team-6\obj\Debug\netcoreapp3.1\Razor\Views\Home\chat.cshtml.g.cs
