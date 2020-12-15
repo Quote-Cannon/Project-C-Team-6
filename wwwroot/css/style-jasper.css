@@ -150,7 +150,31 @@ start of Profile.html pagina*/
 
 .create-form {
     width: 100%;
-    padding: 0px 15px;
+}
+.button-cre input[type=submit] {
+    border-radius: 5px;
+    font-size: 15px !important;
+    height: auto !important;
+    padding: 15px !important;
+    margin-top: 10px !important;
+    color: white;
+    background-color: #475E48;
+}
+
+.button .edit {
+    border-radius: 5px;
+    font-size: 15px !important;
+    height: auto !important;
+    padding: 15px !important;
+    width: auto !important;
+    float: right;
+    margin-top: 10px !important;
+}
+
+.form-group input[type=submit]:hover {
+    background-color: rgb(138, 206, 3);
+    transition: background-color 0.5s;
+    transition-timing-function: ease-out;
 }
 
 .pic {
