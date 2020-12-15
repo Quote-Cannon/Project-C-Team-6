@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<div class="row">
+<div class="body-row2">
         <form asp-action="Create" class="create-form">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="pic">
@@ -101,11 +101,11 @@
                 </div>
                 <div class="button-cre">
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <input type="submit" value="Create" class="edit" id="sv" />
                     </div>
                 </div>
                 <div class="button">
-                    <a class="btn btn-primary" asp-action="Index">Back to productpage</a>
+                    <a class="edit" id="sv" asp-action="Index">Back to productpage</a>
                 </div>
             </div>
         </form>
