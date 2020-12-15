@@ -3,7 +3,11 @@
     float: left;
 }
 
-.searchbalk{
+.navbar-brand{
+    margin-right:2rem;
+}
+
+.searchbalk {
     float: right;
     margin-top: -2px;
 }
