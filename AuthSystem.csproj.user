@@ -7,5 +7,6 @@
     <WebStackScaffolding_LayoutPageFile>~/Views/Shared/_Layout.cshtml</WebStackScaffolding_LayoutPageFile>
     <WebStackScaffolding_DbContextDialogWidth>600</WebStackScaffolding_DbContextDialogWidth>
     <WebStackScaffolding_IdentityDialogWidth>600</WebStackScaffolding_IdentityDialogWidth>
+    <NameOfLastUsedPublishProfile>plantwebsite - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
