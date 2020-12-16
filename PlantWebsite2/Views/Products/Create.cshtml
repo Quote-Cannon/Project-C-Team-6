@@ -5,25 +5,27 @@
 }
 
 <div class="row">
-        <form asp-action="Create" class="create-form">
+        <form asp-action="Create" method="post" class="create-form" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="pro-names">
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" placeholder="Name"/>
+                    <input asp-for="Name" class="form-control" placeholder="Name" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="LatinName" class="control-label"></label>
-                    <input asp-for="LatinName" class="form-control" placeholder="Latin name"/>
+                    <input asp-for="LatinName" class="form-control" placeholder="Latin name" />
                     <span asp-validation-for="LatinName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Description" class="control-label"></label>
-                    <input asp-for="Description" class="form-control" placeholder="Description"/>
+                    <input asp-for="Description" class="form-control" placeholder="Description" />
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
-
+                <div class="form-group">
+                    <input type="file" name="Picture" /></br>
+                </div>
                 <div class="form-group form-check">
                     <label class="form-check-label">
                         <input class="form-check-input" asp-for="Trade" /> @Html.DisplayNameFor(model => model.Trade)

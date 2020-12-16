@@ -33,7 +33,7 @@ namespace PlantWebsite.Models
         public Product()
         {
             ProductDate = DateTime.UtcNow;
-            Picture = File.ReadAllText(Directory.GetCurrentDirectory() + "/varbinoutput.txt");
+            //Picture = File.ReadAllText(Directory.GetCurrentDirectory() + "/varbinoutput.txt");
         }
 
         public byte[] getImage()
