@@ -35,67 +35,68 @@
             </div>
 
             <h2>Filter</h2>
-            <hr>
-            <p>Delivery</p>
-            <div class="post">
-                <input type="radio" id="post" name="post" value="post" checked="checked">
-                <p>Delivery by post</p>
-            </div>
-            <div class="meetup">
-                <input type="radio" id="meetup" name="post" value="meetup">
-                <p>Meetup in person</p>
-            </div>
-            <hr>
-            <p>Exchange</p>
-            <div class="trade">
-                <input type="radio" id="trade" name="trade" value="trade" checked="checked">
-                <p>With trade</p>
-            </div>
-            <div class="notrade">
-                <input type="radio" id="notrade" name="trade" value="nodtrade">
-                <p>With no trade</p>
-            </div>
-            <hr>
-            <p>Product</p>
-            <div class="seed">
-                <input type="radio" id="seed" name="seed" value="seed">
-                <p>Seed</p>
-            </div>
-            <div class="cutting">
-                <input type="radio" id="cutting" name="cutting" value="cutting">
-                <p>Cutting</p>
-            </div>
-            <div class="Bud">
-                <input type="radio" id="bud" name="bud" value="bud">
-                <p>Bud</p>
-            </div>
+            <form asp-controller="Products" asp-action="Filter" method="get" class="get-product">
+                <hr>
+                <p>Delivery</p>
+                <div class="post">
+                    <input type="radio" id="post" name="post" value="post">
+                    <p>Delivery by post</p>
+                </div>
+                <div class="meetup">
+                    <input type="radio" id="meetup" name="post" value="meetup">
+                    <p>Meetup in person</p>
+                </div>
+                <hr>
+                <p>Exchange</p>
+                <div class="trade">
+                    <input type="radio" id="trade" name="trade" value="trade">
+                    <p>With trade</p>
+                </div>
+                <div class="notrade">
+                    <input type="radio" id="notrade" name="trade" value="nodtrade">
+                    <p>With no trade</p>
+                </div>
+                <hr>
+                <p>Product</p>
+                <div class="seed">
+                    <input type="radio" id="seed" name="seeds" value="seed">
+                    <p>Seed</p>
+                </div>
+                <div class="cutting">
+                    <input type="radio" id="cutting" name="cutting" value="cutting">
+                    <p>Cutting</p>
+                </div>
+                <div class="Bud">
+                    <input type="radio" id="bud" name="bud" value="bud">
+                    <p>Bud</p>
+                </div>
 
-            <hr>
-            <p>Product Type</p>
-            <div class="climber">
-                <input type="radio" id="climber" name="climber" value="climber">
-                <p>Climber</p>
-            </div>
-            <div class="creeper">
-                <input type="radio" id="creeper" name="creeper" value="creeper">
-                <p>Creeper</p>
-            </div>
-            <div class="herb">
-                <input type="radio" id="herb" name="herb" value="herb">
-                <p>Herb</p>
-            </div>
-            <div class="shrub">
-                <input type="radio" id="shrub" name="shrub" value="shrub">
-                <p>Shrub</p>
-            </div>
-            <div class="tree">
-                <input type="radio" id="tree" name="tree" value="tree">
-                <p>Tree</p>
-            </div>
+                <hr>
+                <p>Product Type</p>
+                <div class="climber">
+                    <input type="radio" id="climber" name="climber" value="climber">
+                    <p>Climber</p>
+                </div>
+                <div class="creeper">
+                    <input type="radio" id="creeper" name="creeper" value="creeper">
+                    <p>Creeper</p>
+                </div>
+                <div class="herb">
+                    <input type="radio" id="herb" name="herb" value="herb">
+                    <p>Herb</p>
+                </div>
+                <div class="shrub">
+                    <input type="radio" id="shrub" name="shrub" value="shrub">
+                    <p>Shrub</p>
+                </div>
+                <div class="tree">
+                    <input type="radio" id="tree" name="tree" value="tree">
+                    <p>Tree</p>
+                </div>
 
 
-            <div class="select-boxes">
-                @*<div class="productsselect">
+                <div class="select-boxes">
+                    @*<div class="productsselect">
                 <form>
                     <select name="product" required="required">
                         <option value="" disabled selected hidden>Products</option>
@@ -105,7 +106,7 @@
                     </select>
                 </form>
             </div>*@
-                @*<div class="typeselect">
+                    @*<div class="typeselect">
                 <form>
                     <select name="type" required="required">
                         <option value="" disabled selected hidden>Type</option>
@@ -117,7 +118,7 @@
                     </select>
                 </form>
             </div>*@
-                @*<div class="lightselect">
+                    @*<div class="lightselect">
                 <form>
                     <select name="light" required="required">
                         <option value="" disabled selected hidden>Light</option>
@@ -127,7 +128,7 @@
                     </select>
                 </form>
             </div>*@
-                @*<div class="waterselect">
+                    @*<div class="waterselect">
                 <form>
                     <select name="water" required="required">
                         <option value="" disabled selected hidden>Water</option>
@@ -137,7 +138,9 @@
                     </select>
                 </form>
             </div>*@
-            </div>
+                </div>
+                <input class="edit" id="sv" type="submit" value="S" />
+            </form>
         </div>
         
         <div class="pro-page products-row">

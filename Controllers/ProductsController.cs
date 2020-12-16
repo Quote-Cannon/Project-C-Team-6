@@ -33,6 +33,21 @@ namespace AuthSystem.Controllers
             return View(await products.ToListAsync());
         }
 
+        // filter
+        public async Task<IActionResult> Filter(string[] seeds, string cutting, string bud, string climber, string creeper, string herb, string shrub, string tree)
+        {
+            var products = from p in _context.Products
+                           select p;
+
+            if (seeds.Length != 0 || seeds != null)
+            {
+                products = from p in products
+                               where seeds.Contains(p.Kind)
+                               select p;
+            }
+            return View(products);
+        }
+
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {

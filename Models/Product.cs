@@ -28,6 +28,8 @@ namespace AuthSystem.Models
         public string Picture { get; set; }
         [Required]
         public bool Post { get; set; }
+        public string Soil { get; set; }
+
 
         public Product()
         {
