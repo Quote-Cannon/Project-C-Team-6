@@ -21,25 +21,25 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LatinName" class="control-label"></label>
+                <label asp-for="LatinName" class="control-label">Latin name</label>
                 <input asp-for="LatinName" class="form-control" placeholder="Latin name" />
                 <span asp-validation-for="LatinName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" placeholder="Description" />
-                <p><i>Think about the colour, height, soil type, etc. (Denk bijvoorbeeld aan de kleur, hoogte, bodemsoort, etc.)</i></p>
+                <p><i>Think about the colour, height, soil type, special traits, etc. (Denk bijvoorbeeld aan de kleur, hoogte, bodemsoort, speciale kenmerken etc.)</i></p>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
+            @*<div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Trade" /> @Html.DisplayNameFor(model => model.Trade)
+                    <input class="form-check-input" asp-for="Trade" /> @Html.DisplayNameFor(model => model.Trade): Offering to get something in exchange.
                 </label>
                 <br />
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Post" /> @Html.DisplayNameFor(model => model.Post)
+                    <input class="form-check-input" asp-for="Post" /> @Html.DisplayNameFor(model => model.Post): Send the product by post.
                 </label>
-            </div>
+            </div>*@
         </div>
         <div class="sel-boxes">
             <div class="select-box">
