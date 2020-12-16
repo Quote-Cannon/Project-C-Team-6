@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -40,10 +41,10 @@ namespace AuthSystem.Models
         public User()
         {
             UserDate = DateTime.UtcNow;
-            //Picture = File.ReadAllText(Directory.GetCurrentDirectory() + "/varbinoutput.txt");
+            Picture = File.ReadAllText(Directory.GetCurrentDirectory() + "/varbinoutput.txt");
         }
 
-        public byte[] getImage()
+        /*public byte[] getImage()
         {
             string varbin = Picture;
             byte[] output = new byte[varbin.Length / 3];
@@ -54,6 +55,6 @@ namespace AuthSystem.Models
                 varbin = varbin.Remove(0, 3);
             }
             return output;
-        }
+        }*/
     }
 }
