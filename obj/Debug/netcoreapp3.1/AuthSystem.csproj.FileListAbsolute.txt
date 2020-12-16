@@ -544,7 +544,6 @@ C:\Users\kerem\Documents\GitHub\Project-C-Team-6\bin\Debug\netcoreapp3.1\runtime
 C:\Users\kerem\Documents\GitHub\Project-C-Team-6\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\kerem\Documents\GitHub\Project-C-Team-6\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\kerem\Documents\GitHub\Project-C-Team-6\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\kerem\Documents\GitHub\Project-C-Team-6\obj\Debug\netcoreapp3.1\AuthSystem.csprojAssemblyReference.cache
 C:\Users\kerem\Documents\GitHub\Project-C-Team-6\obj\Debug\netcoreapp3.1\AuthSystem.AssemblyInfoInputs.cache
 C:\Users\kerem\Documents\GitHub\Project-C-Team-6\obj\Debug\netcoreapp3.1\AuthSystem.AssemblyInfo.cs
 C:\Users\kerem\Documents\GitHub\Project-C-Team-6\obj\Debug\netcoreapp3.1\AuthSystem.csproj.CoreCompileInputs.cache
@@ -828,3 +827,5 @@ C:\Users\jaspe\OneDrive\Documents\GitHub\Project-C\obj\Debug\netcoreapp3.1\AuthS
 C:\Users\jaspe\OneDrive\Documents\GitHub\Project-C\obj\Debug\netcoreapp3.1\AuthSystem.pdb
 C:\Users\jaspe\OneDrive\Documents\GitHub\Project-C\obj\Debug\netcoreapp3.1\AuthSystem.genruntimeconfig.cache
 C:\Users\kerem\Documents\GitHub\Project-C-Team-6\obj\Debug\netcoreapp3.1\Razor\Views\Home\chat.cshtml.g.cs
+C:\Users\kerem\Documents\GitHub\Project-C-Team-6\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Profile.cshtml.g.cs
+C:\Users\kerem\Documents\GitHub\Project-C-Team-6\obj\Debug\netcoreapp3.1\AuthSystem.csprojAssemblyReference.cache

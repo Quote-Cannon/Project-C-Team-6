@@ -3,14 +3,17 @@
 
 @{
     ViewData["Title"] = "Log in";
-    Layout = "~/Areas/Identity/Pages/_AuthLayout.cshtml";
 }
 <div class="col-md-10 offset-md-1">
     <section>
-        <div class="login-form-icon">
-            <i class="fas fa-user-circle fa-9x text-secondary"></i>
+        <div class="ddd">
+            <div class="dkdiv">
+                <span class="dktext">De Kas</span>
+                <img class="dk" src="~/images/De_Kas.jpg" alt="">
+            </div>
         </div>
-        <form id="account" method="post">
+        <h2>Login</h2>
+        <form class="loggingin" id="account" method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Input.Email"></label>
@@ -31,7 +34,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                <button type="submit" class="btn btn-primary btn-block" id="cr">Log in</button>
+                <a href="" class="forgotpass">Click here if you forgot your password.</a>
             </div>
         </form>
     </section>
