@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Drawing;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -77,10 +80,27 @@ namespace AuthSystem.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Picture,Kind,Type,Water,Light,ProductDate,Trade")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade")] Product product, IFormFile Picture)
         {
-            if (ModelState.IsValid)
+            //var file = HttpContext.Request.Form.Files;
+            byte[] streamOutput;
+            string output = "";
+            using (MemoryStream ms = new MemoryStream())
             {
+                Picture.CopyTo(ms);
+                streamOutput = ms.ToArray();
+            }
+            foreach (byte b in streamOutput)
+            {
+                string number = Convert.ToString(Convert.ToInt32(b));
+                while (number.Length < 3)
+                    number = "0" + number;
+                output += number;
+            }
+            //This clause is supposed to check if the only error is an empty Picture field, since I (Mattias) can't find a way to get rid of it. Any other error should still trigger the clause.
+            if (ModelState["Picture"].RawValue == null && ModelState.ErrorCount == 1)
+            {
+                product.Picture = output;
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -88,8 +108,8 @@ namespace AuthSystem.Controllers
             return View(product);
         }
 
-        // GET: Products/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+            // GET: Products/Edit/5
+            public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
