@@ -7,7 +7,6 @@
 }
 
 .pfpdiv{
-    width: fit-content;
     height: auto;
     margin: 0 auto;
 }
@@ -16,8 +15,8 @@
     text-align: center;
 }
 .editacc{
-    width: 95%;
-    font-size: 1.3rem;
+    width: 100% !important;
+    font-size: 1rem;
     padding: 0.5em;
     display: block;
     margin-top: 0.5em;
@@ -29,11 +28,22 @@
     display: inline-block;
     width: 16rem;
 }
-#pc{
+#pc {
     display: inline-block;
-    width: 10rem;
+    width: 11rem;
+    margin-left: 2rem;
 }
-
+.phc {
+    font-size: 1rem;
+    padding: 0.5em;
+    display: block;
+    margin-top: 0.5em;
+    border: 0.01em solid rgb(110, 109, 109);
+    border-radius: 0.2em;
+}
+#phc{
+    display:inherit;
+}
 
 
 
@@ -69,7 +79,6 @@ a.edit {
     color: black;
     border: 0.1em solid #475E48;
     text-align: center;
-    width: fit-content;
     padding: 0.2rem 1rem ;
     height: auto;
     margin: 0 auto;
@@ -92,8 +101,10 @@ a.edit {
     border: 0.1rem solid black;
 }
 
-.r{
-    width: fit-content;
-    height: auto;
-    margin: 0 auto;
+#r {
+    width: 28rem;
+    margin-left: 50%;
+    margin-right: 50%;
+    margin: auto;
+    text-align: center;
 }

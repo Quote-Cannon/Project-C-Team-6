@@ -6,12 +6,8 @@
     width: 10rem;
 }
 
-#uploadpfp{
-    border-radius:100%;
-}
 
 .pfpdiv{
-    width: fit-content;
     height: auto;
     margin: 0 auto;
 }
@@ -21,7 +17,7 @@
 }
 .editacc{
     width: 95%;
-    font-size: 1.3rem;
+    font-size: 1rem;
     padding: 0.5em;
     display: block;
     margin-top: 0.5em;
@@ -35,7 +31,6 @@
 }
 #pc{
     display: inline-block;
-    width: 10rem;
 }
 
 
@@ -52,7 +47,17 @@ a.edit {
     background-color: #475E48;
     text-align: center;
 }
-
+a.upload {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    border: 0.1em solid black;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: initial;
+    color: white;
+    background-color: #475E48;
+    text-align: center;
+}
 
 .edit:hover, #upload:hover{
     
@@ -98,11 +103,6 @@ a.edit {
     border: 0.1rem solid black;
 }
 
-.r{
-    width: fit-content;
-    height: auto;
-    margin: 0 auto;
-}
 
 #cr{
     margin-top: 1rem;
@@ -112,4 +112,8 @@ a.edit {
 
 .row{
     text-align: center;
+}
+
+label.reglabel{
+    margin-bottom: 0rem;
 }
