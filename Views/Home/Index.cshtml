@@ -13,114 +13,135 @@
     <div class="slider">
         <div class="slider2">
             <div class="slider-text">
-                <h1>Welcome!</h1>
-                <p>Exchange your plants</p>
+                <h1>Welcome</h1>
+                <p>Plant cuttings left? Trade them!</p>
             </div>
         </div>
     </div>
 </header>
 <body>
-    <div class="body-row">
+
+    <h1>HOMEPAGE</h1>
+    <p>
+        Plant cuttings left? Too many plants on your balcony? Searching for new plant species? You can easily exchange or give away seeds or plants on this website.
+    </p>
+    <p>
+        WHAT MATTERS
+        Having more greenery is good for the bees, butterflies and other animals (biodiversity). But it should be environmentally friendly without any poison.
+        Poison-free plants are difficult to obtain and often very pricey. That is why (plantwebsite) offers a platform for nature lovers to share and obtain cheap plants, seeds and knowledge with eachother, without poison!
+    </p>
+
+    <p><i>
+    Stekje over? Teveel planten op je balkon? Op zoek naar een nieuwe soort? Op deze site kun je makkelijk zaden en planten met elkaar ruilen of weggeven.
+
+    </i></p>
+    <p><i>
+    WAAR HET OM GAAT
+    Meer groen is goed voor bijen, vlinders en andere dieren (biodiversiteit). Maar dan moet dat wel groen zijn, zónder gif! In tuincentra en supermarkten zijn gifvrije planten moeilijk verkrijgbaar én prijzig. …… (naam ruilapp) biedt groenliefhebbers een platform om goedkoop planten, zaden én kennis met elkaar te delen, zónder gif!
+    </i></p>
+        
+
+    @*<div class="body-row">
         <div class="filter-row">
             <div class="search-pr">
-                <form asp-controller="Products" asp-action="Index" method="get" class="get-product">
-                    <p>Search: </p>
-                    <input type="text" name="SearchString" />
-                    <input class="edit" id="sv" type="submit" value="Search" />
+                <form asp-controller="products" asp-action="index" method="get" class="get-product">
+                    <p>search: </p>
+                    <input type="text" name="searchstring" />
+                    <input class="edit" id="sv" type="submit" value="search" />
                 </form>
             </div>
-            @*<h2>Filter</h2>
+            <h2>filter</h2>
             <div class="post">
                 <input type="radio" id="post" name="post" value="post" checked="checked">
-                <p>Delivered by post</p>
+                <p>delivered by post</p>
             </div>
             <div class="meetup">
                 <input type="radio" id="meetup" name="post" value="meetup">
-                <p>Meetup in person</p>
+                <p>meetup in person</p>
             </div>
             <hr>
             <div class="trade">
                 <input type="radio" id="trade" name="trade" value="trade" checked="checked">
-                <p>Trading</p>
+                <p>trading</p>
             </div>
             <div class="notrade">
                 <input type="radio" id="notrade" name="trade" value="nodtrade">
-                <p>No trading</p>
+                <p>no trading</p>
             </div>
             <div class="select-boxes">
                 <div class="productsselect">
                     <form>
                         <select name="product" required="required">
-                            <option value="" disabled selected hidden>Products</option>
-                            <option value="seed">Seed</option>
-                            <option value="cutting">Cutting</option>
-                            <option value="bud">Bud</option>
+                            <option value="" disabled selected hidden>products</option>
+                            <option value="seed">seed</option>
+                            <option value="cutting">cutting</option>
+                            <option value="bud">bud</option>
                         </select>
                     </form>
                 </div>
                 <div class="typeselect">
                     <form>
                         <select name="type" required="required">
-                            <option value="" disabled selected hidden>Type</option>
-                            <option value="herb">Herb</option>
-                            <option value="cutting">Cutting</option>
-                            <option value="creeper">Creeper</option>
-                            <option value="shrub">Shrub</option>
-                            <option value="climber">Climber</option>
+                            <option value="" disabled selected hidden>type</option>
+                            <option value="herb">herb</option>
+                            <option value="cutting">cutting</option>
+                            <option value="creeper">creeper</option>
+                            <option value="shrub">shrub</option>
+                            <option value="climber">climber</option>
                         </select>
                     </form>
                 </div>
                 <div class="lightselect">
                     <form>
                         <select name="light" required="required">
-                            <option value="" disabled selected hidden>Light</option>
-                            <option value="low">Low</option>
-                            <option value="mid">Mid</option>
-                            <option value="high">High</option>
+                            <option value="" disabled selected hidden>light</option>
+                            <option value="low">low</option>
+                            <option value="mid">mid</option>
+                            <option value="high">high</option>
                         </select>
                     </form>
                 </div>
                 <div class="waterselect">
                     <form>
                         <select name="water" required="required">
-                            <option value="" disabled selected hidden>Water</option>
-                            <option value="low">Low</option>
-                            <option value="mid">Mid</option>
-                            <option value="high">High</option>
+                            <option value="" disabled selected hidden>water</option>
+                            <option value="low">low</option>
+                            <option value="mid">mid</option>
+                            <option value="high">high</option>
                         </select>
                     </form>
                 </div>
-            </div>*@
-        </div>
-        <div class="products-row">
-            <h1>New</h1>
-            @foreach (var item in Model)
+            </div>
+        </div>*@
+        @*<div class="products-row">
+            <h1>new</h1>
+            @foreach (var item in model)
             {
         <div class="product">
-            <img src="./Images/OIP.jpg">
+            <img src="./images/oip.jpg">
 
-            <a href="Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
+            <a href="products/details/@item.id">@item.name <i>@item.latinname</i></a>
             <p></p>
 
         </div>
             }
-            <!--<div class="product">
-        <img src="./Images/OIP.jpg">
-        <p>Name</p>
+            <div class="product">
+        <img src="./images/oip.jpg">
+        <p>name</p>
     </div>
     <div class="product">
-        <img src="./Images/OIP.jpg">
-        <p>Name</p>
+        <img src="./images/oip.jpg">
+        <p>name</p>
     </div>
     <div class="product">
-        <img src="./Images/OIP.jpg">
-        <p>Name</p>
+        <img src="./images/oip.jpg">
+        <p>name</p>
     </div>
     <div class="product">
-        <img src="./Images/OIP.jpg">
-        <p>Name</p>
-    </div>-->
-        </div>
+        <img src="./images/oip.jpg">
+        <p>name</p>
+    </div>
+        </div>*@
     </div>
 </body>
 </html>
