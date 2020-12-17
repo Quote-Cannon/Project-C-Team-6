@@ -1,64 +1,99 @@
 /*Product Information (Grey Box)*/
 .textbox-grey{
     background-color: #E1E1E1;
-    height: auto;
-    padding-bottom:30px;
+    height: 500px;
+    opacity: 100%;
+    
 }
 
-.edit {
-    margin: 0px !important;
-    padding: 15px !important;
-    /* width: auto !important; */
-    height: auto;
-    font-size: 20px !important;
-    margin-top: 40px !important;
-}
+.image1{
 
-.image1 {
-    margin-right: 50px;
+    margin: 0px 30px;
     margin-top: 30px;
-    width: 30%;
+    width: 30%; 
     display: inline-block;
     float: left;
+}
+
+.image3{
+
+    margin: 0px 30px;
+    margin-top: 00px;
+    width: 30%; 
+    
+    float: right;
 }
 
 .image2{
     width: 330px; 
     height: 210px;
+    margin-left: 30px;
     margin-top: 15px;
     display: inline-block;
     float: left;
 }
 
-.plantdesc {
+.plantdesc{
     display: inline-block;
-    width: 60%;
+    width: 50%;
     height: 80%;
+    margin-top: -23px;
     text-align: left;
     /*border: solid #000 3px;*/
     background-color: #fff0;
     opacity: 100%;
-    font-size: 15px;
-    margin-top: 20px;
+    font-size: 20px;
+    
+
+    
+    
 }
 
-.button-details{
-    float: left;
-    width: 100%;
-    text-align: left;
-    margin-top: 20px;
+.plantdesc h1{
+    
+    font-size: 45px;
 }
 
-.button-details #sv {
-    display: inline-block;
-    width: auto !important;
-    min-width: 150px;
-    margin-right: 30px !important;
-}
+.plantdesc h2{
 
+    font-size: 30px;
+}
 .plantdesc p{
+    
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 25px;
+}
+
+.aboutus{
+    display: inline-block;
+    width: 80%;
+    height: 80%;
+    margin-top: -23px;
+    margin-left: 40px;
+    text-align: left;
+    /*border: solid #000 3px;*/
+    background-color: #fff0;
+    opacity: 100%;
+    font-size: 20px;
+    
+
+    
+    
+}
+
+.aboutus h1{
+    
+    font-size: 45px;
+}
+
+.aboutus h2{
+
+    font-size: 30px;
+}
+.aboutus p{
+    
+    margin-top: 10px;
+    font-size: 25px;
 }
 
 .title {
@@ -170,12 +205,12 @@ a.edit {
     font-size: 1rem;
 }
 
-#sv {
-    width: 140px;
-    margin-top: -60px;
+#sv{
+    
+    width:  13rem;
     display: block;
     font-size: 2rem;
-    padding: 20px;
+    height: 50px;
     margin-left: 30px;
     border: 0.1rem solid black;
 }
@@ -186,6 +221,9 @@ a.edit {
     margin: 0 auto;
 }
 
+
+
+}
 /*End of Header*/
 /*start of body*/
 html, body {
