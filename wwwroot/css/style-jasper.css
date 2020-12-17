@@ -124,6 +124,10 @@ start of Profile.html pagina*/
     height: 250px;
 }
 
+.homepage h1{
+    margin-top: 30px;
+}
+
 .your-products{
 	text-align:center;
 }
@@ -219,6 +223,21 @@ start of Profile.html pagina*/
     padding-right: 0px;
 }
 
+.homepage p{
+    text-align: justify;
+}
+
+.homepage .img1 {
+    width: 320px;
+    float: right;
+    display: inline;
+    margin: 0px 0px 0px 50px;
+    border-width: 0px;
+}
+
+.homepage .img2{
+    display:none;
+}
 .product-date{
     width:100%;
     display: inline-block;
@@ -310,6 +329,15 @@ body .container {
     .select-box {
         width: 48%;
         padding-right: 0px;
+    }
+
+    .homepage .img1 {
+        display:none;
+    }
+
+    .homepage .img2{
+        width: 100%;
+        display:block;
     }
 
     .pro-names{
