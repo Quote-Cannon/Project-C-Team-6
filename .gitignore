@@ -87,3 +87,4 @@ appsettings.json
 *.dll
 *.pdb
 *.exe
+.vs/AuthSystem/v16/.suo
