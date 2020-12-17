@@ -73,7 +73,7 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]overs
-
+ 
 *.suo
 *.user
 _ReSharper.*

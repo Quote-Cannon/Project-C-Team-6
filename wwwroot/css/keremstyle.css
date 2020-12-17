@@ -1,22 +1,30 @@
-.editdiv{
+#logout {
+    border: none;
+    background-color: #b3dea2;
+}
+
+.editdiv {
     text-align: left;
     margin-left: 3rem;
-    
 }
-.pdiv{
+
+.pdiv {
     margin-top: 1rem;
     text-align: center;
 }
-.pfpdiv{
+
+.pfpdiv {
     display: inline-block;
 }
-.pfp{
+
+.pfp {
     display: block;
-    width: 6rem;
-    border-radius: 50%;
+    width: 7rem;
+    border-radius: 5%;
     border: 0.02rem solid rgba(0,0,0,0.1);
 }
-.hiprofile{
+
+.hiprofile {
     font-size: 1.6rem;
     text-align: center;
     color: #6e6e6e;
@@ -24,20 +32,23 @@
 }
 
 
-.mainpb
 
-.profilebuttons{
-    width:100rem;
-    margin-left:-17rem;
+.profilebuttons {
     text-align: center;
 }
-.profilebuttons > .pfbutton{
-    letter-spacing: 5em;
+
+.profilebuttons > .pfbutton {
+    margin: 5em;
+    letter-spacing: 15em;
 }
-.but{
+
+.but {
     display: inline-block;
+    text-align: center;
+    width:25rem;
 }
-.butid{
+
+.butid {
     width: 12em;
     border: 0.01em solid black;
     border-radius: 5%;
@@ -45,40 +56,39 @@
 }
 
 
-.butext{
+.butext {
+    text-align:center;
     font-size: 2em;
 }
 
-#add, #myprods, #viewchat{
-    margin: 1em 5em 1em 5em;
-}
 
 
 a.edit {
     display: inline-block;
-    padding: 0.5em 1.5em;
+    padding: 0.3em 1.5em;
     border: 0.1em solid black;
     border-radius: 0.4em;
     text-decoration: none;
     color: initial;
-    color:white;
+    color: white;
     background-color: #475E48;
     margin: 1rem 1rem;
 }
 
-
-
-.butid:hover, a.edit:hover{
-    cursor: pointer;
-    background-color: rgb(122, 184, 0);
-    transition: background-color 0.5s ;
-    transition-timing-function: ease-out;
-        
+a#edit {
+    padding: 0.5em 1.5em !important;
 }
 
-.butid:active , a.edit:active{
+.butid:hover, a.edit:hover {
+    cursor: pointer;
+    background-color: rgb(122, 184, 0);
+    transition: background-color 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.butid:active, a.edit:active {
     background-color: rgb(170, 255, 0);
-    transition: background-color 0.3s, color 0.3s ;
-    color:black;
+    transition: background-color 0.3s, color 0.3s;
+    color: black;
 }
 

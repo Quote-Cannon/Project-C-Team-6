@@ -29,7 +29,6 @@ namespace AuthSystem.Areas.Identity.Pages.Account.Manage
             _signInManager = signInManager;
             _emailSender = emailSender;
         }
-
         public string Username { get; set; }
 
         public string Email { get; set; }
