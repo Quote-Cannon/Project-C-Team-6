@@ -23,33 +23,64 @@ namespace AuthSystem.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, string[] productOffer, string[] productType)
         {
             //var plants = await _context.Products.ToListAsync();
             //return View(plants);
             var products = from p in _context.Products
                            select p;
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.Name.Contains(searchString) || s.Description.Contains(searchString) || s.Kind.Contains(searchString) || s.Type.Contains(searchString) || s.LatinName.Contains(searchString));
             }
+
+            if (productOffer.Length != 0 || productOffer != null)
+            {
+                foreach(var item in productOffer)
+                {
+                    products = products.Where(p => p.Kind.Contains(item));
+                }
+            }
+
+            if (productType.Length != 0 || productType != null)
+            {
+                foreach(var item in productType)
+                {
+                    products = products.Where(p => p.Type.Contains(item));
+                }
+            }
+
+            //if (productType.Length != 0 || productType != null)
+            //{
+            //    products = from p in products
+            //               where productType.Contains(p.Kind)
+            //               select p;
+            //}
             return View(await products.ToListAsync());
         }
 
         // filter
-        public async Task<IActionResult> Filter(string[] seeds, string cutting, string bud, string climber, string creeper, string herb, string shrub, string tree)
-        {
-            var products = from p in _context.Products
-                           select p;
+        //public async Task<IActionResult> Index(string[] productOffer, string[] productType)
+        //{
+        //    var products = from p in _context.Products
+        //                   select p;
 
-            if (seeds.Length != 0 || seeds != null)
-            {
-                products = from p in products
-                               where seeds.Contains(p.Kind)
-                               select p;
-            }
-            return View(products);
-        }
+        //    if (productOffer.Length != 0 || productOffer != null)
+        //    {
+        //        products = from p in products
+        //                       where productOffer.Contains(p.Kind)
+        //                       select p;
+        //    }
+
+        //    if (productType.Length != 0 || productType != null)
+        //    {
+        //        products = from p in products
+        //                   where productType.Contains(p.Kind)
+        //                   select p;
+        //    }
+        //    return View(await products.ToListAsync());
+        //}
 
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)

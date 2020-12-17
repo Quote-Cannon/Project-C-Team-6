@@ -35,32 +35,81 @@
             </div>
 
             <h2>Filter</h2>
-            <form asp-controller="Products" asp-action="Filter" method="get" class="get-product">
+            <form asp-controller="Products" asp-action="Index" method="get" class="get-product">
                 <hr>
-                <p>Delivery</p>
-                <div class="post">
-                    <input type="radio" id="post" name="post" value="post">
-                    <p>Delivery by post</p>
+                <p>Product Offer</p>
+                <div class="seed">
+                    <input type="checkbox" name="productOffer" value="seed"/> Seed (Zaad)
                 </div>
-                <div class="meetup">
-                    <input type="radio" id="meetup" name="post" value="meetup">
-                    <p>Meetup in person</p>
+                <div class="bulb">
+                    <input type="checkbox" name="productOffer" value="bulb" /> Bulb (Bol)
+                </div>
+                <div class="cutting">
+                    <input type="checkbox" name="productOffer" value="cutting"/> Cutting (Stek)
+                </div>
+                <div class="seedling">
+                    <input type="checkbox" name="productOffer" value="seedling"/> Seedling (Zaadling)
+                </div>
+                <div class="bud">
+                    <input type="checkbox" name="productOffer" value="bud"/> Bud (Knop)
+                </div>
+                <div class="grownplant">
+                    <input type="checkbox" name="productOffer" value="grownplant"/> Grown plant (Volgroeide plant)
                 </div>
                 <hr>
-                <p>Exchange</p>
-                <div class="trade">
-                    <input type="radio" id="trade" name="trade" value="trade">
-                    <p>With trade</p>
+                <p>Product Type</p>
+                <div class="tree">
+                    <input type="checkbox" name="productType" value="tree"/> Tree (Boom)
                 </div>
-                <div class="notrade">
-                    <input type="radio" id="notrade" name="trade" value="nodtrade">
-                    <p>With no trade</p>
+                <div class="shrub">
+                    <input type="checkbox" name="productType" value="shrub"/> Shrub (Struik)
                 </div>
-                <hr>
-                <p>Product</p>
+                <div class="herb">
+                    <input type="checkbox" name="productType" value="herb"/> Herb (Kruidachtige)
+                </div>
+                <div class="ground cover">
+                    <input type="checkbox" name="productType" value="ground cover"/> Ground cover (Bodembedekker)
+                </div>
+                <div class="creeper">
+                    <input type="checkbox" name="productType" value="creeper"/> Creeper (Klimtplant)
+                </div>
+                <div class="aquatic">
+                    <input type="checkbox" name="productType" value="aquatic"/> Aquatic (Waterplant)
+                </div>
+                <input class="edit" id="sv" type="submit" value="Filter" />
+            </form>
+                @*<input type="checkbox" />Bulb (Bol)
+        <input type="checkbox" />Cutting (Stek)
+        <input type="checkbox" />Seedling (Zaadling)
+        <input type="checkbox" />Bud (Knop)
+        <input type="checkbox" />Grown plant (Volgroeide plant)*@
+
+            
+                @*<p>Delivery</p>
+        <div class="post">
+            <input type="radio" id="post" name="post" value="post">
+            <p>Delivery by post</p>
+        </div>
+        <div class="meetup">
+            <input type="radio" id="meetup" name="post" value="meetup">
+            <p>Meetup in person</p>
+        </div>
+        <hr>
+        <p>Exchange</p>
+        <div class="trade">
+            <input type="radio" id="trade" name="trade" value="trade">
+            <p>With trade</p>
+        </div>
+        <div class="notrade">
+            <input type="radio" id="notrade" name="trade" value="nodtrade">
+            <p>With no trade</p>
+        </div>
+        <hr>*@
+
+
+                @*<p>Product</p>
                 <div class="seed">
                     <input type="radio" id="seed" name="seeds" value="seed">
-                    <p>Seed</p>
                 </div>
                 <div class="cutting">
                     <input type="radio" id="cutting" name="cutting" value="cutting">
@@ -92,7 +141,7 @@
                 <div class="tree">
                     <input type="radio" id="tree" name="tree" value="tree">
                     <p>Tree</p>
-                </div>
+                </div>*@
 
 
                 <div class="select-boxes">
@@ -139,8 +188,6 @@
                 </form>
             </div>*@
                 </div>
-                <input class="edit" id="sv" type="submit" value="S" />
-            </form>
         </div>
         
         <div class="pro-page products-row">
