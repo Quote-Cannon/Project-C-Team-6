@@ -48,6 +48,17 @@ a.edit {
     background-color: #475E48;
     text-align: center;
 }
+#edit.edit {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    border: 0.1em solid black;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: initial;
+    color: white;
+    background-color: #475E48;
+    text-align: center;
+}
 
 .edit:hover, #upload:hover{
     

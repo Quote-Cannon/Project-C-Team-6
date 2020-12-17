@@ -25,14 +25,14 @@ h2{
     margin-top: 1.5em;
     margin-right: auto;
     margin-left: auto;
-    width: 50rem;
+    width: 40rem;
 }
 
 .dkdiv{
     position: relative;
     text-align: center;
-    width: 10rem;
     height: auto;
+    width:50rem;
     margin: 0 auto;
     overflow: hidden;
     white-space: nowrap;
@@ -45,7 +45,7 @@ h2{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 8rem;
+    font-size: 4rem;
 }
 
 .dkdiv:hover, .dktext:hover{
@@ -59,8 +59,13 @@ h2{
     margin-top: 3rem;
 }
 
-.logginging {
+#loggingin {
     margin-left: 50%;
     margin-right: 50%;
-    width: 50% !important;
+    margin: auto;
+    width: 30% 
+}
+
+#flexxer{
+    display: flex;
 }
