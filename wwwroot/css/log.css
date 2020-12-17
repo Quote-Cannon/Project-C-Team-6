@@ -13,12 +13,15 @@ h2{
     font-size: 2rem;
 }
 
-.forgotpass{
-    display: inline-block;
+#forgotpass{
     margin-top: 2rem;
     font-size: 1.3rem;
-}
+    text-align:center;
 
+}
+.forgot{
+    font-size:1rem;
+}
 
 .dk{
     display: inline;
@@ -68,4 +71,18 @@ h2{
 
 #flexxer{
     display: flex;
+}
+
+
+#login.login {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    border: 0.1em solid black;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: initial;
+    color: white;
+    background-color: #475E48;
+    text-align: center;
+    width: 100%;
 }
