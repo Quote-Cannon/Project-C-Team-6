@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,6 +26,8 @@ namespace AuthSystem.Models
         public string MobileNumber { get; set; }
         [DataType(DataType.Date)]
         public DateTime UserDate { get; set; }
+        [Required]
+        public string Picture { get; set; }
         public ICollection<Product> Products { get; set; }
         public ICollection<Review> Reviews { get; set; }
 
@@ -37,7 +40,21 @@ namespace AuthSystem.Models
 
         public User()
         {
-
+            UserDate = DateTime.UtcNow;
+            Picture = File.ReadAllText(Directory.GetCurrentDirectory() + "/varbinoutput.txt");
         }
+
+        /*public byte[] getImage()
+        {
+            string varbin = Picture;
+            byte[] output = new byte[varbin.Length / 3];
+            for (int i = 0; i < output.Length; i++)
+            {
+                int input = Convert.ToInt32(Convert.ToString(varbin[0]) + Convert.ToString(varbin[1]) + Convert.ToString(varbin[2]));
+                output[i] = (byte)input;
+                varbin = varbin.Remove(0, 3);
+            }
+            return output;
+        }*/
     }
 }

@@ -17,7 +17,7 @@
         <div class="slider2">
             <div class="slider-text">
                 <h1>Products</h1>
-                <p>... product(s) found</p>
+                <p>Find here all the products!</p>
             </div>
         </div>
     </div>
@@ -35,67 +35,159 @@
             </div>
 
             <h2>Filter</h2>
-            <div class="post">
-                <input type="radio" id="post" name="post" value="post" checked="checked">
-                <p>Delivered by post</p>
-            </div>
-            <div class="meetup">
-                <input type="radio" id="meetup" name="post" value="meetup">
-                <p>Meetup in person</p>
-            </div>
-            <hr>
-            <div class="trade">
-                <input type="radio" id="trade" name="trade" value="trade" checked="checked">
-                <p>Trading</p>
-            </div>
-            <div class="notrade">
-                <input type="radio" id="notrade" name="trade" value="nodtrade">
-                <p>No trading</p>
-            </div>
-            <div class="select-boxes">
-                <div class="productsselect">
-                    <form>
-                        <select name="product" required="required">
-                            <option value="" disabled selected hidden>Products</option>
-                            <option value="seed">Seed</option>
-                            <option value="cutting">Cutting</option>
-                            <option value="bud">Bud</option>
-                        </select>
-                    </form>
+            <form asp-controller="Products" asp-action="Index" method="get" class="get-product">
+                <hr>
+                <p>Product Offer</p>
+                <div class="seed">
+                    <input type="checkbox" name="productOffer" value="seed"/> Seed (Zaad)
                 </div>
-                <div class="typeselect">
-                    <form>
-                        <select name="type" required="required">
-                            <option value="" disabled selected hidden>Type</option>
-                            <option value="herb">Herb</option>
-                            <option value="cutting">Cutting</option>
-                            <option value="creeper">Creeper</option>
-                            <option value="shrub">Shrub</option>
-                            <option value="climber">Climber</option>
-                        </select>
-                    </form>
+                <div class="bulb">
+                    <input type="checkbox" name="productOffer" value="bulb" /> Bulb (Bol)
                 </div>
-                <div class="lightselect">
-                    <form>
-                        <select name="light" required="required">
-                            <option value="" disabled selected hidden>Light</option>
-                            <option value="low">Low</option>
-                            <option value="mid">Mid</option>
-                            <option value="high">High</option>
-                        </select>
-                    </form>
+                <div class="cutting">
+                    <input type="checkbox" name="productOffer" value="cutting"/> Cutting (Stek)
                 </div>
-                <div class="waterselect">
-                    <form>
-                        <select name="water" required="required">
-                            <option value="" disabled selected hidden>Water</option>
-                            <option value="low">Low</option>
-                            <option value="mid">Mid</option>
-                            <option value="high">High</option>
-                        </select>
-                    </form>
+                <div class="seedling">
+                    <input type="checkbox" name="productOffer" value="seedling"/> Seedling (Zaadling)
                 </div>
-            </div>
+                <div class="bud">
+                    <input type="checkbox" name="productOffer" value="bud"/> Bud (Knop)
+                </div>
+                <div class="grownplant">
+                    <input type="checkbox" name="productOffer" value="grownplant"/> Grown plant (Volgroeide plant)
+                </div>
+                <hr>
+                <p>Product Type</p>
+                <div class="tree">
+                    <input type="checkbox" name="productType" value="tree"/> Tree (Boom)
+                </div>
+                <div class="shrub">
+                    <input type="checkbox" name="productType" value="shrub"/> Shrub (Struik)
+                </div>
+                <div class="herb">
+                    <input type="checkbox" name="productType" value="herb"/> Herb (Kruidachtige)
+                </div>
+                <div class="ground cover">
+                    <input type="checkbox" name="productType" value="ground cover"/> Ground cover (Bodembedekker)
+                </div>
+                <div class="creeper">
+                    <input type="checkbox" name="productType" value="creeper"/> Creeper (Klimtplant)
+                </div>
+                <div class="aquatic">
+                    <input type="checkbox" name="productType" value="aquatic"/> Aquatic (Waterplant)
+                </div>
+                <input class="edit" id="sv" type="submit" value="Filter" />
+            </form>
+                @*<input type="checkbox" />Bulb (Bol)
+        <input type="checkbox" />Cutting (Stek)
+        <input type="checkbox" />Seedling (Zaadling)
+        <input type="checkbox" />Bud (Knop)
+        <input type="checkbox" />Grown plant (Volgroeide plant)*@
+
+            
+                @*<p>Delivery</p>
+        <div class="post">
+            <input type="radio" id="post" name="post" value="post">
+            <p>Delivery by post</p>
+        </div>
+        <div class="meetup">
+            <input type="radio" id="meetup" name="post" value="meetup">
+            <p>Meetup in person</p>
+        </div>
+        <hr>
+        <p>Exchange</p>
+        <div class="trade">
+            <input type="radio" id="trade" name="trade" value="trade">
+            <p>With trade</p>
+        </div>
+        <div class="notrade">
+            <input type="radio" id="notrade" name="trade" value="nodtrade">
+            <p>With no trade</p>
+        </div>
+        <hr>*@
+
+
+                @*<p>Product</p>
+                <div class="seed">
+                    <input type="radio" id="seed" name="seeds" value="seed">
+                </div>
+                <div class="cutting">
+                    <input type="radio" id="cutting" name="cutting" value="cutting">
+                    <p>Cutting</p>
+                </div>
+                <div class="Bud">
+                    <input type="radio" id="bud" name="bud" value="bud">
+                    <p>Bud</p>
+                </div>
+
+                <hr>
+                <p>Product Type</p>
+                <div class="climber">
+                    <input type="radio" id="climber" name="climber" value="climber">
+                    <p>Climber</p>
+                </div>
+                <div class="creeper">
+                    <input type="radio" id="creeper" name="creeper" value="creeper">
+                    <p>Creeper</p>
+                </div>
+                <div class="herb">
+                    <input type="radio" id="herb" name="herb" value="herb">
+                    <p>Herb</p>
+                </div>
+                <div class="shrub">
+                    <input type="radio" id="shrub" name="shrub" value="shrub">
+                    <p>Shrub</p>
+                </div>
+                <div class="tree">
+                    <input type="radio" id="tree" name="tree" value="tree">
+                    <p>Tree</p>
+                </div>*@
+
+
+                <div class="select-boxes">
+                    @*<div class="productsselect">
+                <form>
+                    <select name="product" required="required">
+                        <option value="" disabled selected hidden>Products</option>
+                        <option value="seed">Seed</option>
+                        <option value="cutting">Cutting</option>
+                        <option value="bud">Bud</option>
+                    </select>
+                </form>
+            </div>*@
+                    @*<div class="typeselect">
+                <form>
+                    <select name="type" required="required">
+                        <option value="" disabled selected hidden>Type</option>
+                        <option value="herb">Herb</option>
+                        <option value="cutting">Cutting</option>
+                        <option value="creeper">Creeper</option>
+                        <option value="shrub">Shrub</option>
+                        <option value="climber">Climber</option>
+                    </select>
+                </form>
+            </div>*@
+                    @*<div class="lightselect">
+                <form>
+                    <select name="light" required="required">
+                        <option value="" disabled selected hidden>Light</option>
+                        <option value="low">Low</option>
+                        <option value="mid">Mid</option>
+                        <option value="high">High</option>
+                    </select>
+                </form>
+            </div>*@
+                    @*<div class="waterselect">
+                <form>
+                    <select name="water" required="required">
+                        <option value="" disabled selected hidden>Water</option>
+                        <option value="low">Low</option>
+                        <option value="mid">Mid</option>
+                        <option value="high">High</option>
+                    </select>
+                </form>
+            </div>*@
+                </div>
         </div>
         
         <div class="pro-page products-row">
@@ -108,6 +200,7 @@
             </p>
             @foreach (var item in Model)
             {
+                
                 <div class="product">
                     <img src="./Images/OIP.jpg">
                     <a href="Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
@@ -115,13 +208,7 @@
                     <p></p>
                     @*@Html.DisplayFor(modelItem => item.Picture)*@
                 </div>
-                @*@Html.DisplayFor(modelItem => item.Kind)
-            @Html.DisplayFor(modelItem => item.Type)
-            @Html.DisplayFor(modelItem => item.Trade)*@
-
-                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-            <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                
             }
         </div>
     </div>

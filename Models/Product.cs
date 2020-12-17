@@ -28,12 +28,26 @@ namespace AuthSystem.Models
         public string Picture { get; set; }
         [Required]
         public bool Post { get; set; }
+        public string Soil { get; set; }
+
 
         public Product()
         {
             ProductDate = DateTime.UtcNow;
-            Picture = File.ReadAllText(Directory.GetCurrentDirectory() + "/varbinoutput.txt");
+            //Picture = File.ReadAllText(Directory.GetCurrentDirectory() + "/varbinoutput.txt");
         }
 
+        public byte[] getImage()
+        {
+            string varbin = Picture;
+            byte[] output = new byte[varbin.Length / 3];
+            for (int i = 0; i < output.Length; i++)
+            {
+                int input = Convert.ToInt32(Convert.ToString(varbin[0]) + Convert.ToString(varbin[1]) + Convert.ToString(varbin[2]));
+                output[i] = (byte)input;
+                varbin = varbin.Remove(0, 3);
+            }
+            return output;
+        }
     }
 }

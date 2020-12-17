@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Drawing;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,18 +23,64 @@ namespace AuthSystem.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, string[] productOffer, string[] productType)
         {
             //var plants = await _context.Products.ToListAsync();
             //return View(plants);
             var products = from p in _context.Products
                            select p;
+
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.Name.Contains(searchString) || s.Description.Contains(searchString) || s.Kind.Contains(searchString) || s.Type.Contains(searchString) || s.LatinName.Contains(searchString));
             }
+
+            if (productOffer.Length != 0 || productOffer != null)
+            {
+                foreach(var item in productOffer)
+                {
+                    products = products.Where(p => p.Kind.Contains(item));
+                }
+            }
+
+            if (productType.Length != 0 || productType != null)
+            {
+                foreach(var item in productType)
+                {
+                    products = products.Where(p => p.Type.Contains(item));
+                }
+            }
+
+            //if (productType.Length != 0 || productType != null)
+            //{
+            //    products = from p in products
+            //               where productType.Contains(p.Kind)
+            //               select p;
+            //}
             return View(await products.ToListAsync());
         }
+
+        // filter
+        //public async Task<IActionResult> Index(string[] productOffer, string[] productType)
+        //{
+        //    var products = from p in _context.Products
+        //                   select p;
+
+        //    if (productOffer.Length != 0 || productOffer != null)
+        //    {
+        //        products = from p in products
+        //                       where productOffer.Contains(p.Kind)
+        //                       select p;
+        //    }
+
+        //    if (productType.Length != 0 || productType != null)
+        //    {
+        //        products = from p in products
+        //                   where productType.Contains(p.Kind)
+        //                   select p;
+        //    }
+        //    return View(await products.ToListAsync());
+        //}
 
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -62,10 +111,27 @@ namespace AuthSystem.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Picture,Kind,Type,Water,Light,ProductDate,Trade")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade")] Product product, IFormFile Picture)
         {
-            if (ModelState.IsValid)
+            //var file = HttpContext.Request.Form.Files;
+            byte[] streamOutput;
+            string output = "";
+            using (MemoryStream ms = new MemoryStream())
             {
+                Picture.CopyTo(ms);
+                streamOutput = ms.ToArray();
+            }
+            foreach (byte b in streamOutput)
+            {
+                string number = Convert.ToString(Convert.ToInt32(b));
+                while (number.Length < 3)
+                    number = "0" + number;
+                output += number;
+            }
+            //This clause is supposed to check if the only error is an empty Picture field, since I (Mattias) can't find a way to get rid of it. Any other error should still trigger the clause.
+            if (ModelState["Picture"].RawValue == null && ModelState.ErrorCount == 1)
+            {
+                product.Picture = output;
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -73,8 +139,8 @@ namespace AuthSystem.Controllers
             return View(product);
         }
 
-        // GET: Products/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+            // GET: Products/Edit/5
+            public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
