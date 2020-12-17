@@ -89,9 +89,24 @@
 .pro-page{
 	margin-top:25px;
 }
-/*end of hoofd en productpagina
+
+.get-product2 h4{
+    text-align:left;
+}
+.get-product2 input {
+    margin-top: 5px;
+}
+
+.get-product2 .edit {
+    color: white;
+    background-color: #475E48;
+}
+.get-product2 .edit:hover {
+    background-color: rgb(138, 206, 3);
+}
+    /*end of hoofd en productpagina
 start of Profile.html pagina*/
-.profile-image{
+    .profile-image {
     width: 250px;
     text-align: center;
     margin: 0px auto;

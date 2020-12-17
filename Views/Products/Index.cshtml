@@ -5,18 +5,11 @@
 }
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>De kas</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/style-jasper.css">
-    <link rel="shortcut icon" type="image/jpg" href=”OIP.jpg” />
-</head>
-
 <header class="start-header">
     <div class="slider">
         <div class="slider2">
             <div class="slider-text">
-                <h1>Products</h1>
+                <h4>Products</h4>
                 <p>Find here all the products!</p>
             </div>
         </div>
@@ -35,46 +28,46 @@
             </div>
 
             <h2>Filter</h2>
-            <form asp-controller="Products" asp-action="Index" method="get" class="get-product">
+            <form asp-controller="Products" asp-action="Index" method="get" class="get-product2">
                 <hr>
-                <p>Product Offer</p>
+                <h4>Product Offer</h4>
                 <div class="seed">
-                    <input type="checkbox" name="productOffer" value="seed"/> Seed (Zaad)
+                    <input type="checkbox" name="productOffer" value="seed"/><p>Seed</p>
                 </div>
                 <div class="bulb">
-                    <input type="checkbox" name="productOffer" value="bulb" /> Bulb (Bol)
+                    <input type="checkbox" name="productOffer" value="bulb" /><p>Bulb</p>
                 </div>
                 <div class="cutting">
-                    <input type="checkbox" name="productOffer" value="cutting"/> Cutting (Stek)
+                    <input type="checkbox" name="productOffer" value="cutting"/><p>Cutting</p>
                 </div>
                 <div class="seedling">
-                    <input type="checkbox" name="productOffer" value="seedling"/> Seedling (Zaadling)
+                    <input type="checkbox" name="productOffer" value="seedling" /> <p>Seedling</p>
                 </div>
                 <div class="bud">
-                    <input type="checkbox" name="productOffer" value="bud"/> Bud (Knop)
+                    <input type="checkbox" name="productOffer" value="bud" /> <p>Bud</p>
                 </div>
                 <div class="grownplant">
-                    <input type="checkbox" name="productOffer" value="grownplant"/> Grown plant (Volgroeide plant)
+                    <input type="checkbox" name="productOffer" value="grownplant" /> <p>Grown plant</p>
                 </div>
                 <hr>
-                <p>Product Type</p>
+                <h4>Product Type</h4>
                 <div class="tree">
-                    <input type="checkbox" name="productType" value="tree"/> Tree (Boom)
+                    <input type="checkbox" name="productType" value="tree"/> <p>Tree</p>
                 </div>
                 <div class="shrub">
-                    <input type="checkbox" name="productType" value="shrub"/> Shrub (Struik)
+                    <input type="checkbox" name="productType" value="shrub"/> <p>Shrub</p>
                 </div>
                 <div class="herb">
-                    <input type="checkbox" name="productType" value="herb"/> Herb (Kruidachtige)
+                    <input type="checkbox" name="productType" value="herb"/> <p>Herb</p>
                 </div>
                 <div class="ground cover">
-                    <input type="checkbox" name="productType" value="ground cover"/> Ground cover (Bodembedekker)
+                    <input type="checkbox" name="productType" value="ground cover"/> <p>Ground cover</p>
                 </div>
                 <div class="creeper">
-                    <input type="checkbox" name="productType" value="creeper"/> Creeper (Klimtplant)
+                    <input type="checkbox" name="productType" value="creeper"/> <p>Creeper</p>
                 </div>
                 <div class="aquatic">
-                    <input type="checkbox" name="productType" value="aquatic"/> Aquatic (Waterplant)
+                    <input type="checkbox" name="productType" value="aquatic" /> <p>Aquatic</p>
                 </div>
                 <input class="edit" id="sv" type="submit" value="Filter" />
             </form>

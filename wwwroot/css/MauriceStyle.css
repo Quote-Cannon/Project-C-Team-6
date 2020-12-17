@@ -206,8 +206,12 @@ html, body {
         padding: 15px !important;
     }
 
-    .button-details{
-        margin-top:0px;
+    .plantdesc{
+        width: 100%;
+    }
+
+    .button-details {
+        margin-top: 0px;
     }
 
     .image1 {
