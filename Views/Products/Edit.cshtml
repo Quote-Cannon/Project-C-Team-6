@@ -8,15 +8,8 @@
 
 <div class="body-row2">
     <h1 style="margin-top: 25px;">Change product</h1>
-    <form asp-action="Edit">
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="pic">
-            <div class="form-group">
-                <label asp-for="Picture" class="control-label"></label>
-                <input asp-for="Picture" class="form-control" />
-                <span asp-validation-for="Picture" class="text-danger"></span>
-            </div>
-        </div>
         <div class="pro-names">
             <div class="form-group">
                 <input type="hidden" asp-for="Id" />
@@ -35,7 +28,9 @@
                 <p><i>Think about the colour, height, soil type, special traits, etc. (Denk bijvoorbeeld aan de kleur, hoogte, bodemsoort, speciale kenmerken etc.)</i></p>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-           
+            <div class="form-group">
+                <input type="file" name="Picture" />
+            </div>
             <div class="form-group form-check">
                 @*<label class="form-check-label">
                     <input class="form-check-input" asp-for="Trade" /> @Html.DisplayNameFor(model => model.Trade): Offering to get something in exchange.
@@ -114,11 +109,6 @@
                 <input asp-for="Soil" class="form-control" placeholder="Soil Type" />
                 <span asp-validation-for="Soil" class="text-danger"></span>
             </div>*@
-            <div class="form-group">
-                <label asp-for="ProductDate" class="control-label"></label>
-                <input asp-for="ProductDate" class="form-control" />
-                <span asp-validation-for="ProductDate" class="text-danger"></span>
-            </div>
             <div class="button-cre">
                 <div class="form-group">
                     <input type="submit" value="Save" class="edit" id="sv" />
