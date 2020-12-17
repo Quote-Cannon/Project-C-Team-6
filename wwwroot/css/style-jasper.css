@@ -208,10 +208,9 @@ start of Profile.html pagina*/
     }
 
 .pro-names {
-    width: 55%;
+    width: 100%;
     float: right;
     display: inline-block;
-    height: 320px;
 }
 
 .select-box {
@@ -219,6 +218,7 @@ start of Profile.html pagina*/
     float: left;
     padding-right: 19px;
 }
+
 .last{
     padding-right: 0px;
 }
@@ -327,7 +327,7 @@ body .container {
 
 @media screen and (max-width: 767px) {
     .select-box {
-        width: 48%;
+        width: 100%;
         padding-right: 0px;
     }
 
@@ -338,10 +338,6 @@ body .container {
     .homepage .img2{
         width: 100%;
         display:block;
-    }
-
-    .pro-names{
-        width:48%;
     }
 
     .pic .form-control {
