@@ -35,46 +35,46 @@
             </div>
 
             <h2>Filter</h2>
-            <form asp-controller="Products" asp-action="Filter" method="get" class="get-product">
+            <form asp-controller="Products" asp-action="Index" method="get" class="get-product">
                 <hr>
                 <p>Product Offer</p>
                 <div class="seed">
-                    <input type="checkbox" /> Seed (Zaad)
+                    <input type="checkbox" name="productOffer" value="seed"/> Seed (Zaad)
                 </div>
                 <div class="bulb">
-                    <input type="checkbox" /> Bulb (Bol)
+                    <input type="checkbox" name="productOffer" value="bulb" /> Bulb (Bol)
                 </div>
                 <div class="cutting">
-                    <input type="checkbox" /> Cutting (Stek)
+                    <input type="checkbox" name="productOffer" value="cutting"/> Cutting (Stek)
                 </div>
                 <div class="seedling">
-                    <input type="checkbox" /> Seedling (Zaadling)
+                    <input type="checkbox" name="productOffer" value="seedling"/> Seedling (Zaadling)
                 </div>
                 <div class="bud">
-                    <input type="checkbox" /> Bud (Knop)
+                    <input type="checkbox" name="productOffer" value="bud"/> Bud (Knop)
                 </div>
                 <div class="grownplant">
-                    <input type="checkbox" /> Grown plant (Volgroeide plant)
+                    <input type="checkbox" name="productOffer" value="grownplant"/> Grown plant (Volgroeide plant)
                 </div>
                 <hr>
                 <p>Product Type</p>
                 <div class="tree">
-                    <input type="checkbox" /> Tree (Boom)
+                    <input type="checkbox" name="productType" value="tree"/> Tree (Boom)
                 </div>
                 <div class="shrub">
-                    <input type="checkbox" /> Shrub (Struik)
+                    <input type="checkbox" name="productType" value="shrub"/> Shrub (Struik)
                 </div>
                 <div class="herb">
-                    <input type="checkbox" /> Herb (Kruidachtige)
+                    <input type="checkbox" name="productType" value="herb"/> Herb (Kruidachtige)
                 </div>
                 <div class="ground cover">
-                    <input type="checkbox" /> Ground cover (Bodembedekker)
+                    <input type="checkbox" name="productType" value="ground cover"/> Ground cover (Bodembedekker)
                 </div>
                 <div class="creeper">
-                    <input type="checkbox" /> Creeper (Klimtplant)
+                    <input type="checkbox" name="productType" value="creeper"/> Creeper (Klimtplant)
                 </div>
                 <div class="aquatic">
-                    <input type="checkbox" /> Aquatic (Waterplant)
+                    <input type="checkbox" name="productType" value="aquatic"/> Aquatic (Waterplant)
                 </div>
                 <input class="edit" id="sv" type="submit" value="Filter" />
             </form>
