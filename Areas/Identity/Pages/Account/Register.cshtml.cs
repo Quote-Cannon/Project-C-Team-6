@@ -64,6 +64,7 @@ namespace AuthSystem.Areas.Identity.Pages.Account
 
             
             [Display(Name = "Postal Code")]
+            [StringLength(6, ErrorMessage = "The {0} must be 6 characters long.", MinimumLength = 6)]
             public string PostCode { get; set; }
 
             [Required]
@@ -92,7 +93,7 @@ namespace AuthSystem.Areas.Identity.Pages.Account
         {
             returnUrl = returnUrl ?? Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-            if (ModelState.IsValid)
+            if (ModelState.IsValid )
             {
                 var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Nickname = Input.Nickname, PhoneNumber = Input.PhoneNumber, PostCode = Input.PostCode };
                 var result = await _userManager.CreateAsync(user, Input.Password);
