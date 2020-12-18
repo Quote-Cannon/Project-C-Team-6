@@ -22,6 +22,15 @@
     float: left;
 }
 
+.plantalon{
+
+    margin: 0px 30px;
+    margin-top: 00px;
+    width: 20%; 
+    
+    float: right;
+}
+
 .image2{
     width: 330px; 
     height: 210px;
