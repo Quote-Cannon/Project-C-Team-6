@@ -166,19 +166,27 @@ namespace AuthSystem.Controllers
             {
                 return NotFound();
             }
+            
             byte[] streamOutput;
             string output = "";
-            using (MemoryStream ms = new MemoryStream())
+            try
             {
-                Picture.CopyTo(ms);
-                streamOutput = ms.ToArray();
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    Picture.CopyTo(ms);
+                    streamOutput = ms.ToArray();
+                }
+                foreach (byte b in streamOutput)
+                {
+                    string number = Convert.ToString(Convert.ToInt32(b));
+                    while (number.Length < 3)
+                        number = "0" + number;
+                    output += number;
+                }
             }
-            foreach (byte b in streamOutput)
+            catch (NullReferenceException)
             {
-                string number = Convert.ToString(Convert.ToInt32(b));
-                while (number.Length < 3)
-                    number = "0" + number;
-                output += number;
+                output = "";
             }
             //This clause is supposed to check if the only error is an empty Picture field, since I (Mattias) can't find a way to get rid of it. Any other error should still trigger the clause.
             if (ModelState["Picture"].RawValue == null && ModelState.ErrorCount == 1)
