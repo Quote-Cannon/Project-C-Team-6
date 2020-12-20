@@ -28,7 +28,7 @@
             @Html.DisplayNameFor(model => model.Picture)
             @Html.DisplayFor(model => model.Trade)
                     *@
-                    <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(@Model.getImage()))" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;">
+                    @*<img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(@Model.getImage()))" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;">*@
                     <a asp-controller="Home" asp-action="Chat" class="edit" id="sv">Chat</a>
                 </div>
             </div>
