@@ -24,7 +24,6 @@ namespace AuthSystem.Models
         public DateTime ProductDate { get; set; }
         [Required]
         public bool Trade { get; set; }
-        [Required]
         public string Picture { get; set; }
         [Required]
         public bool Post { get; set; }

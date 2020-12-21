@@ -114,24 +114,31 @@ namespace AuthSystem.Controllers
         public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade")] Product product, IFormFile Picture)
         {
             //var file = HttpContext.Request.Form.Files;
-            byte[] streamOutput;
-            string output = "";
-            using (MemoryStream ms = new MemoryStream())
+            //byte[] streamOutput;
+            //string output = "";
+            //using (MemoryStream ms = new MemoryStream())
+            //{
+            //    Picture.CopyTo(ms);
+            //    streamOutput = ms.ToArray();
+            //}
+            //foreach (byte b in streamOutput)
+            //{
+            //    string number = Convert.ToString(Convert.ToInt32(b));
+            //    while (number.Length < 3)
+            //        number = "0" + number;
+            //    output += number;
+            //}
+            ////This clause is supposed to check if the only error is an empty Picture field, since I (Mattias) can't find a way to get rid of it. Any other error should still trigger the clause.
+            //if (ModelState["Picture"].RawValue == null && ModelState.ErrorCount == 1)
+            //{
+            //    product.Picture = output;
+            //    _context.Add(product);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+
+            if (ModelState.IsValid)
             {
-                Picture.CopyTo(ms);
-                streamOutput = ms.ToArray();
-            }
-            foreach (byte b in streamOutput)
-            {
-                string number = Convert.ToString(Convert.ToInt32(b));
-                while (number.Length < 3)
-                    number = "0" + number;
-                output += number;
-            }
-            //This clause is supposed to check if the only error is an empty Picture field, since I (Mattias) can't find a way to get rid of it. Any other error should still trigger the clause.
-            if (ModelState["Picture"].RawValue == null && ModelState.ErrorCount == 1)
-            {
-                product.Picture = output;
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -162,38 +169,63 @@ namespace AuthSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade")] Product product, IFormFile Picture)
         {
+            //if (id != product.Id)
+            //{
+            //    return NotFound();
+            //}
+
+            //byte[] streamOutput;
+            //string output = "";
+            //try
+            //{
+            //    using (MemoryStream ms = new MemoryStream())
+            //    {
+            //        Picture.CopyTo(ms);
+            //        streamOutput = ms.ToArray();
+            //    }
+            //    foreach (byte b in streamOutput)
+            //    {
+            //        string number = Convert.ToString(Convert.ToInt32(b));
+            //        while (number.Length < 3)
+            //            number = "0" + number;
+            //        output += number;
+            //    }
+            //}
+            //catch (NullReferenceException)
+            //{
+            //    output = "";
+            //}
+            ////This clause is supposed to check if the only error is an empty Picture field, since I (Mattias) can't find a way to get rid of it. Any other error should still trigger the clause.
+            //if (ModelState["Picture"].RawValue == null && ModelState.ErrorCount == 1)
+            //{
+            //    try
+            //    {
+            //        product.Picture = output;
+            //        _context.Update(product);
+            //        await _context.SaveChangesAsync();
+            //    }
+            //    catch (DbUpdateConcurrencyException)
+            //    {
+            //        if (!ProductExists(product.Id))
+            //        {
+            //            return NotFound();
+            //        }
+            //        else
+            //        {
+            //            throw;
+            //        }
+            //    }
+            //    return RedirectToAction(nameof(Index));
+            //}
             if (id != product.Id)
             {
                 return NotFound();
             }
-            
-            byte[] streamOutput;
-            string output = "";
-            try
-            {
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    Picture.CopyTo(ms);
-                    streamOutput = ms.ToArray();
-                }
-                foreach (byte b in streamOutput)
-                {
-                    string number = Convert.ToString(Convert.ToInt32(b));
-                    while (number.Length < 3)
-                        number = "0" + number;
-                    output += number;
-                }
-            }
-            catch (NullReferenceException)
-            {
-                output = "";
-            }
-            //This clause is supposed to check if the only error is an empty Picture field, since I (Mattias) can't find a way to get rid of it. Any other error should still trigger the clause.
-            if (ModelState["Picture"].RawValue == null && ModelState.ErrorCount == 1)
+
+            if (ModelState.IsValid)
             {
                 try
                 {
-                    product.Picture = output;
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
