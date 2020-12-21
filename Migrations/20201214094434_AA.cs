@@ -190,7 +190,7 @@ namespace AuthSystem.Migrations
                     Light = table.Column<string>(type: "text", nullable: true),
                     ProductDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Trade = table.Column<bool>(type: "boolean", nullable: false),
-                    Picture = table.Column<string>(type: "text", nullable: false),
+                    Picture = table.Column<byte[]>(type: "bytea", nullable: false),
                     Post = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>

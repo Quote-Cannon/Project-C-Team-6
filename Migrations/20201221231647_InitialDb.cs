@@ -2,7 +2,7 @@
 
 namespace AuthSystem.Migrations
 {
-    public partial class uploadpic : Migration
+    public partial class InitialDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

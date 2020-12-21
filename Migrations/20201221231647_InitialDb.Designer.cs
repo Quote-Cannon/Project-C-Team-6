@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthSystem.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20201217232603_editpic")]
-    partial class editpic
+    [Migration("20201221231647_InitialDb")]
+    partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -66,6 +66,9 @@ namespace AuthSystem.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
 
+                    b.Property<string>("PostCode")
+                        .HasColumnType("varchar(6)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
 
@@ -114,9 +117,8 @@ namespace AuthSystem.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<string>("Picture")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<byte[]>("Picture")
+                        .HasColumnType("bytea");
 
                     b.Property<bool>("Post")
                         .HasColumnType("boolean");

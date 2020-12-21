@@ -51,37 +51,11 @@ namespace AuthSystem.Controllers
                 }
             }
 
-            //if (productType.Length != 0 || productType != null)
-            //{
-            //    products = from p in products
-            //               where productType.Contains(p.Kind)
-            //               select p;
-            //}
+           
             return View(await products.ToListAsync());
         }
 
-        // filter
-        //public async Task<IActionResult> Index(string[] productOffer, string[] productType)
-        //{
-        //    var products = from p in _context.Products
-        //                   select p;
-
-        //    if (productOffer.Length != 0 || productOffer != null)
-        //    {
-        //        products = from p in products
-        //                       where productOffer.Contains(p.Kind)
-        //                       select p;
-        //    }
-
-        //    if (productType.Length != 0 || productType != null)
-        //    {
-        //        products = from p in products
-        //                   where productType.Contains(p.Kind)
-        //                   select p;
-        //    }
-        //    return View(await products.ToListAsync());
-        //}
-
+       
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -96,7 +70,6 @@ namespace AuthSystem.Controllers
             {
                 return NotFound();
             }
-
             return View(product);
         }
 
@@ -113,32 +86,49 @@ namespace AuthSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade")] Product product, IFormFile Picture)
         {
-            //var file = HttpContext.Request.Form.Files;
-            //byte[] streamOutput;
+            //var file = httpcontext.request.form.files;
+            //byte[] streamoutput;
             //string output = "";
-            //using (MemoryStream ms = new MemoryStream())
+            //using (memorystream ms = new memorystream())
             //{
-            //    Picture.CopyTo(ms);
-            //    streamOutput = ms.ToArray();
+            //    picture.copyto(ms);
+            //    streamoutput = ms.toarray();
             //}
-            //foreach (byte b in streamOutput)
+            //foreach (byte b in streamoutput)
             //{
-            //    string number = Convert.ToString(Convert.ToInt32(b));
-            //    while (number.Length < 3)
+            //    string number = convert.tostring(convert.toint32(b));
+            //    while (number.length < 3)
             //        number = "0" + number;
             //    output += number;
             //}
-            ////This clause is supposed to check if the only error is an empty Picture field, since I (Mattias) can't find a way to get rid of it. Any other error should still trigger the clause.
-            //if (ModelState["Picture"].RawValue == null && ModelState.ErrorCount == 1)
+            ////this clause is supposed to check if the only error is an empty picture field, since i (mattias) can't find a way to get rid of it. any other error should still trigger the clause.
+            //if (modelstate["picture"].rawvalue == null && modelstate.errorcount == 1)
             //{
-            //    product.Picture = output;
-            //    _context.Add(product);
-            //    await _context.SaveChangesAsync();
-            //    return RedirectToAction(nameof(Index));
+            //    product.picture = output;
+            //    _context.add(product);
+            //    await _context.savechangesasync();
+            //    return redirecttoaction(nameof(index));
             //}
 
             if (ModelState.IsValid)
             {
+                if (Picture != null)
+                {
+                    if (Picture.Length > 0)
+                    //Convert Image to byte and save to database
+                    {
+                        byte[] p1 = null;
+                        using (var fs1 = Picture.OpenReadStream())
+                        {
+                            using (var ms1 = new MemoryStream())
+                            {
+                                fs1.CopyTo(ms1);
+                                p1 = ms1.ToArray();
+                            }
+                            product.Picture = p1;
+                        }
+                    }
+                }
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -278,5 +268,20 @@ namespace AuthSystem.Controllers
         {
             return _context.Products.Any(e => e.Id == id);
         }
+        public FileContentResult getImg(int id)
+        {
+            byte[] byteArray = _context.Products.Find(id).Picture;
+            return new FileContentResult(byteArray, "image/jpg");
+            //return byteArray != null
+            //    ? new FileContentResult(byteArray, "image/jpg")
+            //    : null;
+        }
+        //public ActionResult GetImage(int i)
+        //{
+        //    byte[] bytes = db.GetImage(i); //Get the image from your database
+        //    return File(bytes, "image/png"); //or "image/jpeg", depending on the format
+        //}
     }
+
+
 }

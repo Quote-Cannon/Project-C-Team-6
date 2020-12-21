@@ -115,8 +115,8 @@ namespace AuthSystem.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<string>("Picture")
-                        .HasColumnType("text");
+                    b.Property<byte[]>("Picture")
+                        .HasColumnType("bytea");
 
                     b.Property<bool>("Post")
                         .HasColumnType("boolean");

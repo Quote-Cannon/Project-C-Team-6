@@ -14,27 +14,27 @@
                 <span asp-validation-for="Picture" class="text-danger"></span>
             </div>
         </div>*@
-        <div class="pro-names">
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" placeholder="Name" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LatinName" class="control-label">Latin name</label>
-                <input asp-for="LatinName" class="form-control" placeholder="Latin name" />
-                <span asp-validation-for="LatinName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" placeholder="Description" />
-                <p><i>Think about the colour, height, soil type, special traits, etc. (Denk bijvoorbeeld aan de kleur, hoogte, bodemsoort, speciale kenmerken etc.)</i></p>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            @*<div class="form-group">
-                <input type="text" name="Picture" />
-            </div>*@
-            <div class="form-group form-check">
+    <div class="pro-names">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" placeholder="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LatinName" class="control-label">Latin name</label>
+            <input asp-for="LatinName" class="form-control" placeholder="Latin name" />
+            <span asp-validation-for="LatinName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" class="form-control" placeholder="Description" />
+            <p><i>Think about the colour, height, soil type, special traits, etc. (Denk bijvoorbeeld aan de kleur, hoogte, bodemsoort, speciale kenmerken etc.)</i></p>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="file" name="Picture" />
+        </div>
+        <div class="form-group form-check">
             @*<div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Trade" /> @Html.DisplayNameFor(model => model.Trade): Offering to get something in exchange.
@@ -107,7 +107,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="product-date">
             @*<div class="form-group">
                 <label asp-for="Soil" class="control-label">Soil </label>
@@ -123,7 +123,7 @@
                 <a class="edit" id="sv" asp-action="Index">Back to productpage</a>
             </div>
         </div>
-    </form>
+</form>
 </div>
 
 @section Scripts {
