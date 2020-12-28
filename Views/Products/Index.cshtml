@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Index";
 
-
     string GetBase64String(byte[] picture)
     {
         string imreBase64Data = Convert.ToBase64String(picture);
@@ -79,13 +78,7 @@
                 </div>
                 <input class="edit" id="sv" type="submit" value="Filter" />
             </form>
-                @*<input type="checkbox" />Bulb (Bol)
-        <input type="checkbox" />Cutting (Stek)
-        <input type="checkbox" />Seedling (Zaadling)
-        <input type="checkbox" />Bud (Knop)
-        <input type="checkbox" />Grown plant (Volgroeide plant)*@
-
-            
+                
                 @*<p>Delivery</p>
         <div class="post">
             <input type="radio" id="post" name="post" value="post">
@@ -107,111 +100,16 @@
         </div>
         <hr>*@
 
-
-                @*<p>Product</p>
-                <div class="seed">
-                    <input type="radio" id="seed" name="seeds" value="seed">
-                </div>
-                <div class="cutting">
-                    <input type="radio" id="cutting" name="cutting" value="cutting">
-                    <p>Cutting</p>
-                </div>
-                <div class="Bud">
-                    <input type="radio" id="bud" name="bud" value="bud">
-                    <p>Bud</p>
-                </div>
-
-                <hr>
-                <p>Product Type</p>
-                <div class="climber">
-                    <input type="radio" id="climber" name="climber" value="climber">
-                    <p>Climber</p>
-                </div>
-                <div class="creeper">
-                    <input type="radio" id="creeper" name="creeper" value="creeper">
-                    <p>Creeper</p>
-                </div>
-                <div class="herb">
-                    <input type="radio" id="herb" name="herb" value="herb">
-                    <p>Herb</p>
-                </div>
-                <div class="shrub">
-                    <input type="radio" id="shrub" name="shrub" value="shrub">
-                    <p>Shrub</p>
-                </div>
-                <div class="tree">
-                    <input type="radio" id="tree" name="tree" value="tree">
-                    <p>Tree</p>
-                </div>*@
-
-
-                <div class="select-boxes">
-                    @*<div class="productsselect">
-                <form>
-                    <select name="product" required="required">
-                        <option value="" disabled selected hidden>Products</option>
-                        <option value="seed">Seed</option>
-                        <option value="cutting">Cutting</option>
-                        <option value="bud">Bud</option>
-                    </select>
-                </form>
-            </div>*@
-                    @*<div class="typeselect">
-                <form>
-                    <select name="type" required="required">
-                        <option value="" disabled selected hidden>Type</option>
-                        <option value="herb">Herb</option>
-                        <option value="cutting">Cutting</option>
-                        <option value="creeper">Creeper</option>
-                        <option value="shrub">Shrub</option>
-                        <option value="climber">Climber</option>
-                    </select>
-                </form>
-            </div>*@
-                    @*<div class="lightselect">
-                <form>
-                    <select name="light" required="required">
-                        <option value="" disabled selected hidden>Light</option>
-                        <option value="low">Low</option>
-                        <option value="mid">Mid</option>
-                        <option value="high">High</option>
-                    </select>
-                </form>
-            </div>*@
-                    @*<div class="waterselect">
-                <form>
-                    <select name="water" required="required">
-                        <option value="" disabled selected hidden>Water</option>
-                        <option value="low">Low</option>
-                        <option value="mid">Mid</option>
-                        <option value="high">High</option>
-                    </select>
-                </form>
-            </div>*@
-                </div>
         </div>
         
         <div class="pro-page products-row">
-           
-           
             @foreach (var item in Model)
-            {
-                
-            <div class="product">
-                @*<img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(@item.getImage()))">*@
-                @*<img class="img-responsive full-width" src="data:image/jpg;base64,@Convert.ToBase64String(item.Picture)" />*@
-                @*<img src="data:image;base64,@System.Convert.ToBase64String(item.Picture)" />*@
-                @*<img src="@Url.Action("getImg", "Products", new { id = item.Id })"/>*@
-                @*<img src="data:image;base64,@System.Convert.ToBase64String(item.Picture)" alt="@(item.Picture)"/>*@
-                <a href="Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
-
-                <p></p>
-                <img src="@GetBase64String(item.Picture)"/>
-
-                @*@Html.DisplayFor(modelItem => item.Picture)*@
-            </div>
-                
-            }
+                {
+                <div class="product">
+                    <img src="@GetBase64String(item.Picture)" style="width: 100%; height: 100%;"/>
+                    <a href="Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
+                </div>
+                }
         </div>
     </div>
 </body>

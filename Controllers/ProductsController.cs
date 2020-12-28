@@ -268,14 +268,14 @@ namespace AuthSystem.Controllers
         {
             return _context.Products.Any(e => e.Id == id);
         }
-        public FileContentResult getImg(int id)
-        {
-            byte[] byteArray = _context.Products.Find(id).Picture;
-            return new FileContentResult(byteArray, "image/jpg");
-            //return byteArray != null
-            //    ? new FileContentResult(byteArray, "image/jpg")
-            //    : null;
-        }
+        //public FileContentResult getImg(int id)
+        //{
+        //    byte[] byteArray = _context.Products.Find(id).Picture;
+        //    return new FileContentResult(byteArray, "image/jpg");
+        //    //return byteArray != null
+        //    //    ? new FileContentResult(byteArray, "image/jpg")
+        //    //    : null;
+        //}
         //public ActionResult GetImage(int i)
         //{
         //    byte[] bytes = db.GetImage(i); //Get the image from your database
