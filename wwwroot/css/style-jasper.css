@@ -326,13 +326,28 @@ body .container {
     }
 
 @media screen and (max-width: 767px) {
+    .editdiv {
+        text-align: center;
+        margin-left: 0px;
+    }
+
     .select-box {
         width: 100%;
         padding-right: 0px;
     }
 
+    #ph {
+        width: 100%;
+    }
+
+    #pc {
+        display: inline-block;
+        width: 100%;
+        margin-left: 0px;
+    }
+
     .homepage .img1 {
-        display:none;
+        display: none;
     }
 
     .homepage .img2{
@@ -349,77 +364,137 @@ body .container {
         width:100%;
     }
 }
+@media screen and (max-width: 700px){
+    #loggingin {
+        margin: auto !important;
+        width: 80%;
+    }
+    .dkdiv{
+        width:100%;
+    }
 
-@media screen and (max-width: 500px) {
-
-    .select-box {
+    .dk {
         width: 100%;
     }
 
-    .pro-names {
-        width: 100%;
-        height:auto;
-    }
-}
-
-/*chatpage*/
-.all-chats {
-    width: 260px;
-    float: left;
-    margin-right: 40px;
-}
-
-.chatpage {
-    background: #E1E1E1;
-}
-
-.chatsearch {
-    width: 100%;
-    padding: 10px;
-    font-size: 17px;
-    border-radius: 20px;
-    margin: 20px 0px;
-}
-
-.one-chats {
-    border: 3px solid #000;
-    border-radius: 20px;
-    padding: 15px;
-    margin-bottom: 20px;
-}
-
-    .one-chats img {
-        float: left;
-        border-radius: 30px;
-        height: 55px;
+    .dktext {
+        font-size: 50px;
     }
 
-    .one-chats p {
-        margin: 0px;
-        margin-left: 80px;
-        height: 55px;
+}
+    @media screen and (max-width: 500px){
+        
+        .button-cre{
+            width:100%;
+        }
+
+        .button{
+            width:100%;
+        }
+
+        .button-cre input[type=submit] {
+            width: 100% !important;
+            margin-left: 0px !important;
+        }
+
+        .button .edit{
+            width:100% !important;
+        }
+
+        .dktext {
+            font-size: 40px;
+        }
+
+        #r {
+            width: 100%;
+        }
+
+        .product {
+            margin: 10px 0px;
+            width: 100%;
+        }
+
+        .select-box {
+            width: 100%;
+        }
+
+        .pro-names {
+            width: 100%;
+            height: auto;
+        }
+
+        .but {
+            width: 100%;
+        }
     }
 
-.app-chat {
-    margin-left: 10px;
-    float: left;
-    margin-top: 20px;
-    width: 700px;
-}
-
-.chat-person {
-}
-
-    .chat-person img {
-        float: left;
-        border-radius: 30px;
-        height: 100px;
-    }
-
-    .chat-person p {
-        margin: 0px;
-        margin-left: 125px;
-        height: 100px;
-        padding-top: 25px;
+@media screen and (max-width: 400px) {
+    .dktext {
         font-size: 30px;
     }
+    .hiprofile{
+        font-size:16px;
+    }
+
+}
+    /*chatpage*/
+    .all-chats {
+        width: 260px;
+        float: left;
+        margin-right: 40px;
+    }
+
+    .chatpage {
+        background: #E1E1E1;
+    }
+
+    .chatsearch {
+        width: 100%;
+        padding: 10px;
+        font-size: 17px;
+        border-radius: 20px;
+        margin: 20px 0px;
+    }
+
+    .one-chats {
+        border: 3px solid #000;
+        border-radius: 20px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+        .one-chats img {
+            float: left;
+            border-radius: 30px;
+            height: 55px;
+        }
+
+        .one-chats p {
+            margin: 0px;
+            margin-left: 80px;
+            height: 55px;
+        }
+
+    .app-chat {
+        margin-left: 10px;
+        float: left;
+        margin-top: 20px;
+        width: 700px;
+    }
+
+    .chat-person {
+    }
+
+        .chat-person img {
+            float: left;
+            border-radius: 30px;
+            height: 100px;
+        }
+
+        .chat-person p {
+            margin: 0px;
+            margin-left: 125px;
+            height: 100px;
+            padding-top: 25px;
+            font-size: 30px;
+        }
