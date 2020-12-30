@@ -7,7 +7,6 @@ namespace AuthSystem.Models
     public class Product
     {
         public int Id { get; set; }
-        public User User { get; set; }
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
@@ -23,10 +22,13 @@ namespace AuthSystem.Models
         public DateTime ProductDate { get; set; }
         [Required]
         public bool Trade { get; set; }
+        [Required]
         public byte[] Picture { get; set; }
         [Required]
         public bool Post { get; set; }
         public string Soil { get; set; }
+
+        public string UserId { get; set; }
 
         public Product()
         {

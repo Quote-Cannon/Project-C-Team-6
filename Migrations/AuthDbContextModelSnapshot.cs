@@ -96,6 +96,9 @@ namespace AuthSystem.Migrations
                         .HasColumnType("integer")
                         .UseIdentityByDefaultColumn();
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("text");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(300)
@@ -116,6 +119,7 @@ namespace AuthSystem.Migrations
                         .HasColumnType("character varying(50)");
 
                     b.Property<byte[]>("Picture")
+                        .IsRequired()
                         .HasColumnType("bytea");
 
                     b.Property<bool>("Post")
@@ -133,93 +137,17 @@ namespace AuthSystem.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("text");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
 
                     b.Property<string>("Water")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("AuthSystem.Models.Review", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
-
-                    b.Property<DateTime>("ReviewDate")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("ReviewDescription")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<string>("ReviewTitle")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("character varying(10)");
-
-                    b.Property<int?>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Review");
-                });
-
-            modelBuilder.Entity("AuthSystem.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
-
-                    b.Property<string>("ConfirmPassword")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<string>("MobileNumber")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Picture")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("PostalCode")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("character varying(10)");
-
-                    b.Property<DateTime>("UserDate")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string[]>("flags")
-                        .HasColumnType("text[]");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -358,20 +286,9 @@ namespace AuthSystem.Migrations
 
             modelBuilder.Entity("AuthSystem.Models.Product", b =>
                 {
-                    b.HasOne("AuthSystem.Models.User", "User")
+                    b.HasOne("AuthSystem.Areas.Identity.Data.ApplicationUser", null)
                         .WithMany("Products")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("AuthSystem.Models.Review", b =>
-                {
-                    b.HasOne("AuthSystem.Models.User", "User")
-                        .WithMany("Reviews")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -425,11 +342,9 @@ namespace AuthSystem.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("AuthSystem.Models.User", b =>
+            modelBuilder.Entity("AuthSystem.Areas.Identity.Data.ApplicationUser", b =>
                 {
                     b.Navigation("Products");
-
-                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

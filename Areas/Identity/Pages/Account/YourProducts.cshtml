@@ -1,22 +1,18 @@
-﻿@model IEnumerable<AuthSystem.Models.Product>
+﻿
+model AuthSystem.Models.Product
+@inject UserManager<ApplicationUser> UserManager
 
 @{
-    ViewData["Title"] = "Index";
-
-    string GetBase64String(byte[] picture)
-    {
-        string imreBase64Data = Convert.ToBase64String(picture);
-        string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
-        return imgDataURL;
-    }
+    ViewData["Title"] = "Your products";
+    string x = "";
+    Task<ApplicationUser> thisUser = UserManager.FindByIdAsync(x);
 }
 <!DOCTYPE html>
 <header class="start-header">
     <div class="slider">
         <div class="slider2">
             <div class="slider-text">
-                <h1>Products</h1>
-                <p>Find here all the products!</p>
+                <h1>Your products</h1>
             </div>
         </div>
     </div>
@@ -103,12 +99,19 @@
         </div>
 
         <div class="pro-page products-row">
-            @foreach (var item in Model)
-            {
-                <div class="product">
-                    <img src="@GetBase64String(item.Picture)" style="width: 100%; height: 100%;" />
-                    <a href="Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
-                </div>
+            @{
+                foreach (var product in thisUser.Result.Products)
+                {
+
+                    {
+                        <div class="product">
+                            <img src="GetBase64String(Model.Picture)" style="width: 100%; height: 100%;" />
+                            <a href="Products/Details/@product.Id">@product.Name<i>@product.LatinName</i></a>
+                        </div>
+                    }
+
+                }
+
             }
         </div>
     </div>

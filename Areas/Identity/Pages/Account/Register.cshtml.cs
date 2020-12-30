@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using AuthSystem.Models;
 
 namespace AuthSystem.Areas.Identity.Pages.Account
 {
@@ -77,6 +78,8 @@ namespace AuthSystem.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            //public List<Product> Products { get;set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)

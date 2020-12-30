@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using AuthSystem.Models;
 
 namespace AuthSystem.Areas.Identity.Data
 {
@@ -17,5 +18,7 @@ namespace AuthSystem.Areas.Identity.Data
         [PersonalData]
         [Column(TypeName = "varchar(6)")]
         public string PostCode { get; set; }
+
+        public List<Product> Products { get; set; }
     }
 }
