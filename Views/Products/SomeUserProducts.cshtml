@@ -1,12 +1,19 @@
-﻿
-model AuthSystem.Models.Product
+﻿@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Identity.UI.Services;
+@using AuthSystem.Areas.Identity.Data
+@model IEnumerable<AuthSystem.Models.Product>
 @inject UserManager<ApplicationUser> UserManager
-
 @{
     ViewData["Title"] = "Your products";
-    string x = "";
-    Task<ApplicationUser> thisUser = UserManager.FindByIdAsync(x);
+    Task<ApplicationUser> thisUser = UserManager.GetUserAsync(User); 
+    string GetBase64String(byte[] picture)
+    {
+        string imreBase64Data = Convert.ToBase64String(picture);
+        string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
+        return imgDataURL;
+    }
 }
+
 <!DOCTYPE html>
 <header class="start-header">
     <div class="slider">
@@ -75,43 +82,20 @@ model AuthSystem.Models.Product
                 <input class="edit" id="sv" type="submit" value="Filter" />
             </form>
 
-            @*<p>Delivery</p>
-                <div class="post">
-                    <input type="radio" id="post" name="post" value="post">
-                    <p>Delivery by post</p>
-                </div>
-                <div class="meetup">
-                    <input type="radio" id="meetup" name="post" value="meetup">
-                    <p>Meetup in person</p>
-                </div>
-                <hr>
-                <p>Exchange</p>
-                <div class="trade">
-                    <input type="radio" id="trade" name="trade" value="trade">
-                    <p>With trade</p>
-                </div>
-                <div class="notrade">
-                    <input type="radio" id="notrade" name="trade" value="nodtrade">
-                    <p>With no trade</p>
-                </div>
-                <hr>*@
 
         </div>
 
+
         <div class="pro-page products-row">
-            @{
-                foreach (var product in thisUser.Result.Products)
+            @foreach (var item in Model)
+            {
+                if (thisUser.Result.Id == item.UserId)
                 {
-
-                    {
-                        <div class="product">
-                            <img src="GetBase64String(Model.Picture)" style="width: 100%; height: 100%;" />
-                            <a href="Products/Details/@product.Id">@product.Name<i>@product.LatinName</i></a>
-                        </div>
-                    }
-
+                    <div class="product">
+                        <img src="@GetBase64String(item.Picture)" style="width: 100%; height: 100%;" />
+                        <a href="/Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
+                    </div>
                 }
-
             }
         </div>
     </div>

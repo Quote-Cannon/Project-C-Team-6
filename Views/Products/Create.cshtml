@@ -20,6 +20,7 @@
             </div>*@
 
         <input type="hidden" asp-for="UserId" class="form-control" value="@UserManager.GetUserAsync(User).Result.Id" />
+        <input type="hidden" name="DezeUser" value="@UserManager.GetUserAsync(User)" />
         <div class="pro-names">
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>

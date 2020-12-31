@@ -10,13 +10,17 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AuthSystem.Data;
 using AuthSystem.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using AuthSystem.Areas.Identity.Data;
+
 
 namespace AuthSystem.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly AuthDbContext _context;
-
+        UserManager<ApplicationUser> UserManager;
         public ProductsController(AuthDbContext context)
         {
             _context = context;
@@ -79,12 +83,19 @@ namespace AuthSystem.Controllers
             return View();
         }
 
+        public async Task<IActionResult> SomeUserProducts()
+        {
+            var products = from p in _context.Products
+                           select p;
+            return View(await products.ToListAsync());
+        }
+
         // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,UserId")] Product product, IFormFile Picture)
+        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,UserId")] Product product, IFormFile Picture, ApplicationUser DezeUser)
         {
             //var file = httpcontext.request.form.files;
             //byte[] streamoutput;
@@ -129,10 +140,11 @@ namespace AuthSystem.Controllers
                             
                         }
                     }
+                    _context.Add(product);
+                    DezeUser.AddProductToUser(product);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
-                _context.Add(product);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
             }
             return View(product);
         }

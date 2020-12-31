@@ -20,6 +20,9 @@
             <div class="body-row2">
                 <div class="plantdesc">
                     <h1>Name: @Html.DisplayFor(model => model.Name)</h1>
+
+                    <a asp-area="Identity" asp-page="/Pages/Account/YourProducts/b4e70725-d896-4902-a4bd-a46b35c5f167">Publisher: @Html.DisplayFor(model => model.UserId)</a>
+
                     <p>Latin name: @Html.DisplayFor(model => model.LatinName)</p>
                     <h3 style="text-align:left;">Description:</h3>
                     <p>@Html.DisplayFor(model => model.Description)</p>

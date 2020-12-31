@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model ProfileModel
 
 @inject UserManager<ApplicationUser> UserManager
@@ -38,7 +38,7 @@
         </div>
 
         <div class="but">
-            <a href="ProfileProducts.html" class="pfbutton" id="myprods"><img class="butid" src="/Images/Layer 3.png" alt=""></a>
+            <a class="pfbutton" id="myprods" asp-controller="Products" asp-action="SomeUserProducts" ><img class="butid" src="/Images/Layer 3.png" alt=""></a>
 
             <p class="butext" id="myprods">Your products</p>
         </div>

@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthSystem.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20201230215738_reqpic")]
-    partial class reqpic
+    [Migration("20201231074357_products")]
+    partial class products
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -121,7 +121,6 @@ namespace AuthSystem.Migrations
                         .HasColumnType("character varying(50)");
 
                     b.Property<byte[]>("Picture")
-                        .IsRequired()
                         .HasColumnType("bytea");
 
                     b.Property<bool>("Post")

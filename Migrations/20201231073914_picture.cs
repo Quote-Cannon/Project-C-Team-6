@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AuthSystem.Migrations
 {
-    public partial class reqpic : Migration
+    public partial class picture : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -170,7 +170,7 @@ namespace AuthSystem.Migrations
                     Light = table.Column<string>(type: "text", nullable: true),
                     ProductDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Trade = table.Column<bool>(type: "boolean", nullable: false),
-                    Picture = table.Column<byte[]>(type: "bytea", nullable: false),
+                    Picture = table.Column<byte[]>(type: "bytea", nullable: true),
                     Post = table.Column<bool>(type: "boolean", nullable: false),
                     Soil = table.Column<string>(type: "text", nullable: true),
                     UserId = table.Column<string>(type: "text", nullable: true),
