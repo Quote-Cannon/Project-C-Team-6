@@ -17,6 +17,8 @@ using AuthSystem.Areas.Identity.Data;
 
 namespace AuthSystem.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class ProductsController : Controller
     {
         private readonly AuthDbContext _context;
@@ -58,8 +60,27 @@ namespace AuthSystem.Controllers
            
             return View(await products.ToListAsync());
         }
+        [HttpGet]
+        public async Task<IActionResult> SomeUserProducts(string publisher)
+        {
+            var pub = await _context.Users
+                .FirstOrDefaultAsync(m => m.Id == publisher);
+            if (pub == null)
+            {
+                return NotFound();
+            }
+            var products = from p in _context.Products
+                           where p.UserId == publisher
+                           select p;
+            return View(await products.ToListAsync());
+        }
 
-       
+        public async Task<IActionResult> SomeUserProducts()
+        {
+            var products = from p in _context.Products
+                           select p;
+            return View(await products.ToListAsync());
+        }
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -83,12 +104,6 @@ namespace AuthSystem.Controllers
             return View();
         }
 
-        public async Task<IActionResult> SomeUserProducts()
-        {
-            var products = from p in _context.Products
-                           select p;
-            return View(await products.ToListAsync());
-        }
 
         // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -151,19 +166,19 @@ namespace AuthSystem.Controllers
 
             // GET: Products/Edit/5
             public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
-            {
-                return NotFound();
+                var product = await _context.Products.FindAsync(id);
+                if (product == null)
+                {
+                    return NotFound();
+                }
+                return View(product);
             }
-            return View(product);
-        }
 
         // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
