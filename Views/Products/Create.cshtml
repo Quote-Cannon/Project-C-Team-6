@@ -1,11 +1,15 @@
-﻿@model AuthSystem.Models.Product
-
+﻿@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Identity.UI.Services;
+@using AuthSystem.Areas.Identity.Data
+@model AuthSystem.Models.Product
+@inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Create";
 }
 
 <div class="body-row2">
     <form asp-action="Create" method="post" class="create-form" enctype="multipart/form-data">
+
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @*<div class="pic">
             <div class="form-group">
@@ -14,6 +18,10 @@
                 <span asp-validation-for="Picture" class="text-danger"></span>
             </div>
         </div>*@
+        
+        <input type="hidden" asp-for="UserId" class="form-control" value="@UserManager.GetUserAsync(User).Result.Id" />
+        <input type="hidden" asp-for="PublisherName" class="form-control" value="@UserManager.GetUserAsync(User).Result.Nickname" />
+        <input type="hidden" name="DezeUser" value="@UserManager.GetUserAsync(User)" />
     <div class="pro-names">
         <div class="form-group">
             <label asp-for="Name" class="control-label"></label>
@@ -130,22 +138,23 @@
             </div>
         </div>
 
-        <div class="product-date">
-            @*<div class="form-group">
-                <label asp-for="Soil" class="control-label">Soil </label>
-                <input asp-for="Soil" class="form-control" placeholder="Soil Type"/>
-                <span asp-validation-for="Soil" class="text-danger"></span>
-            </div>*@
-            <div class="button-cre">
-                <div class="form-group">
-                    <input type="submit" value="Create" class="edit" id="sv" />
+            <div class="product-date">
+                @*<div class="form-group">
+                    <label asp-for="Soil" class="control-label">Soil </label>
+                    <input asp-for="Soil" class="form-control" placeholder="Soil Type"/>
+                    <span asp-validation-for="Soil" class="text-danger"></span>
+                </div>*@
+                <div class="button-cre">
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="edit" id="sv" />
+                    </div>
+                </div>
+                <div class="button">
+                    <a class="edit" id="sv" asp-action="Index">Back to productpage</a>
                 </div>
             </div>
-            <div class="button">
-                <a class="edit" id="sv" asp-action="Index">Back to productpage</a>
-            </div>
         </div>
-</form>
+    </form>
 </div>
 
 @section Scripts {

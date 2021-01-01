@@ -7,7 +7,6 @@ namespace AuthSystem.Models
     public class Product
     {
         public int Id { get; set; }
-        public User User { get; set; }
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
@@ -26,6 +25,9 @@ namespace AuthSystem.Models
         public byte[] Picture { get; set; }
         public string Delivery { get; set; }
         public string Soil { get; set; }
+
+        public string UserId { get; set; }
+        public string PublisherName { get; set; }
 
         public Product()
         {

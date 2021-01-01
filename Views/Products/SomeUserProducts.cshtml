@@ -1,8 +1,10 @@
-﻿@model IEnumerable<AuthSystem.Models.Product>
-
+﻿@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Identity.UI.Services;
+@using AuthSystem.Areas.Identity.Data
+@model IEnumerable<AuthSystem.Models.Product>
+@inject UserManager<ApplicationUser> UserManager
 @{
-    ViewData["Title"] = "Index";
-
+    ViewData["Title"] = "Your products";
     string GetBase64String(byte[] picture)
     {
         string imreBase64Data = Convert.ToBase64String(picture);
@@ -10,13 +12,13 @@
         return imgDataURL;
     }
 }
+
 <!DOCTYPE html>
 <header class="start-header">
     <div class="slider">
         <div class="slider2">
             <div class="slider-text">
-                <h1>Products</h1>
-                <p>Find here all the products!</p>
+                <h1>Your products</h1>
             </div>
         </div>
     </div>
@@ -24,6 +26,14 @@
 </header>
 <html lang="en">
 <body>
+    <div>
+
+        <div class="pfpdiv">
+            <img class="pfp" src="http://img4.wikia.nocookie.net/__cb20140328190757/pokemon/images/thumb/2/21/001Bulbasaur.png/100px-001Bulbasaur.png" alt="">
+        </div>
+
+    <p class="hiprofile">'s products</p>
+    </div>
     <div class="body-row">
         <div class="filter-row">
             <div class="search-pr">
@@ -38,8 +48,8 @@
             <form asp-controller="Products" asp-action="Index" method="get" class="get-product2">
                 <hr>
                 <h4>Product Offer</h4>
-                <div class="seeds">
-                    <input type="checkbox" name="productOffer" value="seeds"/><p>Seeds</p>
+                <div class="seed">
+                    <input type="checkbox" name="productOffer" value="seed" /><p>Seed</p>
                 </div>
                 <div class="bulb">
                     <input type="checkbox" name="productOffer" value="bulb" /><p>Bulb</p>
@@ -79,36 +89,19 @@
                 <input class="edit" id="sv" type="submit" value="Filter" />
             </form>
 
-            @*<p>Delivery</p>
-                <div class="post">
-                    <input type="radio" id="post" name="post" value="post">
-                    <p>Delivery by post</p>
-                </div>
-                <div class="meetup">
-                    <input type="radio" id="meetup" name="post" value="meetup">
-                    <p>Meetup in person</p>
-                </div>
-                <hr>
-                <p>Exchange</p>
-                <div class="trade">
-                    <input type="radio" id="trade" name="trade" value="trade">
-                    <p>With trade</p>
-                </div>
-                <div class="notrade">
-                    <input type="radio" id="notrade" name="trade" value="nodtrade">
-                    <p>With no trade</p>
-                </div>
-                <hr>*@
 
         </div>
+
 
         <div class="pro-page products-row">
             @foreach (var item in Model)
             {
-                <div class="product">
-                    <img src="@GetBase64String(item.Picture)" style="width: 100%; height: 100%;" />
-                    <a href="Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
-                </div>
+                
+                    <div class="product">
+                        <img src="@GetBase64String(item.Picture)" style="width: 100%; height: 100%;" />
+                        <a href="/Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
+                    </div>
+                
             }
         </div>
     </div>

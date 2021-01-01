@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AuthSystem.Migrations
 {
-    public partial class AA : Migration
+    public partial class UsersProductConnection : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,6 +28,7 @@ namespace AuthSystem.Migrations
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
                     Nickname = table.Column<string>(type: "varchar(100)", nullable: true),
+                    PostCode = table.Column<string>(type: "varchar(6)", nullable: true),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -49,23 +50,29 @@ namespace AuthSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    flags = table.Column<string[]>(type: "text[]", nullable: true),
-                    FullName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    Email = table.Column<string>(type: "text", nullable: false),
-                    PostalCode = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: false),
-                    MobileNumber = table.Column<string>(type: "text", nullable: true),
-                    UserDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    Password = table.Column<string>(type: "text", nullable: false),
-                    ConfirmPassword = table.Column<string>(type: "text", nullable: true)
+                    Name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    LatinName = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: false),
+                    Kind = table.Column<string>(type: "text", nullable: true),
+                    Type = table.Column<string>(type: "text", nullable: true),
+                    Water = table.Column<string>(type: "text", nullable: true),
+                    Light = table.Column<string>(type: "text", nullable: true),
+                    ProductDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    Trade = table.Column<bool>(type: "boolean", nullable: false),
+                    Picture = table.Column<byte[]>(type: "bytea", nullable: true),
+                    Post = table.Column<bool>(type: "boolean", nullable: false),
+                    Soil = table.Column<string>(type: "text", nullable: true),
+                    UserId = table.Column<string>(type: "text", nullable: true),
+                    PublisherName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -174,58 +181,6 @@ namespace AuthSystem.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Products",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: true),
-                    Name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    LatinName = table.Column<string>(type: "text", nullable: true),
-                    Description = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: false),
-                    Kind = table.Column<string>(type: "text", nullable: true),
-                    Type = table.Column<string>(type: "text", nullable: true),
-                    Water = table.Column<string>(type: "text", nullable: true),
-                    Light = table.Column<string>(type: "text", nullable: true),
-                    ProductDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    Trade = table.Column<bool>(type: "text", nullable: false),
-                    Picture = table.Column<byte[]>(type: "bytea", nullable: false),
-                    Delivery = table.Column<bool>(type: "text", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Products", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Products_User_UserId",
-                        column: x => x.UserId,
-                        principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Review",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: true),
-                    ReviewTitle = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: false),
-                    ReviewDescription = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    ReviewDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Review", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Review_User_UserId",
-                        column: x => x.UserId,
-                        principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -262,16 +217,6 @@ namespace AuthSystem.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_UserId",
-                table: "Products",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Review_UserId",
-                table: "Review",
-                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -295,16 +240,10 @@ namespace AuthSystem.Migrations
                 name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Review");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "User");
         }
     }
 }

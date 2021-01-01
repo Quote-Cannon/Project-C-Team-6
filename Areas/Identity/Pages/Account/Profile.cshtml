@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model ProfileModel
 
 @inject UserManager<ApplicationUser> UserManager
@@ -31,14 +31,13 @@
 
     <p class="hiprofile">Hi, @UserManager.GetUserAsync(User).Result.Nickname!</p>
     <div class="profilebuttons">
-        
+
         <div class="but">
             <a class="pfbutton" id="add" asp-controller="Products" asp-action="Create"><img class="butid" src="/Images/Layer 2.png" alt=""></a>
             <p class="butext" id="add">Add a product</p>
         </div>
-
         <div class="but">
-            <a href="ProfileProducts.html" class="pfbutton" id="myprods"><img class="butid" src="/Images/Layer 3.png" alt=""></a>
+            <a class="pfbutton" id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@UserManager.GetUserAsync(User).Result.Id"><img class="butid" src="/Images/Layer 3.png" alt=""></a>
 
             <p class="butext" id="myprods">Your products</p>
         </div>
