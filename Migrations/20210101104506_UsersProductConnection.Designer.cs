@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthSystem.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20201231074357_products")]
-    partial class products
+    [Migration("20210101104506_UsersProductConnection")]
+    partial class UsersProductConnection
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -98,9 +98,6 @@ namespace AuthSystem.Migrations
                         .HasColumnType("integer")
                         .UseIdentityByDefaultColumn();
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("text");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(300)
@@ -129,6 +126,9 @@ namespace AuthSystem.Migrations
                     b.Property<DateTime>("ProductDate")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<string>("PublisherName")
+                        .HasColumnType("text");
+
                     b.Property<string>("Soil")
                         .HasColumnType("text");
 
@@ -145,8 +145,6 @@ namespace AuthSystem.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Products");
                 });
@@ -285,13 +283,6 @@ namespace AuthSystem.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("AuthSystem.Models.Product", b =>
-                {
-                    b.HasOne("AuthSystem.Areas.Identity.Data.ApplicationUser", null)
-                        .WithMany("Products")
-                        .HasForeignKey("ApplicationUserId");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -341,11 +332,6 @@ namespace AuthSystem.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("AuthSystem.Areas.Identity.Data.ApplicationUser", b =>
-                {
-                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

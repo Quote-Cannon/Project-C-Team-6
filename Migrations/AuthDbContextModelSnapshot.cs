@@ -124,6 +124,9 @@ namespace AuthSystem.Migrations
                     b.Property<DateTime>("ProductDate")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<string>("PublisherName")
+                        .HasColumnType("text");
+
                     b.Property<string>("Soil")
                         .HasColumnType("text");
 
