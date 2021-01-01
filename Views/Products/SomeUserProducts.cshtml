@@ -5,7 +5,6 @@
 @inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Your products";
-    Task<ApplicationUser> thisUser = UserManager.GetUserAsync(User); 
     string GetBase64String(byte[] picture)
     {
         string imreBase64Data = Convert.ToBase64String(picture);
@@ -33,7 +32,7 @@
             <img class="pfp" src="http://img4.wikia.nocookie.net/__cb20140328190757/pokemon/images/thumb/2/21/001Bulbasaur.png/100px-001Bulbasaur.png" alt="">
         </div>
 
-    <p class="hiprofile">Hi, @thisUser.Result.Nickname!</p>
+    <p class="hiprofile">'s products</p>
     </div>
     <div class="body-row">
         <div class="filter-row">
@@ -97,13 +96,12 @@
         <div class="pro-page products-row">
             @foreach (var item in Model)
             {
-                if (thisUser.Result.Id == item.UserId)
-                {
+                
                     <div class="product">
                         <img src="@GetBase64String(item.Picture)" style="width: 100%; height: 100%;" />
                         <a href="/Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
                     </div>
-                }
+                
             }
         </div>
     </div>

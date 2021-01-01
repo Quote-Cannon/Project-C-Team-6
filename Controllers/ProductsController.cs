@@ -17,12 +17,9 @@ using AuthSystem.Areas.Identity.Data;
 
 namespace AuthSystem.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
     public class ProductsController : Controller
     {
         private readonly AuthDbContext _context;
-        UserManager<ApplicationUser> UserManager;
         public ProductsController(AuthDbContext context)
         {
             _context = context;
@@ -60,27 +57,33 @@ namespace AuthSystem.Controllers
            
             return View(await products.ToListAsync());
         }
-        [HttpGet]
         public async Task<IActionResult> SomeUserProducts(string publisher)
         {
-            var pub = await _context.Users
+           /* var pub = await _context.Users
                 .FirstOrDefaultAsync(m => m.Id == publisher);
             if (pub == null)
             {
                 return NotFound();
-            }
-            var products = from p in _context.Products
-                           where p.UserId == publisher
+            }*/
+            IEnumerable<Product> products = from p in _context.Products
                            select p;
-            return View(await products.ToListAsync());
+            List<Product> newProds = products.ToList();
+            List<Product> newerProds = new List<Product>();
+            for (int i = 0; i < newProds.Count; i++)
+            {
+                if (newProds[i].UserId == publisher)
+                    newerProds.Add(newProds[i]);
+            }
+            IEnumerable<Product> qry = newerProds.AsEnumerable();
+            return View( qry.ToList());
         }
 
-        public async Task<IActionResult> SomeUserProducts()
+       /* public async Task<IActionResult> SomeUserProducts()
         {
             var products = from p in _context.Products
                            select p;
             return View(await products.ToListAsync());
-        }
+        }*/
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -110,7 +113,7 @@ namespace AuthSystem.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,UserId")] Product product, IFormFile Picture, ApplicationUser DezeUser)
+        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,UserId,PublisherName")] Product product, IFormFile Picture, ApplicationUser DezeUser)
         {
             //var file = httpcontext.request.form.files;
             //byte[] streamoutput;

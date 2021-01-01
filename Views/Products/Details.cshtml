@@ -21,7 +21,7 @@
                 <div class="plantdesc">
                     <h1>Name: @Html.DisplayFor(model => model.Name)</h1>
                     
-                    <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts/@Model.UserId" asp">Publisher: @Html.DisplayFor(model => model.UserId)</a>
+                    <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">Publisher: @Html.DisplayFor(model => model.PublisherName)</a>
 
                     <p>Latin name: @Html.DisplayFor(model => model.LatinName)</p>
                     <h3 style="text-align:left;">Description:</h3>
