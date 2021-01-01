@@ -3,15 +3,17 @@ using System;
 using AuthSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AuthSystem.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    partial class AuthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201229181405_changedPostToDelivery")]
+    partial class changedPostToDelivery
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,7 +121,6 @@ namespace AuthSystem.Migrations
                         .HasColumnType("character varying(50)");
 
                     b.Property<byte[]>("Picture")
-                        .IsRequired()
                         .HasColumnType("bytea");
 
                     b.Property<DateTime>("ProductDate")

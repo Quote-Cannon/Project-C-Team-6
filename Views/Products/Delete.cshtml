@@ -36,17 +36,17 @@
                 @Html.DisplayFor(model => model.Description)
             </dd>
             @*<dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Soil)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Soil)
-            </dd>*@
+            @Html.DisplayNameFor(model => model.Soil)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Soil)
+        </dd>*@
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Picture)
             </dt>
             <dd class="col-sm-10">
                 @*@Html.DisplayFor(model => model.Picture)*@
-                <img src="@GetBase64String(Model.Picture)" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;" />
+                <img src="@GetBase64String(Model.Picture)" style="width: 10%; height: 10%; display: inline-block; border-radius: 15px;" />
 
             </dd>
             <dt class="col-sm-2">
@@ -74,23 +74,35 @@
                 @Html.DisplayFor(model => model.Light)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ProductDate)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ProductDate)
-            </dd>
-            @*<dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Trade)
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Trade)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Post)
+                @Html.DisplayNameFor(model => model.Delivery)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Post)
-            </dd>*@
+                @Html.DisplayFor(model => model.Delivery)
+            </dd>
+            @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductDate)
+        </dt>*@
+            @*<dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductDate)
+        </dd>*@
+            @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Trade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Trade)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Delivery)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Delivery)
+        </dd>*@
         </dl>
         <div class="button-cre">
             <div class="form-group">

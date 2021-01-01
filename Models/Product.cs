@@ -22,10 +22,9 @@ namespace AuthSystem.Models
         [DataType(DataType.Date)]
         public DateTime ProductDate { get; set; }
         [Required]
-        public bool Trade { get; set; }
+        public string Trade { get; set; }
         public byte[] Picture { get; set; }
-        [Required]
-        public bool Post { get; set; }
+        public string Delivery { get; set; }
         public string Soil { get; set; }
 
         public Product()

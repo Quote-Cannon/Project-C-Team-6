@@ -2,6 +2,14 @@
 
 @{
     ViewData["Title"] = "Edit";
+
+    string GetBase64String(byte[] picture)
+    {
+        string imreBase64Data = Convert.ToBase64String(picture);
+        string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
+        return imgDataURL;
+    }
+
 }
 
 <div class="body-row2">
@@ -27,25 +35,26 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="file" asp-for="Picture" name="Picture" />
+                <img name="Picture2" src="@GetBase64String(Model.Picture)" style="width: 10%; height: 10%; display: inline-block; border-radius: 15px;" />
+                <input type="file" name="Picture" />
             </div>
             <div class="form-group form-check">
                 @*<label class="form-check-label">
-                    <input class="form-check-input" asp-for="Trade" /> @Html.DisplayNameFor(model => model.Trade): Offering to get something in exchange.
-                </label>
-                <br />
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Post" /> @Html.DisplayNameFor(model => model.Post): Send the product by post.
-                </label>*@
+                        <input class="form-check-input" asp-for="Trade" /> @Html.DisplayNameFor(model => model.Trade): Offering to get something in exchange.
+                    </label>
+                    <br />
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Post" /> @Html.DisplayNameFor(model => model.Post): Send the product by post.
+                    </label>*@
             </div>
-            </div>
+        </div>
         <div class="sel-boxes">
             <div class="select-box">
                 <div class="form-group">
                     <label asp-for="Kind" class="control-label">Product</label>
                     <select asp-for="Kind" class="form-control" required="required">
                         <option value="" disabled selected hidden>Products</option>
-                        <option value="seed (zaad)">Seed (Zaad)</option>
+                        <option value="seeds (zaad)">Seeds (Zaden)</option>
                         <option value="bulb (bol)">Bulb (Bol)</option>
                         <option value="cutting (stek)">Cutting (Stek)</option>
                         <option value="seedling (zaadling)">Seedling (Zaadling)</option>
@@ -100,22 +109,43 @@
                     <span asp-validation-for="Light" class="text-danger"></span>
                 </div>
             </div>
-        </div>
-        <div class="product-date">
-            @*<div class="form-group">
-                <label asp-for="Soil" class="control-label"></label>
-                <input asp-for="Soil" class="form-control" placeholder="Soil Type" />
-                <span asp-validation-for="Soil" class="text-danger"></span>
-            </div>*@
-            <div class="button-cre">
+            <div class="select-box">
                 <div class="form-group">
-                    <input type="submit" value="Save" class="edit" id="sv" />
+                    <label asp-for="Trade" class="control-label"></label>
+                    <select asp-for="Trade" class="form-control" required="required">
+                        <option value="" disabled selected hidden>Trade</option>
+                        <option value="I want someting in exchange (Ik wil er iets voor terug)">I want someting in exchange (Ik wil er iets voor terug)</option>
+                        <option value="I want nothing in exchange (Ik wil er niks voor terug)">I want nothing in exchange (Ik wil er niks voor terug)</option>
+                    </select>
+                    <span asp-validation-for="Trade" class="text-danger"></span>
                 </div>
             </div>
-            <div class="button">
-                <a class="edit" id="sv" asp-action="Index">Back to productpage</a>
+            <div class="select-box">
+                <div class="form-group">
+                    <label asp-for="Delivery" class="control-label"></label>
+                    <select asp-for="Delivery" class="form-control" required="required">
+                        <option value="" disabled selected hidden>Delivery</option>
+                        <option value="Meet up (Samenkomen)">Meet up (Samenkomen)</option>
+                        <option value="Send it by mail (Verzenden per post)">Send it by mail (Verzenden per post)</option>
+                    </select>
+                    <span asp-validation-for="Delivery" class="text-danger"></span>
+                </div>
             </div>
-        </div>
+            <div class="product-date">
+                @*<div class="form-group">
+                        <label asp-for="Soil" class="control-label"></label>
+                        <input asp-for="Soil" class="form-control" placeholder="Soil Type" />
+                        <span asp-validation-for="Soil" class="text-danger"></span>
+                    </div>*@
+                <div class="button-cre">
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="edit" id="sv" />
+                    </div>
+                </div>
+                <div class="button">
+                    <a class="edit" id="sv" asp-action="Index">Back to productpage</a>
+                </div>
+            </div>
     </form>
 </div>
 
