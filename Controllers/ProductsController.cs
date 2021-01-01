@@ -188,8 +188,18 @@ namespace AuthSystem.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade, Delivery")] Product product, IFormFile Picture)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade, Delivery")] Product product, IFormFile Picture, ApplicationUser User)
         {
+            var pp = _context.Products.FirstOrDefault(p => p.Id.Equals(id));
+            // Avoid overriding the EF tracking by first finding the right product, 
+            //setting the image variable and detach the tracked product before updating the newer tracked product later on
+            byte[] image = pp.Picture;
+            if (pp != null)
+            {
+                // detach
+                _context.Entry(pp).State = EntityState.Detached;
+            }
+
             //if (id != product.Id)
             //{
             //    return NotFound();
@@ -238,6 +248,7 @@ namespace AuthSystem.Controllers
             //    }
             //    return RedirectToAction(nameof(Index));
             //}
+
             if (id != product.Id)
             {
                 return NotFound();
@@ -245,22 +256,30 @@ namespace AuthSystem.Controllers
 
             if (ModelState.IsValid)
             {
-                try
+                if (Picture != null)
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    if (Picture.Length > 0)
+                    //Convert Image to byte and save to database
+                    {
+                        byte[] p1 = null;
+                        using (var fs1 = Picture.OpenReadStream())
+                        {
+                            using (var ms1 = new MemoryStream())
+                            {
+                                fs1.CopyTo(ms1);
+                                p1 = ms1.ToArray();
+                            }
+                            product.Picture = p1;
+                        }
+                    }   
                 }
-                catch (DbUpdateConcurrencyException)
+                if (Picture == null)
                 {
-                    if (!ProductExists(product.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    product.Picture = image;
                 }
+                _context.Update(product);
+                User.AddProductToUser(product);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(product);

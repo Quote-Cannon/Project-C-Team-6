@@ -104,12 +104,12 @@
 
         <div class="pro-page products-row">
             @foreach (var item in Model)
-            {
+             {
                 <div class="product">
                     <img src="@GetBase64String(item.Picture)" style="width: 100%; height: 100%;" />
                     <a href="Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
                 </div>
-            }
+             }
         </div>
     </div>
 </body>
