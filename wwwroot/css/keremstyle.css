@@ -1,3 +1,16 @@
+
+.biomandiv {
+    display: inline;
+}
+
+.bioman {
+    display: inline;
+    text-align: end;
+    float:right;
+    max-width: 100%;
+    margin-right:1rem;
+}
+
 #logout {
     border: none;
     background-color: #b3dea2;

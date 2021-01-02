@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using MimeKit;
+using MailKit.Net.Smtp;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AuthSystem.Areas.Identity.Pages.Account
 {
@@ -28,7 +32,28 @@ namespace AuthSystem.Areas.Identity.Pages.Account
 
         public string EmailConfirmationUrl { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string email, string returnUrl = null)
+        public void SendConfirmEmail(string receiverName, string receiverEmail, string confirmurl)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("BiodiverCityMAX", "biodivercitymax010@gmail.com"));
+            message.To.Add(new MailboxAddress(receiverName,receiverEmail));
+            message.Subject = "Confirm your email on BiodiverCityMAX!";
+            message.Body = new TextPart("plain")
+            {
+                Text = "Click on the link below to confirm your email\n" + confirmurl
+            };
+
+            using (var client = new SmtpClient())
+            {
+                client.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
+                client.Connect("smtp.gmail.com", 465, true);
+                client.Authenticate("biodivercitymax010@gmail.com", "g5_!P29=3hJ7hUE");
+                client.Send(message); 
+                client.Disconnect(true);
+            }
+        }
+
+        public async Task<IActionResult> OnGetAsync(string name, string email, string returnUrl = null)
         {
             if (email == null)
             {
@@ -43,18 +68,16 @@ namespace AuthSystem.Areas.Identity.Pages.Account
 
             Email = email;
             // Once you add a real email sender, you should remove this code that lets you confirm the account
-            DisplayConfirmAccountLink = true;
-            if (DisplayConfirmAccountLink)
-            {
-                var userId = await _userManager.GetUserIdAsync(user);
-                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                EmailConfirmationUrl = Url.Page(
-                    "/Account/ConfirmEmail",
-                    pageHandler: null,
-                    values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-                    protocol: Request.Scheme);
-            }
+            var userId = await _userManager.GetUserIdAsync(user);
+            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+            EmailConfirmationUrl = Url.Page(
+                "/Account/ConfirmEmail",
+                pageHandler: null,
+                values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
+                protocol: Request.Scheme);
+
+            SendConfirmEmail(name, email, EmailConfirmationUrl);
 
             return Page();
         }
