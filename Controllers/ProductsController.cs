@@ -12,7 +12,6 @@ using AuthSystem.Data;
 using AuthSystem.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using AuthSystem.Areas.Identity.Data;
 
 
 namespace AuthSystem.Controllers
@@ -113,7 +112,7 @@ namespace AuthSystem.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,UserId,PublisherName, Delivery")] Product product, IFormFile Picture, ApplicationUser DezeUser)
+        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,UserId,PublisherName, Delivery")] Product product, IFormFile Picture)
         {
             //var file = httpcontext.request.form.files;
             //byte[] streamoutput;
@@ -159,7 +158,6 @@ namespace AuthSystem.Controllers
                         }
                     }
                     _context.Add(product);
-                    DezeUser.AddProductToUser(product);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
@@ -188,7 +186,7 @@ namespace AuthSystem.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade, Delivery")] Product product, IFormFile Picture, ApplicationUser User)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade, Delivery,UserId,PublisherName")] Product product, IFormFile Picture)
         {
             var pp = _context.Products.FirstOrDefault(p => p.Id.Equals(id));
             // Avoid overriding the EF tracking by first finding the right product, 
@@ -278,7 +276,6 @@ namespace AuthSystem.Controllers
                     product.Picture = image;
                 }
                 _context.Update(product);
-                User.AddProductToUser(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

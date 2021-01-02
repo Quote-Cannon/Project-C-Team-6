@@ -28,6 +28,7 @@ namespace AuthSystem.Models
 
         public string UserId { get; set; }
         public string PublisherName { get; set; }
+        
 
         public Product()
         {

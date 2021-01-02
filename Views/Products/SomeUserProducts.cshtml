@@ -5,6 +5,7 @@
 @inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Your products";
+   @* ApplicationUser thisUser = hier moet de user's profiel komen;*@
     string GetBase64String(byte[] picture)
     {
         string imreBase64Data = Convert.ToBase64String(picture);
@@ -18,7 +19,8 @@
     <div class="slider">
         <div class="slider2">
             <div class="slider-text">
-                <h1>Your products</h1>
+                <h1>'s products</h1>
+               @* <div class="pfpdiv" style="background-image:url('@GetBase64String(prod)')"></div>*@
             </div>
         </div>
     </div>
@@ -26,14 +28,6 @@
 </header>
 <html lang="en">
 <body>
-    <div>
-
-        <div class="pfpdiv">
-            <img class="pfp" src="http://img4.wikia.nocookie.net/__cb20140328190757/pokemon/images/thumb/2/21/001Bulbasaur.png/100px-001Bulbasaur.png" alt="">
-        </div>
-
-    <p class="hiprofile">'s products</p>
-    </div>
     <div class="body-row">
         <div class="filter-row">
             <div class="search-pr">

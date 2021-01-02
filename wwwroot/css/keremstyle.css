@@ -14,15 +14,20 @@
 }
 
 .pfpdiv {
-    display: inline-block;
+    margin-top: 1rem;
+    width: 8rem;
+    height: 8rem;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
 }
 
-.pfp {
+/*.pfpdiv .pfp {
+    height: 100%;*//*
     display: block;
-    width: 7rem;
     border-radius: 5%;
-    border: 0.02rem solid rgba(0,0,0,0.1);
-}
+    border: 0.02rem solid rgba(0,0,0,0.1);*/
+/*}*/
 
 .hiprofile {
     font-size: 1.6rem;

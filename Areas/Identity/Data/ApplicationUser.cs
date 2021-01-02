@@ -19,13 +19,6 @@ namespace AuthSystem.Areas.Identity.Data
         [Column(TypeName = "varchar(6)")]
         public string PostCode { get; set; }
 
-        [PersonalData]
-        public List<Product> UserProducts = new List<Product>();
-
-        public void AddProductToUser(Product p)
-        {
-            UserProducts.Add(p);
-        }
-
+        public byte[] ProfilePicture { get; set; }
     }
 }

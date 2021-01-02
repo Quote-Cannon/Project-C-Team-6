@@ -1,5 +1,8 @@
-﻿@model AuthSystem.Models.Product
-
+﻿@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Identity.UI.Services;
+@using AuthSystem.Areas.Identity.Data
+@model AuthSystem.Models.Product
+@inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Edit";
 
@@ -16,6 +19,8 @@
     <h1 style="margin-top: 25px;">Change product</h1>
     <form asp-action="Edit" method="post" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="UserId" class="form-control" value="@UserManager.GetUserAsync(User).Result.Id" />
+        <input type="hidden" asp-for="PublisherName" class="form-control" value="@UserManager.GetUserAsync(User).Result.Nickname" />
         <div class="pro-names">
             <div class="form-group">
                 <input type="hidden" asp-for="Id" />
@@ -146,6 +151,7 @@
                     <a class="edit" id="sv" asp-action="Index">Back to productpage</a>
                 </div>
             </div>
+        </div>
     </form>
 </div>
 
