@@ -66,14 +66,14 @@ namespace AuthSystem.Controllers
             }*/
             IEnumerable<Product> products = from p in _context.Products
                            select p;
-            List<Product> newProds = products.ToList();
-            List<Product> newerProds = new List<Product>();
-            for (int i = 0; i < newProds.Count; i++)
+            List<Product> oldprods = products.ToList();
+            List<Product> newprods = new List<Product>();
+            for (int i = 0; i < oldprods.Count; i++)
             {
-                if (newProds[i].UserId == publisher)
-                    newerProds.Add(newProds[i]);
+                if (oldprods[i].UserId == publisher)
+                    newprods.Add(oldprods[i]);
             }
-            IEnumerable<Product> qry = newerProds.AsEnumerable();
+            IEnumerable<Product> qry = newprods.AsEnumerable();
             return View( qry.ToList());
         }
 

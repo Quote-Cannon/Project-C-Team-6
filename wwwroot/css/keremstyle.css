@@ -8,6 +8,28 @@
     margin-left: 3rem;
 }
 
+.upl{
+    border: 0.01rem solid black;
+    padding:0.2rem 0.5rem;
+    border-radius:0.5rem;
+}
+
+.upl:hover, a.edit:hover {
+    cursor: pointer;
+    color:white;
+    background-color: rgb(122, 184, 0);
+    transition: background-color 0.5s, color 0.2s;
+    transition-timing-function: ease-out;
+}
+
+.upl:active, a.edit:active {
+    background-color: rgb(170, 255, 0);
+    transition: background-color 0.5s, color 0.2s;
+    color: black;
+}
+
+
+
 .pdiv {
     margin-top: 1rem;
     text-align: center;
@@ -20,8 +42,19 @@
     background-size: cover;
     background-position: center;
     border-radius: 50%;
+    border: 0.02rem solid rgba(0,0,0,0.1);
 }
 
+.regpfpdiv {
+    display: inline-block;
+}
+
+.regpfp {
+    display: block;
+    width: 6rem;
+    border-radius: 10%;
+    border: 0.02rem solid rgba(0,0,0,0.1);
+}
 /*.pfpdiv .pfp {
     height: 100%;*//*
     display: block;

@@ -98,28 +98,29 @@ namespace AuthSystem.Areas.Identity.Pages.Account
         {
             returnUrl = returnUrl ?? Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Nickname = Input.Nickname, PhoneNumber = Input.PhoneNumber, PostCode = Input.PostCode, ProfilePicture = new byte[0] };
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Nickname = Input.Nickname, PhoneNumber = Input.PhoneNumber, PostCode = Input.PostCode };
 
                 if (ModelState.IsValid)
                 {
-                    if (Input.ProfilePicture != null)
+                if (Input.ProfilePicture != null)
+                {
+                    if (Input.ProfilePicture.Length > 0)
+                    //Convert Image to byte and save to database
                     {
-                        if (Input.ProfilePicture.Length > 0)
-                        //Convert Image to byte and save to database
+                        byte[] p1 = null;
+                        using (var fs1 = Input.ProfilePicture.OpenReadStream())
                         {
-                            byte[] p1 = null;
-                            using (var fs1 = Input.ProfilePicture.OpenReadStream())
+                            using (var ms1 = new MemoryStream())
                             {
-                                using (var ms1 = new MemoryStream())
-                                {
-                                    fs1.CopyTo(ms1);
-                                    p1 = ms1.ToArray();
-                                }
-                                user.ProfilePicture = p1;
-
+                                fs1.CopyTo(ms1);
+                                p1 = ms1.ToArray();
                             }
+                            user.ProfilePicture = p1;
+
                         }
                     }
+                }
+                
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

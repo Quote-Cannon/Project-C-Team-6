@@ -8,10 +8,16 @@
     ViewData["Title"] = "MyProfile";
     string GetBase64String(byte[] picture)
     {
-        string imreBase64Data = Convert.ToBase64String(picture);
-        string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
-        return imgDataURL;
+        if (picture != null)
+        {
+
+            string imreBase64Data = Convert.ToBase64String(picture);
+            string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
+            return imgDataURL;
+        }
+        return "/images/pfp.jpg";
     }
+    string pfp = GetBase64String(loggedUser.ProfilePicture);
 }
 
 @section Scripts {
@@ -31,7 +37,7 @@
         <div class="editdiv">
             <a href="/Identity/Account/Manage" class="edit" id="edit">Edit Account</a>
         </div>
-        <div class="pfpdiv" style="background-image:url('@GetBase64String(loggedUser.ProfilePicture)')"></div>
+        <div class="pfpdiv" style="background-image:url('@pfp')"></div>
     </div>
 
     <p class="hiprofile">Hi, @loggedUser.Nickname!</p>
@@ -43,7 +49,7 @@
         </div>
         <div class="but">
             <a class="pfbutton" id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@UserManager.GetUserAsync(User).Result.Id"><img class="butid" src="/Images/Layer 3.png" alt=""></a>
-
+       
             <p class="butext" id="myprods">Your products</p>
         </div>
 
