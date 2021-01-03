@@ -11,6 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using AuthSystem.Data;
 
+//Language
+using LazZiya.ExpressLocalization;
+using System.Globalization;
+
 namespace AuthSystem
 {
     public class Startup
@@ -25,6 +29,25 @@ namespace AuthSystem
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Language
+            var cultures = new[]
+            {
+            new CultureInfo("nl"),
+            new CultureInfo("en")
+            };
+            services.AddRazorPages()
+                .AddExpressLocalization<ExpressLocalizationResource, 
+            ViewLocalizationResource>(
+            ops =>
+            {
+                    ops.ResourcesPath = "LocalizationResources";
+                    ops.RequestLocalizationOptions = o =>
+                    {
+                        o.SupportedCultures = cultures;
+                        o.SupportedUICultures = cultures;
+                        o.DefaultRequestCulture = new RequestCulture("en");
+                    };
+                });
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddDbContext<Data.AuthDbContext>(options =>

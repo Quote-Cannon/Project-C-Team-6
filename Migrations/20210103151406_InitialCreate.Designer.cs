@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthSystem.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20210101172259_initialCreate")]
-    partial class initialCreate
+    [Migration("20210103151406_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,6 +68,9 @@ namespace AuthSystem.Migrations
 
                     b.Property<string>("PostCode")
                         .HasColumnType("varchar(6)");
+
+                    b.Property<byte[]>("ProfilePicture")
+                        .HasColumnType("bytea");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
