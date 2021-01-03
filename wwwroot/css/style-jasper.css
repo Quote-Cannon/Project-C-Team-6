@@ -381,6 +381,10 @@ body .container {
         font-size: 50px;
     }
 
+    .navbar-brand {
+        margin-right: 15px;
+    }
+
 }
     @media screen and (max-width: 500px){
         
