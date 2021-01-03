@@ -1,15 +1,33 @@
-﻿@model AuthSystem.Models.Product
-
-
+﻿@using System;
+@using Microsoft.AspNetCore.Identity;
+@using AuthSystem.Areas.Identity.Data
+@model AuthSystem.Models.Product
+@inject UserManager<ApplicationUser> UserManager
 
 @{
     ViewData["Title"] = "Details";
-
+    ApplicationUser thisUser = await UserManager.FindByIdAsync(Model.UserId);
     string GetBase64String(byte[] picture)
     {
         string imreBase64Data = Convert.ToBase64String(picture);
         string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
         return imgDataURL;
+    }
+    string GetPostCodeDistance()
+    {
+        if (UserManager.GetUserAsync(User).Result.Id == thisUser.Id)
+            return "";
+        string homeCode = UserManager.GetUserAsync(User).Result.PostCode;
+        string goalCode = thisUser.PostCode;
+        if (homeCode.Substring(0, 2) != goalCode.Substring(0, 2))
+            return "This person does not live in the same region as you.";
+        if (homeCode.Substring(4, 2) == goalCode.Substring(4, 2))
+            return "This person lives near you";
+        if (homeCode.Substring(2, 2) == goalCode.Substring(2, 2))
+            return "This person lives in your neighborhood.";
+        if (Math.Abs(int.Parse(homeCode.Substring(2, 2)) - int.Parse(goalCode.Substring(2, 2))) < 10)
+            return "This person lives in a neighborhood near yours.";
+        return "This person does not live in a neighborhood near yours.";
     }
 }
 <!DOCTYPE html>
@@ -20,7 +38,7 @@
             <div class="body-row2">
                 <div class="plantdesc">
                     <h1>Name: @Html.DisplayFor(model => model.Name)</h1>
-                    
+
                     <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">Owner: @Html.DisplayFor(model => model.PublisherName)</a>
 
                     <p>Latin name: @Html.DisplayFor(model => model.LatinName)</p>
@@ -35,8 +53,9 @@
                         <li>Trade: @Html.DisplayFor(model => model.Trade)</li>
                         <li>Delivery: @Html.DisplayFor(model => model.Delivery)</li>
                     </ul>
-                    
+
                     <p>This producted was posted on: @Html.DisplayFor(model => model.ProductDate)</p>
+                    <p>@GetPostCodeDistance()</p>
                 </div>
                 <div class="image1">
                     <img src="@GetBase64String(Model.Picture)" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;" />
@@ -54,19 +73,24 @@
             <div class="title">
                 <h5>Other photos of this product</h5>
             </div>
-            <p>coming soon!</p>
-            @*<div class="image2"  style="margin-right:30px;">
-                    <img src="https://www.freeimageslive.co.uk/files/images009/seeds.jpg" class="mor-ima">
+            @if (Model.PictureTwo != null)
+            {
+                <div class="image2" style="margin-right:30px;">
+                    <img src="@GetBase64String(Model.PictureTwo)" class="mor-ima">
                 </div>
+            }
+            @if (Model.PictureTwo != null)
+            {
                 <div class="image2">
-                    <img src="https://p2.piqsels.com/preview/949/891/620/herbs-home.jpg" class="mor-ima">
+                    <img src="@GetBase64String(Model.PictureThree)" class="mor-ima">
                 </div>
-                <div class="button-details">*@
-            <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-            <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-            <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">Back to productpage</a>
+            }
+            <div class="button-details">
+                <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">Back to productpage</a>
+            </div>
         </div>
-    </div>
     </div>
 </body>
 </html>

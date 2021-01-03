@@ -23,6 +23,8 @@ namespace AuthSystem.Models
         [Required]
         public string Trade { get; set; }
         public byte[] Picture { get; set; }
+        public byte[] PictureTwo { get; set; }
+        public byte[] PictureThree { get; set; }
         public string Delivery { get; set; }
         public string Soil { get; set; }
 

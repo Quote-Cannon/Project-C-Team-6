@@ -1,11 +1,12 @@
-﻿@using Microsoft.AspNetCore.Identity;
+﻿@using System;
+@using Microsoft.AspNetCore.Identity;
 @using Microsoft.AspNetCore.Identity.UI.Services;
 @using AuthSystem.Areas.Identity.Data
 @model IEnumerable<AuthSystem.Models.Product>
 @inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Your products";
-   @* ApplicationUser thisUser = hier moet de user's profiel komen;*@
+    ApplicationUser thisUser = await UserManager.FindByIdAsync(Model.First().UserId);
     string GetBase64String(byte[] picture)
     {
         string imreBase64Data = Convert.ToBase64String(picture);
@@ -19,7 +20,7 @@
     <div class="slider">
         <div class="slider2">
             <div class="slider-text">
-                <h1>'s products</h1>
+                <h1>@thisUser.Nickname's products</h1>
                @* <div class="pfpdiv" style="background-image:url('@GetBase64String(prod)')"></div>*@
             </div>
         </div>
