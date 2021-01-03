@@ -22,7 +22,7 @@ namespace AuthSystem.Areas.Identity
 
                 services.AddDefaultIdentity<ApplicationUser>(options =>
                 {
-                    options.SignIn.RequireConfirmedAccount = false;
+                    options.SignIn.RequireConfirmedAccount = true;
                     options.Password.RequireLowercase = false;
                     options.Password.RequireUppercase = false;
                     options.Password.RequireNonAlphanumeric = false;

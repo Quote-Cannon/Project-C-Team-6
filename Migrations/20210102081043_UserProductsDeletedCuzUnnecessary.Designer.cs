@@ -3,15 +3,17 @@ using System;
 using AuthSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AuthSystem.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    partial class AuthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210102081043_UserProductsDeletedCuzUnnecessary")]
+    partial class UserProductsDeletedCuzUnnecessary
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,9 +69,6 @@ namespace AuthSystem.Migrations
                     b.Property<string>("PostCode")
                         .HasColumnType("varchar(6)");
 
-                    b.Property<byte[]>("ProfilePicture")
-                        .HasColumnType("bytea");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
 
@@ -122,12 +121,6 @@ namespace AuthSystem.Migrations
                         .HasColumnType("character varying(50)");
 
                     b.Property<byte[]>("Picture")
-                        .HasColumnType("bytea");
-
-                    b.Property<byte[]>("PictureThree")
-                        .HasColumnType("bytea");
-
-                    b.Property<byte[]>("PictureTwo")
                         .HasColumnType("bytea");
 
                     b.Property<DateTime>("ProductDate")

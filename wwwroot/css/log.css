@@ -93,3 +93,17 @@ h2{
     text-align: center;
     width: 100%;
 }
+
+#login.login:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(122, 184, 0);
+    transition: background-color 0.5s, color 0.2s;
+    transition-timing-function: ease-out;
+}
+
+#login.login:active {
+    background-color: rgb(170, 255, 0);
+    transition: background-color 0.5s, color 0.2s;
+    color: black;
+}

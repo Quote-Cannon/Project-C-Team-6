@@ -12,7 +12,6 @@ using AuthSystem.Data;
 using AuthSystem.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using AuthSystem.Areas.Identity.Data;
 
 
 namespace AuthSystem.Controllers
@@ -83,14 +82,14 @@ namespace AuthSystem.Controllers
             }*/
             IEnumerable<Product> products = from p in _context.Products
                            select p;
-            List<Product> newProds = products.ToList();
-            List<Product> newerProds = new List<Product>();
-            for (int i = 0; i < newProds.Count; i++)
+            List<Product> oldprods = products.ToList();
+            List<Product> newprods = new List<Product>();
+            for (int i = 0; i < oldprods.Count; i++)
             {
-                if (newProds[i].UserId == publisher)
-                    newerProds.Add(newProds[i]);
+                if (oldprods[i].UserId == publisher)
+                    newprods.Add(oldprods[i]);
             }
-            IEnumerable<Product> qry = newerProds.AsEnumerable();
+            IEnumerable<Product> qry = newprods.AsEnumerable();
             return View( qry.ToList());
         }
 
@@ -127,7 +126,7 @@ namespace AuthSystem.Controllers
         // POST: Products/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,UserId,PublisherName, Delivery")] Product product, IFormFile Picture, ApplicationUser DezeUser)
+        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,UserId,PublisherName, Delivery")] Product product, IFormFile Picture, IFormFile PictureTwo, IFormFile PictureThree)
         {
             //var file = httpcontext.request.form.files;
             //byte[] streamoutput;
@@ -161,19 +160,43 @@ namespace AuthSystem.Controllers
                     //Convert Image to byte and save to database
                     {
                         byte[] p1 = null;
+                        byte[] p2 = null;
+                        byte[] p3 = null;
                         using (var fs1 = Picture.OpenReadStream())
                         {
-                            using (var ms1 = new MemoryStream())
+                            using (var ms = new MemoryStream())
                             {
-                                fs1.CopyTo(ms1);
-                                p1 = ms1.ToArray();
+                                fs1.CopyTo(ms);
+                                p1 = ms.ToArray();
                             }
                             product.Picture = p1;
-                            
+                        }
+                        if (PictureTwo != null)
+                        {
+                            using (var fs2 = PictureTwo.OpenReadStream())
+                            {
+                                using (var ms = new MemoryStream())
+                                {
+                                    fs2.CopyTo(ms);
+                                    p2 = ms.ToArray();
+                                }
+                                product.PictureTwo = p2;
+                            }
+                        }
+                        if (PictureThree != null)
+                        {
+                            using (var fs3 = PictureThree.OpenReadStream())
+                            {
+                                using (var ms = new MemoryStream())
+                                {
+                                    fs3.CopyTo(ms);
+                                    p3 = ms.ToArray();
+                                }
+                                product.PictureThree = p3;
+                            }
                         }
                     }
                     _context.Add(product);
-                    DezeUser.AddProductToUser(product);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
@@ -200,7 +223,7 @@ namespace AuthSystem.Controllers
         // POST: Products/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,Delivery,PublisherName")] Product product, IFormFile Picture, ApplicationUser User)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade, Delivery,UserId,PublisherName")] Product product, IFormFile Picture)
         {
             var pp = _context.Products.FirstOrDefault(p => p.Id.Equals(id));
             // Avoid overriding the EF tracking by first finding the right product, 
@@ -291,7 +314,6 @@ namespace AuthSystem.Controllers
                 }
 
                 _context.Update(product);
-                User.AddProductToUser(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

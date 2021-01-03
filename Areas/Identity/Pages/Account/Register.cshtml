@@ -6,15 +6,16 @@
 <body>
     <div class="body-row2">
         <div id="r">
-            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="All" class="text-danger"></div>
 
 
-                <div class="pfpdiv">
-                    <img class="pfp" src="~/images/pfp.jpg" alt="">
+                <div class="regpfpdiv">
+                    <img class="regpfp" src="~/images/pfp.jpg" alt="">
                 </div>
-                <div class="upload">
-                    <a href="" class="upload" id="upload">Upload a file</a>
+                <div class="form-group">
+                    <label class="upl" for=pp>Upload Profile Picture </label>
+                    <input id="pp" type="file" asp-for="Input.ProfilePicture" />
                 </div>
 
                 <div class="form-group">

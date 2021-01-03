@@ -23,11 +23,14 @@ namespace AuthSystem.Models
         [Required]
         public string Trade { get; set; }
         public byte[] Picture { get; set; }
+        public byte[] PictureTwo { get; set; }
+        public byte[] PictureThree { get; set; }
         public string Delivery { get; set; }
         public string Soil { get; set; }
 
         public string UserId { get; set; }
         public string PublisherName { get; set; }
+        
 
         public Product()
         {
