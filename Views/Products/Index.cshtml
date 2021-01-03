@@ -39,7 +39,7 @@
                 <hr>
                 <h4>Product Offer</h4>
                 <div class="seeds">
-                    <input type="checkbox" name="productOffer" value="seeds"/><p>Seeds</p>
+                    <input type="checkbox" name="productOffer" value="seeds" /><p>Seeds</p>
                 </div>
                 <div class="bulb">
                     <input type="checkbox" name="productOffer" value="bulb" /><p>Bulb</p>
@@ -76,29 +76,22 @@
                 <div class="aquatic">
                     <input type="checkbox" name="productType" value="aquatic" /> <p>Aquatic</p>
                 </div>
+                <h4>Trade</h4>
+                <div class="free">
+                    <input type="checkbox" name="productTrade" value="Free" /> <p>Free to pick up</p>
+                </div>
+                <div class="exchange">
+                    <input type="checkbox" name="productTrade" value="Exchange" /> <p>Want something</p>
+                </div>
+                <h4>Delivery</h4>
+                <div class="meetup">
+                    <input type="checkbox" name="productDelivery" value="Meet up" /> <p>Meet up</p>
+                </div>
+                <div class="mail">
+                    <input type="checkbox" name="productDelivery" value="Send by mail" /> <p>Send by mail</p>
+                </div>
                 <input class="edit" id="sv" type="submit" value="Filter" />
             </form>
-
-            @*<p>Delivery</p>
-                <div class="post">
-                    <input type="radio" id="post" name="post" value="post">
-                    <p>Delivery by post</p>
-                </div>
-                <div class="meetup">
-                    <input type="radio" id="meetup" name="post" value="meetup">
-                    <p>Meetup in person</p>
-                </div>
-                <hr>
-                <p>Exchange</p>
-                <div class="trade">
-                    <input type="radio" id="trade" name="trade" value="trade">
-                    <p>With trade</p>
-                </div>
-                <div class="notrade">
-                    <input type="radio" id="notrade" name="trade" value="nodtrade">
-                    <p>With no trade</p>
-                </div>
-                <hr>*@
 
         </div>
 
@@ -108,6 +101,7 @@
                 <div class="product">
                     <img src="@GetBase64String(item.Picture)" style="width: 100%; height: 100%;" />
                     <a href="Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
+                    <p>By @item.PublisherName</p>
                 </div>
              }
         </div>

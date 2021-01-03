@@ -26,18 +26,18 @@ namespace AuthSystem.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(string searchString, string[] productOffer, string[] productType)
+        public async Task<IActionResult> Index(string searchString, string[] productOffer, string[] productType, string[] productTrade, string[] productDelivery)
         {
-            //var plants = await _context.Products.ToListAsync();
-            //return View(plants);
             var products = from p in _context.Products
                            select p;
 
+            //search
             if (!String.IsNullOrEmpty(searchString))
             {
-                products = products.Where(s => s.Name.Contains(searchString) || s.Description.Contains(searchString) || s.Kind.Contains(searchString) || s.Type.Contains(searchString) || s.LatinName.Contains(searchString));
+                products = products.Where(s => s.PublisherName.Contains(searchString) || s.Name.Contains(searchString) || s.Description.Contains(searchString) || s.Kind.Contains(searchString) || s.Type.Contains(searchString) || s.LatinName.Contains(searchString) || s.Trade.Contains(searchString) || s.Delivery.Contains(searchString));
             }
 
+            //filter
             if (productOffer.Length != 0 || productOffer != null)
             {
                 foreach(var item in productOffer)
@@ -54,9 +54,25 @@ namespace AuthSystem.Controllers
                 }
             }
 
-           
+            if (productTrade.Length != 0 || productTrade != null)
+            {
+                foreach(var item in productTrade)
+                {
+                    products = products.Where(p => p.Trade.Contains(item));
+                }
+            }
+
+            if (productDelivery.Length != 0 || productDelivery != null)
+            {
+                foreach(var item in productDelivery)
+                {
+                    products = products.Where(p => p.Delivery.Contains(item));
+                }
+            }
+
             return View(await products.ToListAsync());
         }
+
         public async Task<IActionResult> SomeUserProducts(string publisher)
         {
            /* var pub = await _context.Users
@@ -109,8 +125,6 @@ namespace AuthSystem.Controllers
 
 
         // POST: Products/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,UserId,PublisherName, Delivery")] Product product, IFormFile Picture, ApplicationUser DezeUser)
@@ -184,11 +198,9 @@ namespace AuthSystem.Controllers
             }
 
         // POST: Products/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade, Delivery")] Product product, IFormFile Picture, ApplicationUser User)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,Delivery,PublisherName")] Product product, IFormFile Picture, ApplicationUser User)
         {
             var pp = _context.Products.FirstOrDefault(p => p.Id.Equals(id));
             // Avoid overriding the EF tracking by first finding the right product, 
@@ -277,6 +289,7 @@ namespace AuthSystem.Controllers
                 {
                     product.Picture = image;
                 }
+
                 _context.Update(product);
                 User.AddProductToUser(product);
                 await _context.SaveChangesAsync();
