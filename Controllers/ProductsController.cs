@@ -112,7 +112,7 @@ namespace AuthSystem.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,UserId,PublisherName, Delivery")] Product product, IFormFile Picture)
+        public async Task<IActionResult> Create([Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade,UserId,PublisherName, Delivery")] Product product, IFormFile Picture, IFormFile PictureTwo, IFormFile PictureThree)
         {
             //var file = httpcontext.request.form.files;
             //byte[] streamoutput;
@@ -146,15 +146,40 @@ namespace AuthSystem.Controllers
                     //Convert Image to byte and save to database
                     {
                         byte[] p1 = null;
+                        byte[] p2 = null;
+                        byte[] p3 = null;
                         using (var fs1 = Picture.OpenReadStream())
                         {
-                            using (var ms1 = new MemoryStream())
+                            using (var ms = new MemoryStream())
                             {
-                                fs1.CopyTo(ms1);
-                                p1 = ms1.ToArray();
+                                fs1.CopyTo(ms);
+                                p1 = ms.ToArray();
                             }
                             product.Picture = p1;
-                            
+                        }
+                        if (PictureTwo != null)
+                        {
+                            using (var fs2 = PictureTwo.OpenReadStream())
+                            {
+                                using (var ms = new MemoryStream())
+                                {
+                                    fs2.CopyTo(ms);
+                                    p2 = ms.ToArray();
+                                }
+                                product.PictureTwo = p2;
+                            }
+                        }
+                        if (PictureThree != null)
+                        {
+                            using (var fs3 = PictureThree.OpenReadStream())
+                            {
+                                using (var ms = new MemoryStream())
+                                {
+                                    fs3.CopyTo(ms);
+                                    p3 = ms.ToArray();
+                                }
+                                product.PictureThree = p3;
+                            }
                         }
                     }
                     _context.Add(product);
