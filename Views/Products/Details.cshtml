@@ -29,6 +29,10 @@
             return "This person lives in a neighborhood near yours.";
         return "This person does not live in a neighborhood near yours.";
     }
+    string GetUserEmail()
+    {
+        return thisUser.Email;
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +69,7 @@
                         @Html.DisplayFor(model => model.Trade)
                     *@
                     @*<img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(@Model.getImage()))" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;">*@
-                    <a asp-controller="Home" asp-action="Chat" class="edit" id="sv">Chat</a>
+                    <a href="mailto: @GetUserEmail()" class="edit" id="sv">Chat</a>
                 </div>
             </div>
         </div>
