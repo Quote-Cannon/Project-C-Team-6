@@ -117,20 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="deKas" xml:space="preserve">
-    <value>Stadskwekerij De Kas is een bewonersinitiatief van Eva Bes en Marja Versteeg, twee tuinvrouwen uit Rotterdam Noord met hart voor de natuur én voor mensen. Samen met al onze vrijwilligers, zetten we ons in voor de biodiversiteit in de stad én voor de verbinding tussen mensen en organisaties.
-
-            Thuisbasis van Stadskwekerij De Kas is een kassencomplex in het hartje van Rotterdam. Daar hebben we een duurzame kwekerij met inspiratietuin. In 2020 groeide de vraag naar onze gifvrije plantjes. Het frustreerde ons dat we door ruimte- en tijdgebrek niet konden voldoen aan deze vraag. Tegelijkertijd boden steeds meer bewoners ons spontaan hun zaailingen en stekjes aan. Toen ontstond al snel het idee een digitaal platform te ontwikkelen waar we vraag en aanbod bij elkaar kunnen komen. Studenten van de Hogeschool Rotterdam schoten ons te hulp en zo onstond BiodivercityMAX.
-
-            BiodivercityMAX biedt een platform waarop alle groenliefhebbers planten én kennis met elkaar kunnen delen. Zodat we samen één grote duurzame kwekerij vormen die zich inzet voor een gifvrije, betaalbare en groene wereld.</value>
+  <data name="HomePageText" xml:space="preserve">
+    <value>Plant cuttings left? Too many plants on your balcony? Searching for new plant species? You can easily exchange or give away seeds or plants on this website.</value>
+  </data>
+  <data name="latinname" xml:space="preserve">
+    <value>Latin Name</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="Products" xml:space="preserve">
-    <value>Produkten</value>
+    <value>Products</value>
+  </data>
+  <data name="SubWelcome" xml:space="preserve">
+    <value>Plant cuttings left? Trade them!</value>
   </data>
   <data name="Welcome" xml:space="preserve">
-    <value>H0wdyD00dyNeighb0rin0</value>
+    <value>Welcome</value>
   </data>
-  <data name="WilleKeurigeGUID" xml:space="preserve">
-    <value>De willekeurig gegenereerde GUID is {0}</value>
+  <data name="WhatMattersHead" xml:space="preserve">
+    <value>What matters</value>
+  </data>
+  <data name="WhatMattersText" xml:space="preserve">
+    <value>Having more greenery is good for the bees, butterflies and other animals (biodiversity). But it should be environmentally friendly without any poison.
+                    Poison-free plants are difficult to obtain and often very pricey. That is why BiodiverCityMAX offers a platform for nature lovers to share and obtain cheap plants, seeds and knowledge with eachother, without poison!</value>
   </data>
 </root>
