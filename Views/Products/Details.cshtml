@@ -1,5 +1,5 @@
 ﻿@model AuthSystem.Models.Product
-
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
 
 @{
@@ -19,24 +19,24 @@
         <div class="textbox-grey">
             <div class="body-row2">
                 <div class="plantdesc">
-                    <h1>Name: @Html.DisplayFor(model => model.Name)</h1>
-                    
-                    <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">Owner: @Html.DisplayFor(model => model.PublisherName)</a>
+                    <h1>@localizer["name"]: @Html.DisplayFor(model => model.Name)</h1>
 
-                    <p>Latin name: @Html.DisplayFor(model => model.LatinName)</p>
-                    <h3 style="text-align:left;">Description:</h3>
+                    <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">@localizer["owner"]: @Html.DisplayFor(model => model.PublisherName)</a>
+
+                    <p>@localizer["latinname"]: @Html.DisplayFor(model => model.LatinName)</p>
+                    <h3 style="text-align:left;">@localizer["description"]:</h3>
                     <p>@Html.DisplayFor(model => model.Description)</p>
                     <ul>
-                        <li>Product: @Html.DisplayFor(model => model.Kind)</li>
-                        <li>Plant type: @Html.DisplayFor(model => model.Type)</li>
+                        <li>@localizer["productsort"]: @Html.DisplayFor(model => model.Kind)</li>
+                        <li>@localizer["producttype"]: @Html.DisplayFor(model => model.Type)</li>
                         @*<li>Soil type: @Html.DisplayFor(model => model.Soil)</li>*@
                         <li>Water: @Html.DisplayFor(model => model.Water)</li>
-                        <li>Light: @Html.DisplayFor(model => model.Light) </li>
-                        <li>Trade: @Html.DisplayFor(model => model.Trade)</li>
-                        <li>Delivery: @Html.DisplayFor(model => model.Delivery)</li>
+                        <li>@localizer["light"]: @Html.DisplayFor(model => model.Light) </li>
+                        <li>@localizer["trade"]: @Html.DisplayFor(model => model.Trade)</li>
+                        <li>@localizer["delivery"]: @Html.DisplayFor(model => model.Delivery)</li>
                     </ul>
-                    
-                    <p>This producted was posted on: @Html.DisplayFor(model => model.ProductDate)</p>
+
+                    <p>@localizer["productdate"]: @Html.DisplayFor(model => model.ProductDate)</p>
                 </div>
                 <div class="image1">
                     <img src="@GetBase64String(Model.Picture)" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;" />
@@ -46,15 +46,15 @@
                         @Html.DisplayFor(model => model.Trade)
                     *@
                     @*<img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(@Model.getImage()))" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;">*@
-                    <a asp-controller="Home" asp-action="Chat" class="edit" id="sv">Chat</a>
+                    <a asp-controller="Home" asp-action="Chat" class="edit" id="sv">@localizer["chat"]</a>
                 </div>
             </div>
         </div>
         <div class="body-row2">
             <div class="title">
-                <h5>Other photos of this product</h5>
+                <h5>@localizer["otherpics"]</h5>
             </div>
-            <p>coming soon!</p>
+            <p>@localizer["comingsoon"]</p>
             @*<div class="image2"  style="margin-right:30px;">
                     <img src="https://www.freeimageslive.co.uk/files/images009/seeds.jpg" class="mor-ima">
                 </div>
@@ -62,9 +62,9 @@
                     <img src="https://p2.piqsels.com/preview/949/891/620/herbs-home.jpg" class="mor-ima">
                 </div>
                 <div class="button-details">*@
-            <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-            <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-            <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">Back to productpage</a>
+        <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">@localizer["edit"]</a>
+        <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">@localizer["delete"]</a>
+        <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">@localizer["backtoprodpage"]</a>
         </div>
     </div>
     </div>

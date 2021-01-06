@@ -129,6 +129,9 @@
   <data name="bulb" xml:space="preserve">
     <value>Bulb</value>
   </data>
+  <data name="confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this product?</value>
+  </data>
   <data name="create" xml:space="preserve">
     <value>Create</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="cutting" xml:space="preserve">
     <value>Cutting</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
   </data>
   <data name="delivery" xml:space="preserve">
     <value>Delivery</value>
@@ -194,12 +200,6 @@
   </data>
   <data name="products" xml:space="preserve">
     <value>Products</value>
-  </data>
-  <data name="productsort" xml:space="preserve">
-    <value>Plant soort</value>
-  </data>
-  <data name="producttype" xml:space="preserve">
-    <value>Plant type</value>
   </data>
   <data name="seedling" xml:space="preserve">
     <value>Seedling</value>

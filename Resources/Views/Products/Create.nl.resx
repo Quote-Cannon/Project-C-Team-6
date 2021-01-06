@@ -118,82 +118,82 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="aquatic" xml:space="preserve">
-    <value>Aquatic</value>
+    <value>Waterplant</value>
   </data>
   <data name="backtoprodpage" xml:space="preserve">
-    <value>Back to product page</value>
+    <value>Terug naar product pagina</value>
   </data>
   <data name="buds" xml:space="preserve">
-    <value>Bud</value>
+    <value>Knop</value>
   </data>
   <data name="bulb" xml:space="preserve">
-    <value>Bulb</value>
+    <value>Bol</value>
   </data>
   <data name="create" xml:space="preserve">
-    <value>Create</value>
+    <value>Creëer</value>
   </data>
   <data name="creeper" xml:space="preserve">
-    <value>Creeper</value>
+    <value>Klimplant</value>
   </data>
   <data name="cutting" xml:space="preserve">
-    <value>Cutting</value>
+    <value>Stekje</value>
   </data>
   <data name="delivery" xml:space="preserve">
-    <value>Delivery</value>
+    <value>Bezorging</value>
   </data>
   <data name="description" xml:space="preserve">
-    <value>Description</value>
+    <value>Omschrijving</value>
   </data>
   <data name="descriptionhint" xml:space="preserve">
-    <value>Think along the lines of colour, height, soil type, special traits, etc.</value>
+    <value>Denk bijvoorbeeld aan de kleur, hoogte, bodemsoort, speciale kenmerken etc.</value>
   </data>
   <data name="dry" xml:space="preserve">
-    <value>Dry</value>
+    <value>Droog</value>
   </data>
   <data name="exchange" xml:space="preserve">
-    <value>I want something in exchange</value>
+    <value>Ik wil er iets voor terug</value>
   </data>
   <data name="groundcover" xml:space="preserve">
-    <value>Ground cover</value>
+    <value>Bodembedekker</value>
   </data>
   <data name="grown" xml:space="preserve">
-    <value>Grown lant</value>
+    <value>Volgroeide plant</value>
   </data>
   <data name="herb" xml:space="preserve">
-    <value>Herb</value>
+    <value>Kruidachtige</value>
   </data>
   <data name="latinname" xml:space="preserve">
-    <value>Latin name</value>
+    <value>Latijnse naam</value>
   </data>
   <data name="light" xml:space="preserve">
-    <value>Light</value>
+    <value>Licht</value>
   </data>
   <data name="medium" xml:space="preserve">
-    <value>Medium</value>
+    <value>Gemiddeld</value>
   </data>
   <data name="meetup" xml:space="preserve">
-    <value>Meet up </value>
+    <value>Samenkomen</value>
   </data>
   <data name="name" xml:space="preserve">
-    <value>Name</value>
+    <value>Naam</value>
   </data>
   <data name="noexchange" xml:space="preserve">
-    <value>I want nothing in exchange</value>
+    <value>Ik wil er niets voor terug</value>
   </data>
   <data name="noreq" xml:space="preserve">
-    <value>No requirements</value>
+    <value>Geen eisen</value>
   </data>
   <data name="notsure" xml:space="preserve">
-    <value>Not sure</value>
+    <value>Weet ik niet</value>
   </data>
   <data name="other" xml:space="preserve">
-    <value>Other</value>
+    <value>Anders</value>
   </data>
   <data name="parsha" xml:space="preserve">
-    <value>Partial shade</value>
+    <value>Gedeeltelijk schaduw</value>
   </data>
   <data name="products" xml:space="preserve">
-    <value>Products</value>
+    <value>Produkten</value>
   </data>
   <data name="productsort" xml:space="preserve">
     <value>Plant soort</value>
@@ -202,30 +202,30 @@
     <value>Plant type</value>
   </data>
   <data name="seedling" xml:space="preserve">
-    <value>Seedling</value>
+    <value>Zaadling</value>
   </data>
   <data name="seeds" xml:space="preserve">
-    <value>Seeds</value>
+    <value>Zaden</value>
   </data>
   <data name="sendbymail" xml:space="preserve">
-    <value>Send it by mail</value>
+    <value>Verzenden per post</value>
   </data>
   <data name="shade" xml:space="preserve">
-    <value>Shade</value>
+    <value>Schaduw</value>
   </data>
   <data name="shrub" xml:space="preserve">
-    <value>Shrub</value>
+    <value>Struik</value>
   </data>
   <data name="sun" xml:space="preserve">
-    <value>Sun</value>
+    <value>Zon</value>
   </data>
   <data name="trade" xml:space="preserve">
-    <value>Trade</value>
+    <value>Ruilen</value>
   </data>
   <data name="tree" xml:space="preserve">
-    <value>Tree</value>
+    <value>Boom</value>
   </data>
   <data name="wet" xml:space="preserve">
-    <value>Wet</value>
+    <value>Nat</value>
   </data>
 </root>
