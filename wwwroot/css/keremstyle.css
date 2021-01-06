@@ -21,13 +21,13 @@
     margin-left: 3rem;
 }
 
-.upl{
+.custom-file-upload{
     border: 0.01rem solid black;
     padding:0.2rem 0.5rem;
     border-radius:0.5rem;
 }
 
-.upl:hover, a.edit:hover {
+.custom-file-upload:hover, a.edit:hover {
     cursor: pointer;
     color:white;
     background-color: rgb(122, 184, 0);
@@ -35,7 +35,7 @@
     transition-timing-function: ease-out;
 }
 
-.upl:active, a.edit:active {
+.custom-file-upload:active, a.edit:active {
     background-color: rgb(170, 255, 0);
     transition: background-color 0.5s, color 0.2s;
     color: black;

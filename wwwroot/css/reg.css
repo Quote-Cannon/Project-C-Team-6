@@ -1,3 +1,10 @@
+.custom-file-upload {
+    border: 1rem solid rgb(0, 0, 0);
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+
 .pfp{
     
     margin-top: 2em;

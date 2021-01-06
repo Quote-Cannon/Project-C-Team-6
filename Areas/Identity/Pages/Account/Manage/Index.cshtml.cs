@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using AuthSystem.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace AuthSystem.Areas.Identity.Pages.Account.Manage
 {
@@ -36,19 +35,22 @@ namespace AuthSystem.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            public IFormFile ProfilePicture { get; set; }
+
         }
 
         private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-
             Username = userName;
 
             Input = new InputModel
             {
                 PhoneNumber = phoneNumber
             };
+
+
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -77,6 +79,25 @@ namespace AuthSystem.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
+            if (Input.ProfilePicture != null)
+            {
+                if (Input.ProfilePicture.Length > 0)
+                //Convert Image to byte and save to database
+                {
+                    byte[] p1 = null;
+                    using (var fs1 = Input.ProfilePicture.OpenReadStream())
+                    {
+                        using (var ms1 = new MemoryStream())
+                        {
+                            fs1.CopyTo(ms1);
+                            p1 = ms1.ToArray();
+                        }
+                        user.ProfilePicture = p1;
+                        await _userManager.UpdateAsync(user);
+
+                    }
+                }
+            }
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)
             {
@@ -87,7 +108,6 @@ namespace AuthSystem.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
-
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();

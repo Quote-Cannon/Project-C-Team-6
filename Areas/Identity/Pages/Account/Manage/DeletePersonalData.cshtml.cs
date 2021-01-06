@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using AuthSystem.Controllers;
+using AuthSystem.Areas.Identity;
+using AuthSystem.Data;
 
 namespace AuthSystem.Areas.Identity.Pages.Account.Manage
 {
@@ -14,6 +17,7 @@ namespace AuthSystem.Areas.Identity.Pages.Account.Manage
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<DeletePersonalDataModel> _logger;
+     
 
         public DeletePersonalDataModel(
             UserManager<ApplicationUser> userManager,
@@ -66,19 +70,22 @@ namespace AuthSystem.Areas.Identity.Pages.Account.Manage
                     return Page();
                 }
             }
-
+            return Redirect("~/Products/UserDelete");
+            //return RedirectToRoute("~/Products/DeleteUserProducts", user.Id);
+                /*
             var result = await _userManager.DeleteAsync(user);
             var userId = await _userManager.GetUserIdAsync(user);
             if (!result.Succeeded)
             {
                 throw new InvalidOperationException($"Unexpected error occurred deleting user with ID '{userId}'.");
             }
+            //DeleteUserProducts(userId);
 
             await _signInManager.SignOutAsync();
 
             _logger.LogInformation("User with ID '{UserId}' deleted themselves.", userId);
 
-            return Redirect("~/");
+            return Redirect("~/");*/
         }
     }
 }

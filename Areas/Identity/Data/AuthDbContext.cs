@@ -17,6 +17,7 @@ namespace AuthSystem.Data
         {
         }
 
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
