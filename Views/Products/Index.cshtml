@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<AuthSystem.Models.Product>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
 @{
     ViewData["Title"] = "Index";
@@ -14,9 +15,9 @@
 <header class="start-header">
     <div class="slider">
         <div class="slider2">
-            <div class="slider-text">
+            <div class="slider-text">  
                 <h1>Products</h1>
-                <p>Find here all the products!</p>
+                <p>@localizer["Products"]</p>
             </div>
         </div>
     </div>

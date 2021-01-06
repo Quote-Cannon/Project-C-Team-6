@@ -12,8 +12,10 @@ using Microsoft.Extensions.Hosting;
 using AuthSystem.Data;
 
 //Language
-using LazZiya.ExpressLocalization;
 using System.Globalization;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 
 namespace AuthSystem
 {
@@ -26,28 +28,22 @@ namespace AuthSystem
 
         public IConfiguration Configuration { get; }
 
+
+         
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             //Language
-            var cultures = new[]
-            {
-            new CultureInfo("nl"),
-            new CultureInfo("en")
-            };
-            services.AddRazorPages()
-                .AddExpressLocalization<ExpressLocalizationResource, 
-            ViewLocalizationResource>(
-            ops =>
-            {
-                    ops.ResourcesPath = "LocalizationResources";
-                    ops.RequestLocalizationOptions = o =>
-                    {
-                        o.SupportedCultures = cultures;
-                        o.SupportedUICultures = cultures;
-                        o.DefaultRequestCulture = new RequestCulture("en");
-                    };
-                });
+            services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
+            services.AddMvc().AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
+            .AddDataAnnotationsLocalization();
+            services.AddControllersWithViews();
+           
+            //services.AddLocalization(options => options.ResourcesPath = "Resources"); ;
+            //services.AddMvc()
+            //  .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
+            //  .AddDataAnnotationsLocalization();
+            //
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddDbContext<Data.AuthDbContext>(options =>
@@ -57,6 +53,27 @@ namespace AuthSystem
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //Language
+            var supportedCultures = new[] { "nl", "en" };
+            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures);
+            app.UseRequestLocalization(localizationOptions);
+
+
+
+
+            //var cultures = new List<CultureInfo> {
+            //    new CultureInfo("en"),
+            //    new CultureInfo("nl")
+
+            //app.UseRequestLocalization(options => {
+            //    options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
+            //    options.SupportedCultures = cultures;
+            //    options.SupportedUICultures = cultures;
+            //});
+            //
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
