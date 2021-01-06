@@ -61,12 +61,16 @@
                     <img src="@GetBase64String(Model.Picture)" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;" />
 
                     @*
-                        @Html.DisplayNameFor(model => model.Picture)
-                        @Html.DisplayFor(model => model.Trade)
+        @Html.DisplayNameFor(model => model.Picture)
+        @Html.DisplayFor(model => model.Trade)
                     *@
                     @*<img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(@Model.getImage()))" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;">*@
-                    <a asp-controller="Home" asp-action="Chat" class="edit" id="sv">Chat</a>
-                </div>
+
+                    @if (thisUser.Id != UserManager.GetUserAsync(User).Result.Id)
+                    {
+                        <a asp-controller="Home" asp-action="Chat" class="edit" id="sv">Chat</a>
+                    }
+                    </div>
             </div>
         </div>
         <div class="body-row2">
@@ -85,11 +89,15 @@
                     <img src="@GetBase64String(Model.PictureThree)" class="mor-ima">
                 </div>
             }
-            <div class="button-details">
+        <div class="button-details">
+            @if (thisUser.Id == UserManager.GetUserAsync(User).Result.Id)
+            {
+
                 <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
                 <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-                <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">Back to productpage</a>
-            </div>
+            }
+            <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">Back to productpage</a>
+        </div>
         </div>
     </div>
 </body>

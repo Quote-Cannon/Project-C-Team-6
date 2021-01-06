@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AuthSystem.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class _3pics : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,6 +29,7 @@ namespace AuthSystem.Migrations
                     Id = table.Column<string>(type: "text", nullable: false),
                     Nickname = table.Column<string>(type: "varchar(100)", nullable: true),
                     PostCode = table.Column<string>(type: "varchar(6)", nullable: true),
+                    ProfilePicture = table.Column<byte[]>(type: "bytea", nullable: true),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -65,6 +66,8 @@ namespace AuthSystem.Migrations
                     ProductDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Trade = table.Column<string>(type: "text", nullable: false),
                     Picture = table.Column<byte[]>(type: "bytea", nullable: true),
+                    PictureTwo = table.Column<byte[]>(type: "bytea", nullable: true),
+                    PictureThree = table.Column<byte[]>(type: "bytea", nullable: true),
                     Delivery = table.Column<string>(type: "text", nullable: true),
                     Soil = table.Column<string>(type: "text", nullable: true),
                     UserId = table.Column<string>(type: "text", nullable: true),

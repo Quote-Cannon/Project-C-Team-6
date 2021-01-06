@@ -12,6 +12,7 @@ using AuthSystem.Data;
 using AuthSystem.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using AuthSystem.Areas.Identity.Data;
 
 
 namespace AuthSystem.Controllers
@@ -19,8 +20,15 @@ namespace AuthSystem.Controllers
     public class ProductsController : Controller
     {
         private readonly AuthDbContext _context;
-        public ProductsController(AuthDbContext context)
+        private UserManager<ApplicationUser> _userManager;
+        private SignInManager<ApplicationUser> _signInManager;
+        public ProductsController(
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager, 
+            AuthDbContext context)
         {
+            _userManager = userManager;
+            _signInManager = signInManager;
             _context = context;
         }
 
@@ -39,7 +47,7 @@ namespace AuthSystem.Controllers
             //filter
             if (productOffer.Length != 0 || productOffer != null)
             {
-                foreach(var item in productOffer)
+                foreach (var item in productOffer)
                 {
                     products = products.Where(p => p.Kind.Contains(item));
                 }
@@ -47,7 +55,7 @@ namespace AuthSystem.Controllers
 
             if (productType.Length != 0 || productType != null)
             {
-                foreach(var item in productType)
+                foreach (var item in productType)
                 {
                     products = products.Where(p => p.Type.Contains(item));
                 }
@@ -55,7 +63,7 @@ namespace AuthSystem.Controllers
 
             if (productTrade.Length != 0 || productTrade != null)
             {
-                foreach(var item in productTrade)
+                foreach (var item in productTrade)
                 {
                     products = products.Where(p => p.Trade.Contains(item));
                 }
@@ -63,7 +71,7 @@ namespace AuthSystem.Controllers
 
             if (productDelivery.Length != 0 || productDelivery != null)
             {
-                foreach(var item in productDelivery)
+                foreach (var item in productDelivery)
                 {
                     products = products.Where(p => p.Delivery.Contains(item));
                 }
@@ -74,14 +82,14 @@ namespace AuthSystem.Controllers
 
         public async Task<IActionResult> SomeUserProducts(string publisher)
         {
-           /* var pub = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == publisher);
-            if (pub == null)
-            {
-                return NotFound();
-            }*/
+            /* var pub = await _context.Users
+                 .FirstOrDefaultAsync(m => m.Id == publisher);
+             if (pub == null)
+             {
+                 return NotFound();
+             }*/
             IEnumerable<Product> products = from p in _context.Products
-                           select p;
+                                            select p;
             List<Product> oldprods = products.ToList();
             List<Product> newprods = new List<Product>();
             for (int i = 0; i < oldprods.Count; i++)
@@ -90,15 +98,15 @@ namespace AuthSystem.Controllers
                     newprods.Add(oldprods[i]);
             }
             IEnumerable<Product> qry = newprods.AsEnumerable();
-            return View( qry.ToList());
+            return View(qry.ToList());
         }
 
-       /* public async Task<IActionResult> SomeUserProducts()
-        {
-            var products = from p in _context.Products
-                           select p;
-            return View(await products.ToListAsync());
-        }*/
+        /* public async Task<IActionResult> SomeUserProducts()
+         {
+             var products = from p in _context.Products
+                            select p;
+             return View(await products.ToListAsync());
+         }*/
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -121,7 +129,7 @@ namespace AuthSystem.Controllers
         {
             return View();
         }
-
+        
 
         // POST: Products/Create
         [HttpPost]
@@ -204,21 +212,21 @@ namespace AuthSystem.Controllers
             return View(product);
         }
 
-            // GET: Products/Edit/5
-            public async Task<IActionResult> Edit(int? id)
+        // GET: Products/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
             {
-                if (id == null)
-                {
-                    return NotFound();
-                }
-
-                var product = await _context.Products.FindAsync(id);
-                if (product == null)
-                {
-                    return NotFound();
-                }
-                return View(product);
+                return NotFound();
             }
+
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
 
         // POST: Products/Edit/5
         [HttpPost]
@@ -306,7 +314,7 @@ namespace AuthSystem.Controllers
                             }
                             product.Picture = p1;
                         }
-                    }   
+                    }
                 }
                 if (Picture == null)
                 {
@@ -366,6 +374,58 @@ namespace AuthSystem.Controllers
         //    byte[] bytes = db.GetImage(i); //Get the image from your database
         //    return File(bytes, "image/png"); //or "image/jpeg", depending on the format
         //}
+        
+        public async Task<IActionResult> UserDelete()
+        {
+            // Deleting the user
+            ApplicationUser thisUser = _userManager.GetUserAsync(User).Result;
+            var result = await _userManager.DeleteAsync(thisUser);
+            var userId = await _userManager.GetUserIdAsync(thisUser);
+            if (!result.Succeeded)
+            {
+                throw new InvalidOperationException($"Unexpected error occurred deleting user with ID '{userId}'.");
+            }
+            
+            // Deleting their products
+            var products = from p in _context.Products
+                           select p;
+            foreach (var product in products)
+            {
+                if (product.UserId == userId)
+                {
+                    _context.Products.Remove(product);
+                }
+            }
+            // Save changes to db.
+            await _context.SaveChangesAsync();
+            //Signing them out
+
+            //_logger.LogInformation("User with ID '{UserId}' deleted themselves.", userId);
+            //return RedirectToPage("/Account/Logout", new { returnUrl = urr }) ;
+            string returnUrl = Url.Action("Index", "Home", new { area = "" });
+            await _signInManager.SignOutAsync();
+            return LocalRedirect(returnUrl);
+        }
+/*
+        [HttpPost("{userId}")]
+        public async Task<IActionResult> DeleteUserProducts(string userId)
+        {
+          
+            var products = from p in _context.Products
+                           select p;
+
+            foreach (var product in products)
+            {
+                if (product.UserId == userId)
+                {
+                    _context.Products.Remove(product);
+                }
+            }
+
+            await _context.SaveChangesAsync();
+            
+            return RedirectToAction(nameof(Index));
+        }*/
     }
 
 

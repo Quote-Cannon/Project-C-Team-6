@@ -6,7 +6,9 @@
 @inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Your products";
-    ApplicationUser thisUser = await UserManager.FindByIdAsync(Model.First().UserId);
+    ApplicationUser thisUser = UserManager.GetUserAsync(User).Result;
+    if (Model.Count() != 0)
+        thisUser = await UserManager.FindByIdAsync(Model.First().UserId);
     string GetBase64String(byte[] picture)
     {
         string imreBase64Data = Convert.ToBase64String(picture);
