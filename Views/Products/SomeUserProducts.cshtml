@@ -2,19 +2,29 @@
 @using Microsoft.AspNetCore.Identity;
 @using Microsoft.AspNetCore.Identity.UI.Services;
 @using AuthSystem.Areas.Identity.Data
+
 @model IEnumerable<AuthSystem.Models.Product>
+
 @inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+
 @{
     ViewData["Title"] = "Your products";
-    ApplicationUser thisUser = UserManager.GetUserAsync(User).Result;
-    if (Model.Count() != 0)
-        thisUser = await UserManager.FindByIdAsync(Model.First().UserId);
+    var userIclickedOn = ViewData["id"].ToString();
+    ApplicationUser thisUser = UserManager.FindByIdAsync(userIclickedOn).Result;
     string GetBase64String(byte[] picture)
     {
-        string imreBase64Data = Convert.ToBase64String(picture);
-        string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
-        return imgDataURL;
+
+        if (picture != null)
+        {
+
+            string imreBase64Data = Convert.ToBase64String(picture);
+            string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
+            return imgDataURL;
+        }
+        return "/images/pfp.jpg";
     }
+    string pfp = GetBase64String(thisUser.ProfilePicture);
 }
 
 <!DOCTYPE html>
@@ -23,7 +33,8 @@
         <div class="slider2">
             <div class="slider-text">
                 <h1>@thisUser.Nickname's products</h1>
-               @* <div class="pfpdiv" style="background-image:url('@GetBase64String(prod)')"></div>*@
+                <div class="pfpdiv" style="background-image:url('@pfp')"></div>
+                @* <div class="pfpdiv" style="background-image:url('@GetBase64String(prod)')"></div>*@
             </div>
         </div>
     </div>

@@ -3,31 +3,42 @@
 @using AuthSystem.Areas.Identity.Data
 @model AuthSystem.Models.Product
 @inject UserManager<ApplicationUser> UserManager
-
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     ViewData["Title"] = "Details";
     ApplicationUser thisUser = await UserManager.FindByIdAsync(Model.UserId);
     string GetBase64String(byte[] picture)
     {
-        string imreBase64Data = Convert.ToBase64String(picture);
-        string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
-        return imgDataURL;
+
+        if (picture != null)
+        {
+
+            string imreBase64Data = Convert.ToBase64String(picture);
+            string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
+            return imgDataURL;
+        }
+        return "/images/pfp.jpg";
     }
+    string pfp = GetBase64String(thisUser.ProfilePicture);
     string GetPostCodeDistance()
     {
-        if (UserManager.GetUserAsync(User).Result.Id == thisUser.Id)
-            return "";
-        string homeCode = UserManager.GetUserAsync(User).Result.PostCode;
-        string goalCode = thisUser.PostCode;
-        if (homeCode.Substring(0, 2) != goalCode.Substring(0, 2))
-            return "This person does not live in the same region as you.";
-        if (homeCode.Substring(4, 2) == goalCode.Substring(4, 2))
-            return "This person lives near you";
-        if (homeCode.Substring(2, 2) == goalCode.Substring(2, 2))
-            return "This person lives in your neighborhood.";
-        if (Math.Abs(int.Parse(homeCode.Substring(2, 2)) - int.Parse(goalCode.Substring(2, 2))) < 10)
-            return "This person lives in a neighborhood near yours.";
-        return "This person does not live in a neighborhood near yours.";
+        if (SignInManager.IsSignedIn(User))
+        {
+            if (UserManager.GetUserAsync(User).Result.Id == thisUser.Id)
+                return "";
+            string homeCode = UserManager.GetUserAsync(User).Result.PostCode;
+            string goalCode = thisUser.PostCode;
+            if (homeCode.Substring(0, 2) != goalCode.Substring(0, 2))
+                return "This person does not live in the same region as you.";
+            if (homeCode.Substring(4, 2) == goalCode.Substring(4, 2))
+                return "This person lives near you";
+            if (homeCode.Substring(2, 2) == goalCode.Substring(2, 2))
+                return "This person lives in your neighborhood.";
+            if (Math.Abs(int.Parse(homeCode.Substring(2, 2)) - int.Parse(goalCode.Substring(2, 2))) < 10)
+                return "This person lives in a neighborhood near yours.";
+            return "This person does not live in a neighborhood near yours.";
+        }
+        return "Create an account to see if this item is nearby!";
     }
 }
 <!DOCTYPE html>
@@ -40,7 +51,7 @@
                     <h1>Name: @Html.DisplayFor(model => model.Name)</h1>
 
                     <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">Owner: @Html.DisplayFor(model => model.PublisherName)</a>
-
+                    <div class="pfpdiv" style="background-image:url('@pfp')"></div>v
                     <p>Latin name: @Html.DisplayFor(model => model.LatinName)</p>
                     <h3 style="text-align:left;">Description:</h3>
                     <p>@Html.DisplayFor(model => model.Description)</p>
@@ -66,11 +77,14 @@
                     *@
                     @*<img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(@Model.getImage()))" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;">*@
 
-                    @if (thisUser.Id != UserManager.GetUserAsync(User).Result.Id)
+                    @if (SignInManager.IsSignedIn(User))
                     {
-                        <a asp-controller="Home" asp-action="Chat" class="edit" id="sv">Chat</a>
+                        if (thisUser.Id != UserManager.GetUserAsync(User).Result.Id)
+                        {
+                            <a asp-controller="Home" asp-action="Chat" class="edit" id="sv">Chat</a>
+                        }
                     }
-                    </div>
+                </div>
             </div>
         </div>
         <div class="body-row2">
@@ -90,14 +104,17 @@
                 </div>
             }
         <div class="button-details">
-            @if (thisUser.Id == UserManager.GetUserAsync(User).Result.Id)
-            {
+           @if (SignInManager.IsSignedIn(User))
+           {
+                 @if (thisUser.Id == UserManager.GetUserAsync(User).Result.Id)
+                 {
 
-                <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                 <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                 <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                 }
             }
-            <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">Back to productpage</a>
-        </div>
+                <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">Back to productpage</a>
+            </div>
         </div>
     </div>
 </body>

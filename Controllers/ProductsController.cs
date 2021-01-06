@@ -98,6 +98,7 @@ namespace AuthSystem.Controllers
                     newprods.Add(oldprods[i]);
             }
             IEnumerable<Product> qry = newprods.AsEnumerable();
+            ViewData["id"] = publisher;
             return View(qry.ToList());
         }
 
