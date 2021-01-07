@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aboutus" xml:space="preserve">
+    <value>Over ons</value>
+  </data>
   <data name="aquatic" xml:space="preserve">
     <value>Waterplant</value>
   </data>
@@ -129,15 +132,6 @@
   <data name="bulb" xml:space="preserve">
     <value>Bol</value>
   </data>
-  <data name="chat" xml:space="preserve">
-    <value>Stuur e-mail</value>
-  </data>
-  <data name="comingsoon" xml:space="preserve">
-    <value>komen binnenkort!</value>
-  </data>
-  <data name="confirm" xml:space="preserve">
-    <value>Weet u zeker dat u dit produkt wilt verwijderen?</value>
-  </data>
   <data name="create" xml:space="preserve">
     <value>Creëer</value>
   </data>
@@ -146,9 +140,6 @@
   </data>
   <data name="cutting" xml:space="preserve">
     <value>Stekje</value>
-  </data>
-  <data name="delete" xml:space="preserve">
-    <value>Verwijder</value>
   </data>
   <data name="delivery" xml:space="preserve">
     <value>Bezorging</value>
@@ -162,11 +153,11 @@
   <data name="dry" xml:space="preserve">
     <value>Droog</value>
   </data>
-  <data name="edit" xml:space="preserve">
-    <value>Wijzigen</value>
-  </data>
   <data name="exchange" xml:space="preserve">
     <value>Ik wil er iets voor terug</value>
+  </data>
+  <data name="filter" xml:space="preserve">
+    <value>Filter</value>
   </data>
   <data name="groundcover" xml:space="preserve">
     <value>Bodembedekker</value>
@@ -204,17 +195,11 @@
   <data name="other" xml:space="preserve">
     <value>Anders</value>
   </data>
-  <data name="otherpics" xml:space="preserve">
-    <value>Meer fotos van dit produkt</value>
-  </data>
-  <data name="owner" xml:space="preserve">
-    <value>Eigenaar</value>
-  </data>
   <data name="parsha" xml:space="preserve">
     <value>Gedeeltelijk schaduw</value>
   </data>
-  <data name="productdate" xml:space="preserve">
-    <value>Dit product is gepost op</value>
+  <data name="prodoffer" xml:space="preserve">
+    <value>Produkt aanbod</value>
   </data>
   <data name="products" xml:space="preserve">
     <value>Produkten</value>
@@ -225,8 +210,8 @@
   <data name="producttype" xml:space="preserve">
     <value>Plant type</value>
   </data>
-  <data name="save" xml:space="preserve">
-    <value>Opslaan</value>
+  <data name="search" xml:space="preserve">
+    <value>Zoek</value>
   </data>
   <data name="seedling" xml:space="preserve">
     <value>Zaadling</value>
@@ -242,6 +227,9 @@
   </data>
   <data name="shrub" xml:space="preserve">
     <value>Struik</value>
+  </data>
+  <data name="subprod" xml:space="preserve">
+    <value>Vind uw produkten hier</value>
   </data>
   <data name="sun" xml:space="preserve">
     <value>Zon</value>

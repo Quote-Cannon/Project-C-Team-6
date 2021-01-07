@@ -129,15 +129,6 @@
   <data name="bulb" xml:space="preserve">
     <value>Bol</value>
   </data>
-  <data name="chat" xml:space="preserve">
-    <value>Stuur e-mail</value>
-  </data>
-  <data name="comingsoon" xml:space="preserve">
-    <value>komen binnenkort!</value>
-  </data>
-  <data name="confirm" xml:space="preserve">
-    <value>Weet u zeker dat u dit produkt wilt verwijderen?</value>
-  </data>
   <data name="create" xml:space="preserve">
     <value>Creëer</value>
   </data>
@@ -146,9 +137,6 @@
   </data>
   <data name="cutting" xml:space="preserve">
     <value>Stekje</value>
-  </data>
-  <data name="delete" xml:space="preserve">
-    <value>Verwijder</value>
   </data>
   <data name="delivery" xml:space="preserve">
     <value>Bezorging</value>
@@ -161,9 +149,6 @@
   </data>
   <data name="dry" xml:space="preserve">
     <value>Droog</value>
-  </data>
-  <data name="edit" xml:space="preserve">
-    <value>Wijzigen</value>
   </data>
   <data name="exchange" xml:space="preserve">
     <value>Ik wil er iets voor terug</value>
@@ -204,17 +189,8 @@
   <data name="other" xml:space="preserve">
     <value>Anders</value>
   </data>
-  <data name="otherpics" xml:space="preserve">
-    <value>Meer fotos van dit produkt</value>
-  </data>
-  <data name="owner" xml:space="preserve">
-    <value>Eigenaar</value>
-  </data>
   <data name="parsha" xml:space="preserve">
     <value>Gedeeltelijk schaduw</value>
-  </data>
-  <data name="productdate" xml:space="preserve">
-    <value>Dit product is gepost op</value>
   </data>
   <data name="products" xml:space="preserve">
     <value>Produkten</value>

@@ -228,6 +228,9 @@
   <data name="producttype" xml:space="preserve">
     <value>Plant type</value>
   </data>
+  <data name="save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="seedling" xml:space="preserve">
     <value>Seedling</value>
   </data>

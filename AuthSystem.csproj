@@ -59,6 +59,46 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.nl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Shared\_LoginPartial.en.resx">
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Shared\_LoginPartial.nl.resx">
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Shared\_Layout.en.resx">
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Shared\_Layout.nl.resx">
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Products\SomeUserProducts.en.resx">
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Products\SomeUserProducts.nl.resx">
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Products\Index.en.resx">
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Products\Index.nl.resx">
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Products\Edit.en.resx">
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Products\Edit.nl.resx">
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views\Products\Details.en.resx">
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
