@@ -10,13 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthSystem.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-<<<<<<< HEAD:Migrations/20210103191115_3pics.Designer.cs
-    [Migration("20210103191115_3pics")]
-    partial class _3pics
-=======
-    [Migration("20210107130124_editpictures")]
-    partial class editpictures
->>>>>>> mattias-merge:Migrations/20210107130124_editpictures.Designer.cs
+    [Migration("20210104105824_meetingtest")]
+    partial class meetingtest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
