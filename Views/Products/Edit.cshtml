@@ -43,14 +43,28 @@
                 <img name="Picture" src="@GetBase64String(Model.Picture)" style="width: 10%; height: 10%; display: inline-block; border-radius: 15px;" />
                 <input type="file" name="Picture" />
             </div>
+            <div class="form-group">
+                @if (Model.PictureTwo != null)
+                {
+                    <img name="PictureTwo" src="@GetBase64String(Model.PictureTwo)" style="width: 10%; height: 10%; display: inline-block; border-radius: 15px;" />
+                }
+                    <input type="file" name="PictureTwo" />
+                </div>
+            <div class="form-group">
+                @if (Model.PictureThree != null)
+                {
+                    <img name="PictureThree" src="@GetBase64String(Model.PictureThree)" style="width: 10%; height: 10%; display: inline-block; border-radius: 15px;" />
+                }
+                    <input type="file" name="PictureThree" />
+                </div>
             <div class="form-group form-check">
                 @*<label class="form-check-label">
-                        <input class="form-check-input" asp-for="Trade" /> @Html.DisplayNameFor(model => model.Trade): Offering to get something in exchange.
-                    </label>
-                    <br />
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="Post" /> @Html.DisplayNameFor(model => model.Post): Send the product by post.
-                    </label>*@
+                <input class="form-check-input" asp-for="Trade" /> @Html.DisplayNameFor(model => model.Trade): Offering to get something in exchange.
+            </label>
+            <br />
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Post" /> @Html.DisplayNameFor(model => model.Post): Send the product by post.
+            </label>*@
             </div>
         </div>
         <div class="sel-boxes">

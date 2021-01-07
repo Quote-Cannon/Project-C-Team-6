@@ -2,7 +2,7 @@
 
 namespace AuthSystem.Migrations
 {
-    public partial class _3pictest2 : Migration
+    public partial class editpictures : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

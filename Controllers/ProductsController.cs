@@ -211,7 +211,7 @@ namespace AuthSystem.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade, Delivery,UserId,PublisherName")] Product product, IFormFile Picture)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LatinName,Description,Kind,Type,Water,Light,ProductDate,Trade, Delivery,UserId,PublisherName")] Product product, IFormFile Picture, IFormFile PictureTwo, IFormFile PictureThree)
         {
             var pp = _context.Products.FirstOrDefault(p => p.Id.Equals(id));
             // Avoid overriding the EF tracking by first finding the right product, 
@@ -299,6 +299,48 @@ namespace AuthSystem.Controllers
                 if (Picture == null)
                 {
                     product.Picture = image;
+                }
+                if (PictureTwo != null)
+                {
+                    if (PictureTwo.Length > 0)
+                    //Convert Image to byte and save to database
+                    {
+                        byte[] p2 = null;
+                        using (var fs2 = PictureTwo.OpenReadStream())
+                        {
+                            using (var ms2 = new MemoryStream())
+                            {
+                                fs2.CopyTo(ms2);
+                                p2 = ms2.ToArray();
+                            }
+                            product.PictureTwo = p2;
+                        }
+                    }
+                }
+                if (PictureTwo == null)
+                {
+                    product.PictureTwo = image;
+                }
+                if (PictureThree != null)
+                {
+                    if (PictureThree.Length > 0)
+                    //Convert Image to byte and save to database
+                    {
+                        byte[] p3 = null;
+                        using (var fs3 = PictureThree.OpenReadStream())
+                        {
+                            using (var ms3 = new MemoryStream())
+                            {
+                                fs3.CopyTo(ms3);
+                                p3 = ms3.ToArray();
+                            }
+                            product.PictureThree = p3;
+                        }
+                    }
+                }
+                if (PictureTwo == null)
+                {
+                    product.PictureTwo = image;
                 }
                 _context.Update(product);
                 await _context.SaveChangesAsync();
