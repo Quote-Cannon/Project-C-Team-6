@@ -14,6 +14,7 @@
 #cover-image {
     width: 100%;
     height: 200px;
+    -o-object-fit: cover;
     object-fit: cover;
 } 
 .search{
@@ -206,6 +207,15 @@ html, body {
     	font-size: 15px;
     }
 }
+
+.compat-object-fit {
+    background-size: cover;
+    background-position: center center;
+}
+
+    .compat-object-fit .img-cover {
+        opacity: 0;
+    }
 
 /*voorbeeldcode
 a:hover {

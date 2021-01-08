@@ -69,7 +69,7 @@
                         @Html.DisplayFor(model => model.Trade)
                     *@
                     @*<img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(@Model.getImage()))" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;">*@
-                    <a href="mailto: @GetUserEmail()" class="edit" id="sv">Chat</a>
+                    <a href="mailto: @GetUserEmail()?subject=@Html.DisplayFor(model => model.Name)&body=Hallo,%20 @Html.DisplayFor(model => model.PublisherName)%0D%0A%0D%0A" class="edit" id="sv">Chat</a>
                 </div>
             </div>
         </div>
