@@ -60,13 +60,13 @@
                         <label asp-for="Kind" class="control-label">@localizer["productsort"]</label>  
                         <select asp-for="Kind" class="form-control" required="required">
                             <option value="" disabled selected hidden>@localizer["products"]</option>
-                            <option value="Seeds (Zaden)">@localizer["seeds"]</option>
-                            <option value="Bulb (Bol)">@localizer["bulb"]</option>
-                            <option value="Cutting (Stek)">@localizer["cutting"]</option>
-                            <option value="Seedling (Zaadling)">@localizer["seedling"]</option>
-                            <option value="Bud (Knop)">@localizer["buds"]</option>
-                            <option value="Grown Plant (Volgroeide Plant)">@localizer["grown"]</option>
-                            <option value="Other (Anders)">@localizer["other"]</option>
+                            <option value="@localizer["seeds"]">@localizer["seeds"]</option>
+                            <option value="@localizer["bulb"]">@localizer["bulb"]</option>
+                            <option value="@localizer["cutting"]">@localizer["cutting"]</option>
+                            <option value="@localizer["seedling"]">@localizer["seedling"]</option>
+                            <option value="@localizer["buds"]">@localizer["buds"]</option>
+                            <option value="@localizer["grown"]">@localizer["grown"]</option>
+                            <option value="@localizer["other"]">@localizer["other"]</option>
                         </select>
                         <span asp-validation-for="Kind" class="text-danger"></span>
                     </div>
