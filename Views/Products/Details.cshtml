@@ -40,6 +40,10 @@
         }
         return "Create an account to see if this item is nearby!";
     }
+    string GetUserEmail()
+    {
+        return thisUser.Email;
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -81,7 +85,7 @@
                     {
                         if (thisUser.Id != UserManager.GetUserAsync(User).Result.Id)
                         {
-                            <a asp-controller="Home" asp-action="Chat" class="edit" id="sv">Chat</a>
+                           <a href="mailto: @GetUserEmail()?subject=@Html.DisplayFor(model => model.Name)&body=Hallo,%20 @Html.DisplayFor(model => model.PublisherName)%0D%0A%0D%0A" class="edit" id="sv">Chat</a>
                         }
                     }
                 </div>
