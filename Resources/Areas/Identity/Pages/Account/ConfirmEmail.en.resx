@@ -117,14 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="deKas" xml:space="preserve">
-    <value>Stadskwekerij De Kas is een bewonersinitiatief van Eva Bes en Marja Versteeg, twee tuinvrouwen uit Rotterdam Noord met hart voor de natuur én voor mensen. Samen met al onze vrijwilligers, zetten we ons in voor de biodiversiteit in de stad én voor de verbinding tussen mensen en organisaties.
-
-            Thuisbasis van Stadskwekerij De Kas is een kassencomplex in het hartje van Rotterdam. Daar hebben we een duurzame kwekerij met inspiratietuin. In 2020 groeide de vraag naar onze gifvrije plantjes. Het frustreerde ons dat we door ruimte- en tijdgebrek niet konden voldoen aan deze vraag. Tegelijkertijd boden steeds meer bewoners ons spontaan hun zaailingen en stekjes aan. Toen ontstond al snel het idee een digitaal platform te ontwikkelen waar we vraag en aanbod bij elkaar kunnen komen. Studenten van de Hogeschool Rotterdam schoten ons te hulp en zo onstond BiodivercityMAX.
-
-            BiodivercityMAX biedt een platform waarop alle groenliefhebbers planten én kennis met elkaar kunnen delen. Zodat we samen één grote duurzame kwekerij vormen die zich inzet voor een gifvrije, betaalbare en groene wereld.</value>
-  </data>
-  <data name="WilleKeurigeGUID" xml:space="preserve">
-    <value>De willekeurig gegenereerde GUID is {0}</value>
+  <data name="confirmemail" xml:space="preserve">
+    <value>Confirm email changes</value>
   </data>
 </root>

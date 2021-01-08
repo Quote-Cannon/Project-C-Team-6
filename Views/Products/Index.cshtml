@@ -30,7 +30,7 @@
         <div class="filter-row">
             <div class="search-pr">
                 <form asp-controller="Products" asp-action="Index" method="get" class="get-product">
-                    <p>Search: </p>
+                    <p>@localizer["search"]: </p>
                     <input type="text" name="SearchString" />
                     <input class="edit" id="sv" type="submit" value="@localizer["search"]" />
                 </form>

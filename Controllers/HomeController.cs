@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using AuthSystem.Data;
 using AuthSystem.Models;
+using Microsoft.Extensions.Localization;
 
 namespace AuthSystem.Controllers
 {
@@ -16,11 +17,13 @@ namespace AuthSystem.Controllers
         
         private readonly ILogger<HomeController> _logger;
         private readonly AuthDbContext _context;
+        private readonly IStringLocalizer _localizer;
 
-        public HomeController(ILogger<HomeController> logger, AuthDbContext context)
+        public HomeController(ILogger<HomeController> logger, AuthDbContext context, IStringLocalizer<HomeController> localizer)
         {
             _logger = logger;
             _context = context;
+            _localizer = localizer;
 
         }
 

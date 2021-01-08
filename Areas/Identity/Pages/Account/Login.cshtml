@@ -1,6 +1,6 @@
 ﻿@page
 @model LoginModel
-
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @{
     ViewData["Title"] = "Log in";
 }
@@ -12,16 +12,16 @@
                 <img class="dk" src="~/images/De_Kas.jpg" alt="">
             </div>
         </div>
-        <div id="loggingin" >
+        <div id="loggingin">
             <form id="account" method="post">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Input.Email"></label>
+                    <label asp-for="Input.Email">@localizer["email"]</label>
                     <input asp-for="Input.Email" class="form-control" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.Password"></label>
+                    <label asp-for="Input.Password">@localizer["password"]</label>
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
@@ -34,12 +34,12 @@
                     </div>
                 </div>
                 <div class="form-group" id="forgotpass">
-                    <button type="submit" class="login" id="login">Log in</button>
-                    <a class="forgot" asp-area="Identity" asp-page="/Account/ForgotPassword" >Click here if you forgot your password.</a>
+                    <button type="submit" class="login" id="login">@localizer["login"]</button>
+                    <a class="forgot" asp-area="Identity" asp-page="/Account/ForgotPassword">@localizer["forgotpass"].</a>
                 </div>
             </form>
         </div>
-       
+
     </section>
 </div>
 

@@ -1,5 +1,6 @@
 ﻿@page
 @model RegisterModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @{
     ViewData["Title"] = "Register";
 }
@@ -14,18 +15,18 @@
                     <img class="regpfp" src="~/images/pfp.jpg" alt="">
                 </div>
                 <div class="form-group">
-                    <label class="upl" for=pp>Upload Profile Picture </label>
-                    <input id="pp" type="file" asp-for="Input.ProfilePicture" />
-                </div>
+                                <label class="upl" for=pp>@localizer["upload"] </label>
+                                <input id="pp" type="file" asp-for="Input.ProfilePicture" />
+                            </div>
 
                 <div class="form-group">
-                    <label class="reglabel" asp-for="Input.Nickname"></label>
+                    <label class="reglabel" asp-for="Input.Nickname">@localizer["accname"]</label>
                     <input type="text" class="editacc" asp-for="Input.Nickname" />
                     <span asp-validation-for="Input.Nickname" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label class="reglabel" asp-for="Input.Email"></label>
+                    <label class="reglabel" asp-for="Input.Email">@localizer["email"]</label>
                     <input class="editacc" asp-for="Input.Email" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
@@ -33,14 +34,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="reglabel" id="phc" asp-for="Input.PhoneNumber"></label>
+                            <label class="reglabel" id="phc" asp-for="Input.PhoneNumber">@localizer["phonenr"]</label>
                             <input class="phc" id="ph" asp-for="Input.PhoneNumber" />
                             <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="reglabel" id="phc" asp-for="Input.PostCode"></label>
+                            <label class="reglabel" id="phc" asp-for="Input.PostCode">@localizer["postcode"]</label>
                             <input class="phc" id="pc" asp-for="Input.PostCode" />
                             <span asp-validation-for="Input.PostCode" class="text-danger"></span>
                         </div>
@@ -50,17 +51,17 @@
 
 
                 <div class="form-group">
-                    <label class="reglabel" asp-for="Input.Password"></label>
+                    <label class="reglabel" asp-for="Input.Password">@localizer["password"]</label>
                     <input class="editacc" asp-for="Input.Password" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="reglabel" asp-for="Input.ConfirmPassword"></label>
+                    <label class="reglabel" asp-for="Input.ConfirmPassword">@localizer["confirmpassword"]</label>
                     <input class="editacc" asp-for="Input.ConfirmPassword" />
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
 
-                <button type="submit" class="login" id="login">Create Account</button>
+                <button type="submit" class="login" id="login">@localizer["createacc"]</button>
 
             </form>
         </div>
