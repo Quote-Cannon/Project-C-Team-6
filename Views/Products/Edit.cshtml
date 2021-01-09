@@ -5,7 +5,7 @@
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @inject UserManager<ApplicationUser> UserManager
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = @localizer["edit"];
 
     string GetBase64String(byte[] picture)
     {

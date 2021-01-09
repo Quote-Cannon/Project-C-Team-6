@@ -126,6 +126,9 @@
   <data name="details" xml:space="preserve">
     <value>Details</value>
   </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
+  </data>
   <data name="profile" xml:space="preserve">
     <value>Profiel</value>
   </data>

@@ -150,6 +150,9 @@
   <data name="dry" xml:space="preserve">
     <value>Droog</value>
   </data>
+  <data name="edit" xml:space="preserve">
+    <value>Wijzigen</value>
+  </data>
   <data name="exchange" xml:space="preserve">
     <value>Ik wil er iets voor terug</value>
   </data>
