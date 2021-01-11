@@ -55,7 +55,7 @@
                     <h1>Name: @Html.DisplayFor(model => model.Name)</h1>
 
                     <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">Owner: @Html.DisplayFor(model => model.PublisherName)</a>
-                    <div class="pfpdiv" style="background-image:url('@pfp')"></div>v
+                    <div class="pfpdiv" style="margin-left: 0px; background-image: url('@pfp')"></div>
                     <p>Latin name: @Html.DisplayFor(model => model.LatinName)</p>
                     <h3 style="text-align:left;">Description:</h3>
                     <p>@Html.DisplayFor(model => model.Description)</p>
