@@ -1,8 +1,10 @@
 ﻿@page
 @model IndexModel
 @inject UserManager<ApplicationUser> UserManager
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @{
-    ViewData["Title"] = "Edit profile";
+    ViewData["Title"] = @localizer["profile"];
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
@@ -41,12 +43,12 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="Input.PhoneNumber"></label>
+                <label asp-for="Input.PhoneNumber">@localizer["inputphonenr"]</label>
                 <input asp-for="Input.PhoneNumber" class="form-control" />
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
             </div>
 
-            <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
+            <button id="update-profile-button" type="submit" class="btn btn-primary">@localizer["save"]</button>
         </form>
     </div>
 </div>

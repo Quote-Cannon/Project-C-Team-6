@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 @model IEnumerable<AuthSystem.Models.Product>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 <!--<div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -13,31 +14,32 @@
     <div class="slider">
         <div class="slider2">
             <div class="slider-text">
-                <h1>Welcome</h1>
-                <p>Plant cuttings left? Trade them!</p>
+                <h1>@localizer["Welcome"]</h1>
+                <p>@localizer["SubWelcome"]</p>
             </div>
         </div>
     </div>
 </header>
 <body>
-<div class="body-row2">
-    <div class="homepage">
-        <div class="homepage-text">
-            <img class="img1" src="~/images/Biodiversiteit.jpg" />
-            <h1>Homepage</h1>
+    <div class="body-row2">
+        <div class="homepage">
+            <div class="homepage-text">
+                <img class="img1" src="~/images/Biodiversiteit.jpg" />
+                <h1>@localizer["HomePageHead"]</h1>
 
-            <p>
-                Plant cuttings left? Too many plants on your balcony? Searching for new plant species? You can easily exchange or give away seeds or plants on this website.
-            </p>
-            <p>
-                <h4>What matters</h4>
-                Having more greenery is good for the bees, butterflies and other animals (biodiversity). But it should be environmentally friendly without any poison.
-                Poison-free plants are difficult to obtain and often very pricey. That is why BiodiverCityMAX offers a platform for nature lovers to share and obtain cheap plants, seeds and knowledge with eachother, without poison!
-            </p>
+                <p>
+                    @localizer["HomePageText"]
+                </p>
+                <p>
+                    <h4>
+                        @localizer["WhatMattersHead"]
+                    </h4>
+                    @localizer["WhatMattersText"]
+                </p>
 
-            @*<p>
-                <i>
-                    Stekje over? Teveel planten op je balkon? Op zoek naar een nieuwe soort? Op deze site kun je makkelijk zaden en planten met elkaar ruilen of weggeven.
+                @*<p>
+                        <i>
+                            Stekje over? Teveel planten op je balkon? Op zoek naar een nieuwe soort? Op deze site kun je makkelijk zaden en planten met elkaar ruilen of weggeven.
 
                 </i>
             </p>
@@ -49,9 +51,8 @@
             </p>*@
             <img id="cover-image" class="img2" src="~/images/Biodiversiteit.jpg" />
         </div>
+
     </div>
-     
-</div>        
 
     @*<div class="body-row">
         <div class="filter-row">
@@ -125,35 +126,35 @@
                 </div>
             </div>
         </div>*@
-        @*<div class="products-row">
-            <h1>new</h1>
-            @foreach (var item in model)
-            {
+    @*<div class="products-row">
+                <h1>new</h1>
+                @foreach (var item in model)
+                {
+            <div class="product">
+                <img src="./images/oip.jpg">
+
+                <a href="products/details/@item.id">@item.name <i>@item.latinname</i></a>
+                <p></p>
+
+            </div>
+                }
+                <div class="product">
+            <img src="./images/oip.jpg">
+            <p>name</p>
+        </div>
         <div class="product">
             <img src="./images/oip.jpg">
-
-            <a href="products/details/@item.id">@item.name <i>@item.latinname</i></a>
-            <p></p>
-
+            <p>name</p>
         </div>
-            }
-            <div class="product">
-        <img src="./images/oip.jpg">
-        <p>name</p>
-    </div>
-    <div class="product">
-        <img src="./images/oip.jpg">
-        <p>name</p>
-    </div>
-    <div class="product">
-        <img src="./images/oip.jpg">
-        <p>name</p>
-    </div>
-    <div class="product">
-        <img src="./images/oip.jpg">
-        <p>name</p>
-    </div>
-        </div>*@
+        <div class="product">
+            <img src="./images/oip.jpg">
+            <p>name</p>
+        </div>
+        <div class="product">
+            <img src="./images/oip.jpg">
+            <p>name</p>
+        </div>
+            </div>*@
     </div>
 </body>
 </html>

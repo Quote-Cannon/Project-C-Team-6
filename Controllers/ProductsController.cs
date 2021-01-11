@@ -14,11 +14,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using AuthSystem.Areas.Identity.Data;
 
+using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+
 
 namespace AuthSystem.Controllers
 {
     public class ProductsController : Controller
     {
+        //private readonly IHtmlLocalizer<ProductsController> _localizer;
         private readonly AuthDbContext _context;
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
