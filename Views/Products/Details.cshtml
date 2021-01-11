@@ -1,10 +1,11 @@
-﻿﻿@using System;
+﻿<!DOCTYPE html>
+﻿@using System;
 @using Microsoft.AspNetCore.Identity;
 @using AuthSystem.Areas.Identity.Data
+@using Microsoft.AspNetCore.Mvc.TagHelpers;
 @model AuthSystem.Models.Product
 @inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
-﻿@model AuthSystem.Models.Product
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
 
@@ -49,14 +50,14 @@
         return thisUser.Email;
     }
 }
-<!DOCTYPE html>
+
 <html lang="en">
 <body>
     <div class="container">
         <div class="textbox-grey">
             <div class="body-row2">
                 <div class="plantdesc">
-                    <h1>@localizer["name"]: @Html.DisplayFor(model => model.Name)</h1>
+                    <h1> @localizer["name"]: @Html.DisplayFor(model => model.Name)</h1>
 
                     <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">@localizer["owner"]: @Html.DisplayFor(model => model.PublisherName)</a>
 
@@ -103,12 +104,13 @@
             {
                 <div class="image2" style="margin-right:30px;">
                     <img src="@GetBase64String(Model.PictureTwo)" class="mor-ima">
-            @else {<p>@localizer["comingsoon"]</p>}
-            
+                </div>
+           
+            }
             @*<div class="image2"  style="margin-right:30px;">
                     <img src="https://www.freeimageslive.co.uk/files/images009/seeds.jpg" class="mor-ima">
-                </div>
-            }
+              </div> *@
+            
             @if (Model.PictureTwo != null)
             {
                 <div class="image2">
@@ -121,16 +123,12 @@
                  @if (thisUser.Id == UserManager.GetUserAsync(User).Result.Id)
                  {
 
-                 <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                 <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+            <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">@localizer["edit"]</a>
+            <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">@localizer["delete"]</a>
                  }
             }
-                <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">Back to productpage</a>
-            </div>
-                <div class="button-details">*@
-        <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">@localizer["edit"]</a>
-        <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">@localizer["delete"]</a>
         <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">@localizer["backtoprodpage"]</a>
+            </div>
         </div>
     </div>
 </body>
