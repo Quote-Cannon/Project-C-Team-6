@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthSystem.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20210111135157_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210104105824_meetingtest")]
+    partial class meetingtest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
