@@ -68,13 +68,13 @@
                         <label asp-for="Kind" class="control-label">@localizer["productsort"]</label>
                         <select asp-for="Kind" class="form-control" required="required">
                             <option value="" disabled selected hidden>@localizer["products"]</option>
-                            <option value="@localizer["seeds"]">@localizer["seeds"]</option>
-                            <option value="@localizer["bulb"]">@localizer["bulb"]</option>
-                            <option value="@localizer["cutting"]">@localizer["cutting"]</option>
-                            <option value="@localizer["seedling"]">@localizer["seedling"]</option>
-                            <option value="@localizer["buds"]">@localizer["buds"]</option>
-                            <option value="@localizer["grown"]">@localizer["grown"]</option>
-                            <option value="@localizer["other"]">@localizer["other"]</option>
+                            <option value="seeds">@localizer["seeds"]</option>
+                            <option value="bulb">@localizer["bulb"]</option>
+                            <option value="cutting">@localizer["cutting"]</option>
+                            <option value="seedling">@localizer["seedling"]</option>
+                            <option value="buds">@localizer["buds"]</option>
+                            <option value="grown">@localizer["grown"]</option>
+                            <option value="other">@localizer["other"]</option>
                         </select>
                         <span asp-validation-for="Kind" class="text-danger"></span>
                     </div>
@@ -84,13 +84,13 @@
                         <label asp-for="Type" class="control-label">@localizer["producttype"]</label>
                         <select asp-for="Type" class="form-control" required="required">
                             <option value="" disabled selected hidden>Type</option>
-                            <option value="Tree (Toom)">@localizer["tree"]</option>
-                            <option value="Shrub (Struik)">@localizer["shrub"]</option>
-                            <option value="Herb (Kruidachtige)">@localizer["herb"]</option>
-                            <option value="Ground Cover (bodembedekker)">@localizer["groundcover"]</option>
-                            <option value="Creeper (Klimplant)">@localizer["creeper"]</option>
-                            <option value="Aquatic (Waterplant)">@localizer["aquatic"]</option>
-                            <option value="Other (Anders)">@localizer["other"]</option>
+                            <option value="tree">@localizer["tree"]</option>
+                            <option value="shrub">@localizer["shrub"]</option>
+                            <option value="herb">@localizer["herb"]</option>
+                            <option value="ground cover">@localizer["groundcover"]</option>
+                            <option value="creeper">@localizer["creeper"]</option>
+                            <option value="aquatic">@localizer["aquatic"]</option>
+                            <option value="other">@localizer["other"]</option>
                         </select>
                         <span asp-validation-for="Type" class="text-danger"></span>
                     </div>
@@ -128,8 +128,8 @@
                         <label asp-for="Trade" class="control-label">@localizer["trade"]</label>
                         <select asp-for="Trade" class="form-control" required="required">
                             <option value="" disabled selected hidden>@localizer["trade"]</option>
-                            <option value="I want someting in exchange (Ik wil er iets voor terug)">@localizer["exchange"]</option>
-                            <option value="I want nothing in exchange (Ik wil er niks voor terug)">@localizer["noexchange"]</option>
+                            <option value="Exchange">@localizer["exchange"]</option>
+                            <option value="Free">@localizer["noexchange"]</option>
                         </select>
                         <span asp-validation-for="Trade" class="text-danger"></span>
                     </div>
@@ -139,8 +139,8 @@
                         <label asp-for="Delivery" class="control-label">@localizer["delivery"]</label>
                         <select asp-for="Delivery" class="form-control" required="required">
                             <option value="" disabled selected hidden>@localizer["delivery"]</option>
-                            <option value="Meet up (Samenkomen)">@localizer["meetup"]</option>
-                            <option value="Send it by mail (Verzenden per post)">@localizer["sendbymail"]</option>
+                            <option value="Meet up">@localizer["meetup"]</option>
+                            <option value="Send by mail">@localizer["sendbymail"]</option>
                         </select>
                         <span asp-validation-for="Delivery" class="text-danger"></span>
                     </div>
