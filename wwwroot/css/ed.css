@@ -1,3 +1,48 @@
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #475E48;
+}
+
+.nav-pills .nav-link {
+    border-radius: .25rem;
+    color: #475E48;
+}
+
+.blauwnaargroennav{
+    background-color: white;
+    color: #475E48;
+    box-shadow: 0 0 0 0.0rem #475E48;
+}
+
+#blauwnaargroen{
+    background-color: #475E48;
+    border-color: black;
+    box-shadow: 0 0 0 0.0rem #475E48;
+}
+
+#blauwnaargroen:hover, .blauwnaargroennav:active{
+    background-color: rgb(138, 206, 3);
+    transition: background-color 0.5s ;
+    transition-timing-function: ease-out;
+}
+
+#blauwnaargroen:active, .blauwnaargroennav:active{
+    color:black;
+    background-color: rgb(222, 255, 157);
+    transition: background-color 0.3s, color 0.3s ;
+}
+
+#editingpages{
+    margin-left: 50%;
+    margin-right: 50%;
+    margin: auto;
+}
+
+.fps {
+    margin-left:4rem;
+}
+
 .pfp{
     
     margin-top: 2em;
