@@ -55,7 +55,7 @@
                     <h1>Name: @Html.DisplayFor(model => model.Name)</h1>
 
                     <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">Owner: @Html.DisplayFor(model => model.PublisherName)</a>
-                    <div class="pfpdiv" style="background-image:url('@pfp')"></div>v
+                    
                     <p>Latin name: @Html.DisplayFor(model => model.LatinName)</p>
                     <h3 style="text-align:left;">Description:</h3>
                     <p>@Html.DisplayFor(model => model.Description)</p>
@@ -74,6 +74,7 @@
                 </div>
                 <div class="image1">
                     <img src="@GetBase64String(Model.Picture)" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;" />
+                    <div class="pfpdiv" style="background-image:url('@pfp')"></div>
 
                     @*
         @Html.DisplayNameFor(model => model.Picture)
@@ -85,7 +86,7 @@
                     {
                         if (thisUser.Id != UserManager.GetUserAsync(User).Result.Id)
                         {
-                           <a href="mailto: @GetUserEmail()?subject=@Html.DisplayFor(model => model.Name)&body=Hallo,%20 @Html.DisplayFor(model => model.PublisherName)%0D%0A%0D%0A" class="edit" id="sv">Chat</a>
+                            <a href="mailto: @GetUserEmail()?subject=@Html.DisplayFor(model => model.Name)&body=Hallo,%20 @Html.DisplayFor(model => model.PublisherName)%0D%0A%0D%0A" class="edit" id="sv">Chat</a>
                         }
                     }
                 </div>
