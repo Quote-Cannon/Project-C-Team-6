@@ -11,6 +11,10 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using MimeKit;
+using MailKit.Net.Smtp;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AuthSystem.Areas.Identity.Pages.Account
 {
@@ -35,6 +39,26 @@ namespace AuthSystem.Areas.Identity.Pages.Account
             [EmailAddress]
             public string Email { get; set; }
         }
+        public void SendConfirmEmail(string receiverName, string receiverEmail, string confirmurl)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("BiodiverCityMAX", "biodivercitymax010@gmail.com"));
+            message.To.Add(new MailboxAddress(receiverName, receiverEmail));
+            message.Subject = "Password reset";
+            message.Body = new TextPart("plain")
+            {
+                Text = $"Reset your password by clicking on this link {confirmurl}"
+            };
+
+            using (var client = new SmtpClient())
+            {
+                client.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
+                client.Connect("smtp.gmail.com", 465, true);
+                client.Authenticate("biodivercitymax010@gmail.com", "g5_!P29=3hJ7hUE");
+                client.Send(message);
+                client.Disconnect(true);
+            }
+        }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -57,10 +81,7 @@ namespace AuthSystem.Areas.Identity.Pages.Account
                     values: new { area = "Identity", code },
                     protocol: Request.Scheme);
 
-                await _emailSender.SendEmailAsync(
-                    Input.Email,
-                    "Reset Password",
-                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                SendConfirmEmail(user.Nickname, user.Email, callbackUrl);
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }

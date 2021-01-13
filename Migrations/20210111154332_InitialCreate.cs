@@ -4,11 +4,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AuthSystem.Migrations
 {
-<<<<<<< HEAD:Migrations/20210103191115_3pics.cs
-    public partial class _3pics : Migration
+<<<<<<< HEAD:Migrations/20210111154332_InitialCreate.cs
+    public partial class InitialCreate : Migration
 =======
-    public partial class meetingtest : Migration
->>>>>>> mattias-merge:Migrations/20210104105824_meetingtest.cs
+    public partial class pain : Migration
+>>>>>>> Jasper:Migrations/20210111121626_pain.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

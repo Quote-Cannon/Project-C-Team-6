@@ -1,9 +1,14 @@
+﻿<!DOCTYPE html>
 ﻿@using System;
 @using Microsoft.AspNetCore.Identity;
 @using AuthSystem.Areas.Identity.Data
+@using Microsoft.AspNetCore.Mvc.TagHelpers;
 @model AuthSystem.Models.Product
 @inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+
 @{
     ViewData["Title"] = "Details";
     ApplicationUser thisUser = await UserManager.FindByIdAsync(Model.UserId);
@@ -45,31 +50,32 @@
         return thisUser.Email;
     }
 }
-<!DOCTYPE html>
+
 <html lang="en">
 <body>
     <div class="container">
         <div class="textbox-grey">
             <div class="body-row2">
                 <div class="plantdesc">
-                    <h1>Name: @Html.DisplayFor(model => model.Name)</h1>
+                    <h1> @localizer["name"]: @Html.DisplayFor(model => model.Name)</h1>
 
-                    <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">Owner: @Html.DisplayFor(model => model.PublisherName)</a>
-                    
-                    <p>Latin name: @Html.DisplayFor(model => model.LatinName)</p>
-                    <h3 style="text-align:left;">Description:</h3>
+                    <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">@localizer["owner"]: @Html.DisplayFor(model => model.PublisherName)</a>
+
+                    <div class="pfpdiv" style="margin-left: 0px; background-image: url('@pfp')"></div>
+                    <p>@localizer["latinname"]: @Html.DisplayFor(model => model.LatinName)</p>
+                    <h3 style="text-align:left;">@localizer["description"]:</h3>
                     <p>@Html.DisplayFor(model => model.Description)</p>
                     <ul>
-                        <li>Product: @Html.DisplayFor(model => model.Kind)</li>
-                        <li>Plant type: @Html.DisplayFor(model => model.Type)</li>
+                        <li>@localizer["productsort"]: @Html.DisplayFor(model => model.Kind)</li>
+                        <li>@localizer["producttype"]: @Html.DisplayFor(model => model.Type)</li>
                         @*<li>Soil type: @Html.DisplayFor(model => model.Soil)</li>*@
                         <li>Water: @Html.DisplayFor(model => model.Water)</li>
-                        <li>Light: @Html.DisplayFor(model => model.Light) </li>
-                        <li>Trade: @Html.DisplayFor(model => model.Trade)</li>
-                        <li>Delivery: @Html.DisplayFor(model => model.Delivery)</li>
+                        <li>@localizer["light"]: @Html.DisplayFor(model => model.Light) </li>
+                        <li>@localizer["trade"]: @Html.DisplayFor(model => model.Trade)</li>
+                        <li>@localizer["delivery"]: @Html.DisplayFor(model => model.Delivery)</li>
                     </ul>
 
-                    <p>This producted was posted on: @Html.DisplayFor(model => model.ProductDate)</p>
+                    <p>@localizer["productdate"]: @Html.DisplayFor(model => model.ProductDate)</p>
                     <p>@GetPostCodeDistance()</p>
                 </div>
                 <div class="image1">
@@ -86,7 +92,7 @@
                     {
                         if (thisUser.Id != UserManager.GetUserAsync(User).Result.Id)
                         {
-                            <a href="mailto: @GetUserEmail()?subject=@Html.DisplayFor(model => model.Name)&body=Hallo,%20 @Html.DisplayFor(model => model.PublisherName)%0D%0A%0D%0A" class="edit" id="sv">Chat</a>
+                           <a href="mailto: @GetUserEmail()?subject=@Html.DisplayFor(model => model.Name)&body=Hallo,%20 @Html.DisplayFor(model => model.PublisherName)%0D%0A%0D%0A" class="edit" id="sv">@localizer["chat"]</a>
                         }
                     }
                 </div>
@@ -94,14 +100,19 @@
         </div>
         <div class="body-row2">
             <div class="title">
-                <h5>Other photos of this product</h5>
+                <h5>@localizer["otherpics"]</h5>
             </div>
             @if (Model.PictureTwo != null)
             {
                 <div class="image2" style="margin-right:30px;">
                     <img src="@GetBase64String(Model.PictureTwo)" class="mor-ima">
                 </div>
+           
             }
+            @*<div class="image2"  style="margin-right:30px;">
+                    <img src="https://www.freeimageslive.co.uk/files/images009/seeds.jpg" class="mor-ima">
+              </div> *@
+            
             @if (Model.PictureTwo != null)
             {
                 <div class="image2">
@@ -114,11 +125,11 @@
                  @if (thisUser.Id == UserManager.GetUserAsync(User).Result.Id)
                  {
 
-                 <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                 <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+            <a class="edit" id="sv" asp-action="Edit" asp-route-id="@Model.Id">@localizer["edit"]</a>
+            <a class="edit" id="sv" asp-action="Delete" asp-route-id="@Model.Id">@localizer["delete"]</a>
                  }
             }
-                <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">Back to productpage</a>
+        <a class="edit" id="sv" asp-action="Index" style=" margin-right: 0px !important;">@localizer["backtoprodpage"]</a>
             </div>
         </div>
     </div>

@@ -1,7 +1,8 @@
 ﻿@page
 @model ConfirmEmailModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @{
-    ViewData["Title"] = "Email verified";
+    ViewData["Title"] = @localizer["confirmemail"];
 }
 
 <div style="margin-left:4rem;margin-top:1rem;">

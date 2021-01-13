@@ -14,11 +14,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using AuthSystem.Areas.Identity.Data;
 
+using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+
 
 namespace AuthSystem.Controllers
 {
     public class ProductsController : Controller
     {
+        //private readonly IHtmlLocalizer<ProductsController> _localizer;
         private readonly AuthDbContext _context;
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
@@ -80,8 +84,9 @@ namespace AuthSystem.Controllers
             return View(await products.ToListAsync());
         }
 
-        public async Task<IActionResult> SomeUserProducts(string publisher)
+        public async Task<IActionResult> SomeUserProducts(string searchString, string[] productOffer, string[] productType, string[] productTrade, string[] productDelivery, string publisher)
         {
+            
             /* var pub = await _context.Users
                  .FirstOrDefaultAsync(m => m.Id == publisher);
              if (pub == null)
@@ -90,6 +95,22 @@ namespace AuthSystem.Controllers
              }*/
             IEnumerable<Product> products = from p in _context.Products
                                             select p;
+
+            //search
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(s => s.PublisherName.Contains(searchString) || s.Name.Contains(searchString) || s.Description.Contains(searchString) || s.Kind.Contains(searchString) || s.Type.Contains(searchString) || s.LatinName.Contains(searchString) || s.Trade.Contains(searchString) || s.Delivery.Contains(searchString));
+            }
+
+            //filter
+            if (productOffer.Length != 0 || productOffer != null)
+            {
+                foreach (var item in productOffer)
+                {
+                    products = products.Where(p => p.Kind.Contains(item));
+                }
+            }
+
             List<Product> oldprods = products.ToList();
             List<Product> newprods = new List<Product>();
             for (int i = 0; i < oldprods.Count; i++)
