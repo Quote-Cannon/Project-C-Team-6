@@ -24,10 +24,9 @@
     string pfp = GetBase64String(loggedUser.ProfilePicture);
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<h4>@ViewData["Title"]</h4>
 <partial name="_StatusMessage" model="Model.StatusMessage" />
 <div class="row">
-    <div class="col-md-6">
+    <div id="editingpages" class="col-md-6">
         <form id="profile-form" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -37,7 +36,7 @@
 
             <div class="form-group">
                 <label for="file-upload" class="custom-file-upload">
-                    <i class="fa fa-cloud-upload"></i> Upload profile picture
+                    <i class="fa fa-cloud-upload"></i> Verander profiel foto
                 </label>
                 <input id="file-upload"  type="file" asp-for="Input.ProfilePicture" style="display:none;">
             </div>
@@ -48,7 +47,7 @@
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
             </div>
 
-            <button id="update-profile-button" type="submit" class="btn btn-primary">@localizer["save"]</button>
+            <button id="blauwnaargroen" type="submit" class="btn btn-primary">@localizer["save"]</button>
         </form>
     </div>
 </div>

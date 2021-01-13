@@ -48,7 +48,7 @@
     <div class="body-row">
         <div class="filter-row">
             <div class="search-pr">
-                <form asp-controller="Products" asp-action="Index" method="get" class="get-product">
+                <form asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@thisUser.Id"  class="get-product">
                     <p>@localizer["search"]: </p>
                     <input type="text" name="SearchString" />
                     <input class="edit" id="sv" type="submit" value="Search" />
@@ -56,7 +56,7 @@
             </div>
 
             <h2>@localizer["filter"]</h2>
-            <form asp-controller="Products" asp-action="Index" method="get" class="get-product2">
+            <form asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@thisUser.Id"  class="get-product2">
                 <hr>
                 <h4>@localizer["prodoffer"]</h4>
                 <div class="seeds">
