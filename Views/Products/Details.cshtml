@@ -61,6 +61,7 @@
 
                     <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">@localizer["owner"]: @Html.DisplayFor(model => model.PublisherName)</a>
 
+                    <div class="pfpdiv" style="margin-left: 0px; background-image: url('@pfp')"></div>
                     <p>@localizer["latinname"]: @Html.DisplayFor(model => model.LatinName)</p>
                     <h3 style="text-align:left;">@localizer["description"]:</h3>
                     <p>@Html.DisplayFor(model => model.Description)</p>

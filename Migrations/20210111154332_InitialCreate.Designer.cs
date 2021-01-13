@@ -10,8 +10,13 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthSystem.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
+<<<<<<< HEAD:Migrations/20210111154332_InitialCreate.Designer.cs
     [Migration("20210111154332_InitialCreate")]
     partial class InitialCreate
+=======
+    [Migration("20210111121626_pain")]
+    partial class pain
+>>>>>>> Jasper:Migrations/20210111121626_pain.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

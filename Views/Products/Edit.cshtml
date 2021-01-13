@@ -43,6 +43,7 @@
             <div class="form-group">
                 <img name="Picture" src="@GetBase64String(Model.Picture)" style="width: 10%; height: 10%; display: inline-block; border-radius: 15px;" />
                 <input type="file" name="Picture" />
+                <span asp-validation-for="Picture" class="text-danger"></span>
             </div>
             <div class="form-group">
                 @if (Model.PictureTwo != null)
