@@ -62,7 +62,10 @@
                     <a id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@Model.UserId">@localizer["owner"]: @Html.DisplayFor(model => model.PublisherName)</a>
 
                     <div class="pfpdiv" style="margin-left: 0px; background-image: url('@pfp')"></div>
+                    @if (Model.LatinName != null)
+                    {
                     <p>@localizer["latinname"]: @Html.DisplayFor(model => model.LatinName)</p>
+                    }
                     <h3 style="text-align:left;">@localizer["description"]:</h3>
                     <p>@Html.DisplayFor(model => model.Description)</p>
                     <ul>
@@ -99,9 +102,12 @@
             </div>
         </div>
         <div class="body-row2">
+            @if (Model.PictureTwo != null && Model.PictureThree != null)
+            {
             <div class="title">
                 <h5>@localizer["otherpics"]</h5>
             </div>
+            }
             @if (Model.PictureTwo != null)
             {
                 <div class="image2" style="margin-right:30px;">
@@ -113,7 +119,7 @@
                     <img src="https://www.freeimageslive.co.uk/files/images009/seeds.jpg" class="mor-ima">
               </div> *@
             
-            @if (Model.PictureTwo != null)
+            @if (Model.PictureThree != null)
             {
                 <div class="image2">
                     <img src="@GetBase64String(Model.PictureThree)" class="mor-ima">
