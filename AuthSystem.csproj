@@ -9,6 +9,7 @@
     <PackageReference Include="LazZiya.ExpressLocalization" Version="4.0.4" />
     <PackageReference Include="LazZiya.TagHelpers" Version="5.0.0" />
     <PackageReference Include="Localization.AspNetCore.TagHelpers" Version="0.6.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />

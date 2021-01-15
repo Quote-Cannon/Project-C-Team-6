@@ -129,6 +129,9 @@
   <data name="bulb" xml:space="preserve">
     <value>Bulb</value>
   </data>
+  <data name="changeprod" xml:space="preserve">
+    <value>Edit product</value>
+  </data>
   <data name="create" xml:space="preserve">
     <value>Create</value>
   </data>

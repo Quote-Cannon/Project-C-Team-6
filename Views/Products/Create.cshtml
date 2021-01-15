@@ -67,13 +67,13 @@
                         <label asp-for="Kind" class="control-label">@localizer["productsort"]</label>
                         <select asp-for="Kind" class="form-control" required="required">
                             <option value="" disabled selected hidden>@localizer["products"]</option>
-                            <option value="@localizer["seeds"]">@localizer["seeds"]</option>
+                            <option value="Seeds ">@localizer["seeds"]</option>
                             <option value="@localizer["bulb"]">@localizer["bulb"]</option>
                             <option value="@localizer["cutting"]">@localizer["cutting"]</option>
                             <option value="@localizer["seedling"]">@localizer["seedling"]</option>
                             <option value="@localizer["buds"]">@localizer["buds"]</option>
-                            <option value="@localizer["grown"]">@localizer["grown"]</option>
-                            <option value="@localizer["other"]">@localizer["other"]</option>
+                            <option value="Grown (Volgroeid)">@localizer["grown"]</option>
+                            <option value="Other (Anders)">@localizer["other"]</option>
                         </select>
                         <span asp-validation-for="Kind" class="text-danger"></span>
                     </div>
@@ -83,7 +83,7 @@
                         <label asp-for="Type" class="control-label">@localizer["producttype"]</label>
                         <select asp-for="Type" class="form-control" required="required">
                             <option value="" disabled selected hidden>Type</option>
-                            <option value="Tree (Toom)">@localizer["tree"]</option>
+                            <option value="Tree (Boom)">@localizer["tree"]</option>
                             <option value="Shrub (Struik)">@localizer["shrub"]</option>
                             <option value="Herb (Kruidachtige)">@localizer["herb"]</option>
                             <option value="Ground Cover (bodembedekker)">@localizer["groundcover"]</option>
@@ -99,7 +99,7 @@
                         <label asp-for="Water" class="control-label"></label>
                         <select asp-for="Water" class="form-control" required="required">
                             <option value="" disabled selected hidden>Water</option>
-                            <option value="Wet (Wat)">@localizer["wet"]</option>
+                            <option value="Wet (Nat)">@localizer["wet"]</option>
                             <option value="Medium (Gemiddeld)">@localizer["medium"]</option>
                             <option value="Dry (Droog)">@localizer["dry"]</option>
                             <option value="No Requirement (Geen eisen)">@localizer["noreq"]</option>

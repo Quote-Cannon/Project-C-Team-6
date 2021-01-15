@@ -17,7 +17,7 @@
 }
 
 <div class="body-row2">
-    <h1 style="margin-top: 25px;">Change product</h1>
+    <h1 style="margin-top: 25px;">@localizer["changeprod"]</h1>
     <form asp-action="Edit" method="post" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="UserId" class="form-control" value="@UserManager.GetUserAsync(User).Result.Id" />
@@ -73,14 +73,14 @@
                 <div class="form-group">
                     <label asp-for="Kind" class="control-label">Product</label>
                     <select asp-for="Kind" class="form-control" required="required">
-                        <option value="" disabled selected hidden>Products</option>
-                        <option value="seeds (zaad)">@localizer["seeds"]</option>
-                        <option value="bulb (bol)">@localizer["bulb"]</option>
-                        <option value="cutting (stek)">@localizer["cutting"]</option>
-                        <option value="seedling (zaadling)">@localizer["seedling"]</option>
-                        <option value="bud (knop)">@localizer["bud"]</option>
-                        <option value="grown plant (volgroeide plant)">@localizer["grown"]</option>
-                        <option value="other (anders)">@localizer["other"]</option>
+                        <option value="" disabled selected hidden>@localizer["products"]</option>
+                        <option value="Seeds (Zaadjes)">@localizer["seeds"]</option>
+                        <option value="Bulb (Bol)">@localizer["bulb"]</option>
+                        <option value="Cutting (Stek)">@localizer["cutting"]</option>
+                        <option value="Seedling (Zaadling)">@localizer["seedling"]</option>
+                        <option value="Bud (Knop)">@localizer["buds"]</option>
+                        <option value="Grown plant (Volgroeide plant)">@localizer["grown"]</option>
+                        <option value="Other (Anders)">@localizer["other"]</option>
                     </select>
                     <span asp-validation-for="Kind" class="text-danger"></span>
                 </div>
@@ -90,13 +90,13 @@
                     <label asp-for="Type" class="control-label">@localizer["producttype"]</label>
                     <select asp-for="Type" class="form-control" required="required">
                         <option value="" disabled selected hidden>Type</option>
-                        <option value="tree (boom)">@localizer["tree"]</option>
-                        <option value="shrub (struik)">@localizer["shrub"]</option>
-                        <option value="herb (kruidachtige)">@localizer["herb"]</option>
-                        <option value="ground cover (bodembedekker)">@localizer["groundcover"]</option>
-                        <option value="creeper (klimplant)">@localizer["creeper"]</option>
-                        <option value="aquatic (waterplant)">@localizer["aquatic"]</option>
-                        <option value="other (anders)">@localizer["other"]</option>
+                        <option value="Tree (Boom)">@localizer["tree"]</option>
+                        <option value="Shrub (Struik)">@localizer["shrub"]</option>
+                        <option value="Herb (Kruidachtige)">@localizer["herb"]</option>
+                        <option value="Ground cover (Bodembedekker)">@localizer["groundcover"]</option>
+                        <option value="Creeper (Klimplant)">@localizer["creeper"]</option>
+                        <option value="Aquatic (Waterplant)">@localizer["aquatic"]</option>
+                        <option value="Other (Anders)">@localizer["other"]</option>
                     </select>
                     <span asp-validation-for="Type" class="text-danger"></span>
                 </div>
@@ -106,11 +106,11 @@
                     <label asp-for="Water" class="control-label"></label>
                     <select asp-for="Water" class="form-control" required="required">
                         <option value="" disabled selected hidden>Water</option>
-                        <option value="wet (nat)">@localizer["wet"]</option>
-                        <option value="medium (gemiddeld)">@localizer["medium"]</option>
-                        <option value="dry (droog)">@localizer["dry"]</option>
-                        <option value="no requirement (geen eisen)">@localizer["noreq"]</option>
-                        <option value="not sure (weet ik niet)">@localizer["notsure"]</option>
+                        <option value="Wet (Nat)">@localizer["wet"]</option>
+                        <option value="Medium (Gemiddeld)">@localizer["medium"]</option>
+                        <option value="Dry (Droog)">@localizer["dry"]</option>
+                        <option value="No requirement (Geen eisen)">@localizer["noreq"]</option>
+                        <option value="Not sure (Weet ik niet)">@localizer["notsure"]</option>
                     </select>
                     <span asp-validation-for="Water" class="text-danger"></span>
                 </div>
@@ -119,12 +119,12 @@
                 <div class="form-group">
                     <label asp-for="Light" class="control-label">@localizer["light"]</label>
                     <select asp-for="Light" class="form-control" required="required">
-                        <option value="" disabled selected hidden>Light</option>
-                        <option value="Sun (Son)">@localizer["sun"]</option>
-                        <option value="Partial Shadow (Halfschaduw)">@localizer["parsha"]</option>
-                        <option value="Shadow (Schaduw)">@localizer["shade"]</option>
-                        <option value="No Requirement (Geen eisen)">@localizer["noreq"]</option>
-                        <option value="Not Sure (Weet ik niet)">@localizer["notsure"]</option>
+                        <option value="" disabled selected hidden>@localizer["light"]</option>
+                        <option value="Sun (Zon)">@localizer["sun"]</option>
+                        <option value="Partial shade (Halfschaduw)">@localizer["parsha"]</option>
+                        <option value="Shade (Schaduw)">@localizer["shade"]</option>
+                        <option value="No requirement (Geen eisen)">@localizer["noreq"]</option>
+                        <option value="Not sure (Weet ik niet)">@localizer["notsure"]</option>
                     </select>
                     <span asp-validation-for="Light" class="text-danger"></span>
                 </div>
