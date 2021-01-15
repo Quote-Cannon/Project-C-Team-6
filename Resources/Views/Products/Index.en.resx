@@ -154,7 +154,7 @@
     <value>Dry</value>
   </data>
   <data name="exchange" xml:space="preserve">
-    <value>I want something in exchange</value>
+    <value>Want something</value>
   </data>
   <data name="filter" xml:space="preserve">
     <value>Filter</value>
@@ -184,7 +184,7 @@
     <value>Name</value>
   </data>
   <data name="noexchange" xml:space="preserve">
-    <value>I want nothing in exchange</value>
+    <value>Free to pick up</value>
   </data>
   <data name="noreq" xml:space="preserve">
     <value>No requirements</value>
