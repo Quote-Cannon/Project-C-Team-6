@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="changepw" xml:space="preserve">
-    <value>Wijzig account</value>
+    <value>Wijzig wachtwoord</value>
   </data>
   <data name="deleteacc" xml:space="preserve">
     <value>Verwijder account</value>

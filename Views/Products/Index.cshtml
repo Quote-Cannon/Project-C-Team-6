@@ -78,21 +78,19 @@
                 <div class="aquatic">
                     <input type="checkbox" name="productType" value="aquatic" /> <p>@localizer["aquatic"]</p>
                 </div>
-                <hr>
-                <h4>Trade</h4>
+                <h4>@localizer["trade"]</h4>
                 <div class="free">
-                    <input type="checkbox" name="productTrade" value="Free" /> <p>Free to pick up</p>
+                    <input type="checkbox" name="productTrade" value="Free" /> <p>@localizer["noexchange"]</p>
                 </div>
                 <div class="exchange">
-                    <input type="checkbox" name="productTrade" value="Exchange" /> <p>Want something</p>
+                    <input type="checkbox" name="productTrade" value="Exchange" /> <p>@localizer["exchange"]</p>
                 </div>
-                <hr>
-                <h4>Delivery</h4>
+                <h4>@localizer["delivery"]</h4>
                 <div class="meetup">
-                    <input type="checkbox" name="productDelivery" value="Meet up" /> <p>Meet up</p>
+                    <input type="checkbox" name="productDelivery" value="Meet up" /> <p>@localizer["meetup"]</p>
                 </div>
                 <div class="mail">
-                    <input type="checkbox" name="productDelivery" value="Send by mail" /> <p>Send by mail</p>
+                    <input type="checkbox" name="productDelivery" value="Send by mail" /> <p>@localizer["sendbymail"]</p>
                 </div>
                 <input class="edit" id="sv" type="submit" value="Filter" />
             </form>
@@ -105,7 +103,7 @@
                 <div class="product">
                     <img src="@GetBase64String(item.Picture)" id="cover-image"  />
                     <a href="Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
-                    <p>By @item.PublisherName</p>
+                    <p>@localizer["by"]@item.PublisherName</p>
                 </div>
              }
         </div>

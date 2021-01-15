@@ -1,5 +1,10 @@
 ﻿<!DOCTYPE html>
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@inject Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Builder.RequestLocalizationOptions> locOptions
+@{ 
+    var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+    var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = x.Name}).ToList();
+}
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -42,7 +47,15 @@
                 </div>
                 <div class="img">
                     <a class="img" asp-area="" asp-controller="Home" asp-action="">
-                        <img src="~/images/flag-netherlands.jpg" class="language">
+                        
+                        @*<select name="culture" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList"></select>*@
+
+                       <a href="@Url.Action(@Url.Content(""), @Url.Content(""),  new { @culture = "nl" })">
+                            <img src="~/images/flag-netherlands.jpg" class="language">
+                       </a>
+                       <a href="@Url.Action(@Url.Content(""), @Url.Content(""), new { @culture = "en" })">
+                           <img src="~/images/flag-unionjack.png" class="language">
+                       </a>
                     </a>
                 </div>
             </div>
@@ -57,7 +70,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - Plantwebsite <a asp-area="" asp-controller="Home" asp-action="Aboutus"> - @localizer["aboutus"]</a>
+            &copy; 2020 - Plantwebsite - <a asp-area="" asp-controller="Home" asp-action="Aboutus">@localizer["aboutus"]</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

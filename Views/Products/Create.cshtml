@@ -84,13 +84,13 @@
                         <label asp-for="Type" class="control-label">@localizer["producttype"]</label>
                         <select asp-for="Type" class="form-control" required="required">
                             <option value="" disabled selected hidden>Type</option>
-                            <option value="tree">@localizer["tree"]</option>
-                            <option value="shrub">@localizer["shrub"]</option>
-                            <option value="herb">@localizer["herb"]</option>
-                            <option value="ground cover">@localizer["groundcover"]</option>
-                            <option value="creeper">@localizer["creeper"]</option>
-                            <option value="aquatic">@localizer["aquatic"]</option>
-                            <option value="other">@localizer["other"]</option>
+                            <option value="Tree (Boom)">@localizer["tree"]</option>
+                            <option value="Shrub (Struik)">@localizer["shrub"]</option>
+                            <option value="Herb (Kruidachtige)">@localizer["herb"]</option>
+                            <option value="Ground Cover (bodembedekker)">@localizer["groundcover"]</option>
+                            <option value="Creeper (Klimplant)">@localizer["creeper"]</option>
+                            <option value="Aquatic (Waterplant)">@localizer["aquatic"]</option>
+                            <option value="Other (Anders)">@localizer["other"]</option>
                         </select>
                         <span asp-validation-for="Type" class="text-danger"></span>
                     </div>
@@ -100,7 +100,7 @@
                         <label asp-for="Water" class="control-label"></label>
                         <select asp-for="Water" class="form-control" required="required">
                             <option value="" disabled selected hidden>Water</option>
-                            <option value="Wet (Wat)">@localizer["wet"]</option>
+                            <option value="Wet (Nat)">@localizer["wet"]</option>
                             <option value="Medium (Gemiddeld)">@localizer["medium"]</option>
                             <option value="Dry (Droog)">@localizer["dry"]</option>
                             <option value="No Requirement (Geen eisen)">@localizer["noreq"]</option>

@@ -129,6 +129,9 @@
   <data name="bulb" xml:space="preserve">
     <value>Bulb</value>
   </data>
+  <data name="by" xml:space="preserve">
+    <value>By</value>
+  </data>
   <data name="create" xml:space="preserve">
     <value>Create</value>
   </data>

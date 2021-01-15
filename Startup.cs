@@ -38,12 +38,21 @@ namespace AuthSystem
             services.AddMvc().AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
             .AddDataAnnotationsLocalization();
             services.AddControllersWithViews();
+            services.Configure<RequestLocalizationOptions>(
+                opt =>
+                {
+                    var supportedCultures = new List<CultureInfo>
+                    {
+                        new CultureInfo("en"),
+                        new CultureInfo("nl")
+                    };
+                    opt.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("");
+                    opt.SupportedCultures = supportedCultures;
+                    opt.SupportedUICultures = supportedCultures;
+                });
            
-            //services.AddLocalization(options => options.ResourcesPath = "Resources"); ;
-            //services.AddMvc()
-            //  .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
-            //  .AddDataAnnotationsLocalization();
             //
+
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddDbContext<Data.AuthDbContext>(options =>
@@ -54,25 +63,15 @@ namespace AuthSystem
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             //Language
-            var supportedCultures = new[] { "nl", "en" };
-            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
-                .AddSupportedCultures(supportedCultures)
-                .AddSupportedUICultures(supportedCultures);
-            app.UseRequestLocalization(localizationOptions);
+            //var supportedCultures = new[] { "nl", "en" };
+            //var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
+            //    .AddSupportedCultures(supportedCultures)
+            //    .AddSupportedUICultures(supportedCultures);
+            //app.UseRequestLocalization(localizationOptions);
 
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
-
-
-            //var cultures = new List<CultureInfo> {
-            //    new CultureInfo("en"),
-            //    new CultureInfo("nl")
-
-            //app.UseRequestLocalization(options => {
-            //    options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
-            //    options.SupportedCultures = cultures;
-            //    options.SupportedUICultures = cultures;
-            //});
-            //
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
             if (env.IsDevelopment())
             {

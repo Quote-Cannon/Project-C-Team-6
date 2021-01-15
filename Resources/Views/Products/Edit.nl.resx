@@ -129,6 +129,9 @@
   <data name="bulb" xml:space="preserve">
     <value>Bol</value>
   </data>
+  <data name="changeprod" xml:space="preserve">
+    <value>Wijzig product</value>
+  </data>
   <data name="create" xml:space="preserve">
     <value>Creëer</value>
   </data>
