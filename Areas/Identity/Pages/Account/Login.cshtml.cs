@@ -86,28 +86,45 @@ namespace AuthSystem.Areas.Identity.Pages.Account
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-                if (result.Succeeded)
+                bool banned = false;
+                if(result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    banned = _userManager.FindByNameAsync(Input.Email).Result.Banned;
+
+                    
                 }
-                if (result.RequiresTwoFactor)
+                if (banned)
                 {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
+                    //await _signInManager.SignOutAsync();
+                    //string reasonx = _userManager.FindByNameAsync(Input.Email).Result.BannedReason;
+                    return RedirectToAction("ShowBan","Reports");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return Page();
+                    if (result.Succeeded)
+                    {
+                        _logger.LogInformation("User logged in.");
+                        return LocalRedirect(returnUrl);
+                    }
+                    if (result.RequiresTwoFactor)
+                    {
+                        return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                    }
+                    if (result.IsLockedOut)
+                    {
+                        _logger.LogWarning("User account locked out.");
+                        return RedirectToPage("./Lockout");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                        return Page();
+                    }
                 }
-            }
 
-            // If we got this far, something failed, redisplay form
+
+                // If we got this far, something failed, redisplay form
+            }
             return Page();
         }
     }
