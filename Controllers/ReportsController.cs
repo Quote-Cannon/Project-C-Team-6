@@ -72,16 +72,18 @@ namespace AuthSystem.Controllers
 
         
         //[HttpGet("{repid}")]
-        public async Task<IActionResult> Create(string repid)
+        public async Task<IActionResult> Create(string repitemid)
         {
-
+            int itemid =  Int32.Parse(repitemid);
+            var repid = _context.Products.FirstOrDefault(x => x.Id == itemid).UserId;
             ViewData["ReportedId"] = repid;
+            ViewData["ReportedItemId"] = repitemid;
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ReportedUserId,Reporter,Subject,Explanation")] Report report)
+        public async Task<IActionResult> Create([Bind("Id,ReportedUserId,Reporter,ReportedItemId,Subject")] Report report)
         {
 
             _context.Add(report);

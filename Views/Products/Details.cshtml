@@ -11,6 +11,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    string itemid = ""+ Model.Id;
     ApplicationUser thisUser = await UserManager.FindByIdAsync(Model.UserId);
     string GetBase64String(byte[] picture)
     {
@@ -55,7 +56,7 @@
 <body>
     <div class="container" style="margin-top: -25px;">
         <div class="textbox-grey">
-            <a asp-controller="Reports" asp-action="Create" asp-route-repid="@Model.UserId">Report this user</a>
+            <a asp-controller="Reports" asp-action="Create" asp-route-repitemid="@itemid">Report this user</a>
 
 
             <div class="body-row2">
