@@ -1,0 +1,21 @@
+﻿@page
+
+@model BannedModel
+
+@inject UserManager<ApplicationUser> UserManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    ViewData["Title"] = "Banned";
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h1>you have been banned for: </h1>
+</body>
+</html>

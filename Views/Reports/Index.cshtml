@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AuthSystem.Models.Report>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    ViewData["Title"] = "Reports";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    @*    <span>@Model.FirstOrDefault(m => m == m).TestReport()</span>*@
+
+
+    <h2>Reports</h2>
+
+    <a asp-controller="Reports" asp-action="Report">Report</a>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportedUserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reporter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+        </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReportedUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reporter);
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject);
+        </td>
+
+        <td>
+            <a asp-controller="Reports" asp-action="Details" asp-route-id="@item.Id">Click to see details</a>
+        </td>
+        @* <td>
+            @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+        </td>*@
+    </tr>
+    }
+
+</table>
+</body>
+</html>

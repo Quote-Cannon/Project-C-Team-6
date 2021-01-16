@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Identity.UI.Services;
+@using AuthSystem.Areas.Identity.Data;
+@using Microsoft.AspNetCore.Mvc.TagHelpers;
+
+@model AuthSystem.Models.Report
+@inject UserManager<ApplicationUser> UserManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    ViewData["Title"] = "Create";
+    string reporteduser = @ViewData["ReportedId"].ToString();
+    string reporter =  @UserManager.GetUserAsync(User).Result.Id;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Report</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" method="post" class="create-form"></div>
+
+            <input type="hidden" asp-for="ReportedUserId" class="form-control" value="@reporteduser" />
+            <input type="hidden" asp-for="Reporter" class="form-control" value="@reporter" />
+
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Explanation" class="control-label"></label>
+                <input asp-for="Explanation" class="form-control" />
+                <span asp-validation-for="Explanation" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

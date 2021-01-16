@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AuthSystem.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Reports : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -76,6 +76,21 @@ namespace AuthSystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reports",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ReportedUserId = table.Column<string>(type: "text", nullable: true),
+                    Reporter = table.Column<string>(type: "text", nullable: true),
+                    Reason = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reports", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -241,6 +256,9 @@ namespace AuthSystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Reports");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

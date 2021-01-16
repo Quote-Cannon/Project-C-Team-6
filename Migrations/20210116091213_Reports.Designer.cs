@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthSystem.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20210113122029_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210116091213_Reports")]
+    partial class Reports
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -157,6 +157,27 @@ namespace AuthSystem.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("AuthSystem.Models.Report", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("Reason")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReportedUserId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Reporter")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reports");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
