@@ -26,6 +26,5 @@ namespace AuthSystem.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Report> Reports { get; set; }
     }
 }

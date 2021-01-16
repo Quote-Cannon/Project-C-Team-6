@@ -16,7 +16,6 @@ using System.Globalization;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
-using Microsoft.AspNetCore.Identity;
 
 namespace AuthSystem
 {
@@ -58,11 +57,6 @@ namespace AuthSystem
             services.AddRazorPages();
             services.AddDbContext<Data.AuthDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("AuthDbContextConnection")));
-            services.Configure<SecurityStampValidatorOptions>(options =>
-            {
-                // enables immediate logout, after updating the user's stat.
-                options.ValidationInterval = TimeSpan.Zero;
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

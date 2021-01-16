@@ -70,22 +70,22 @@ namespace AuthSystem.Areas.Identity.Pages.Account.Manage
                     return Page();
                 }
             }
-            return RedirectToAction("UserDelete", "Products", new { uid = user.Id });
+            return Redirect("~/Products/UserDelete");
             //return RedirectToRoute("~/Products/DeleteUserProducts", user.Id);
-            /*
-        var result = await _userManager.DeleteAsync(user);
-        var userId = await _userManager.GetUserIdAsync(user);
-        if (!result.Succeeded)
-        {
-            throw new InvalidOperationException($"Unexpected error occurred deleting user with ID '{userId}'.");
-        }
-        //DeleteUserProducts(userId);
+                /*
+            var result = await _userManager.DeleteAsync(user);
+            var userId = await _userManager.GetUserIdAsync(user);
+            if (!result.Succeeded)
+            {
+                throw new InvalidOperationException($"Unexpected error occurred deleting user with ID '{userId}'.");
+            }
+            //DeleteUserProducts(userId);
 
-        await _signInManager.SignOutAsync();
+            await _signInManager.SignOutAsync();
 
-        _logger.LogInformation("User with ID '{UserId}' deleted themselves.", userId);
+            _logger.LogInformation("User with ID '{UserId}' deleted themselves.", userId);
 
-        return Redirect("~/");*/
+            return Redirect("~/");*/
         }
     }
 }

@@ -437,19 +437,16 @@ namespace AuthSystem.Controllers
         //    byte[] bytes = db.GetImage(i); //Get the image from your database
         //    return File(bytes, "image/png"); //or "image/jpeg", depending on the format
         //}
-        public async Task<IActionResult> UserDelete(string uid)
+        
+        public async Task<IActionResult> UserDelete()
         {
-            bool signout = false;
             // Deleting the user
-            ApplicationUser thisUser = _userManager.FindByIdAsync(uid).Result;
-            if (uid == _userManager.GetUserAsync(User).Result.Id)
+            ApplicationUser thisUser = _userManager.GetUserAsync(User).Result;
+            var result = await _userManager.DeleteAsync(thisUser);
+            var userId = await _userManager.GetUserIdAsync(thisUser);
+            if (!result.Succeeded)
             {
-                signout = true;
-                var result = await _userManager.DeleteAsync(thisUser);
-                if (!result.Succeeded)
-                {
-                    throw new InvalidOperationException($"Unexpected error occurred deleting user with ID '{uid}'.");
-                }
+                throw new InvalidOperationException($"Unexpected error occurred deleting user with ID '{userId}'.");
             }
             
             // Deleting their products
@@ -457,7 +454,7 @@ namespace AuthSystem.Controllers
                            select p;
             foreach (var product in products)
             {
-                if (product.UserId == uid)
+                if (product.UserId == userId)
                 {
                     _context.Products.Remove(product);
                 }
@@ -468,12 +465,9 @@ namespace AuthSystem.Controllers
 
             //_logger.LogInformation("User with ID '{UserId}' deleted themselves.", userId);
             //return RedirectToPage("/Account/Logout", new { returnUrl = urr }) ;
-            if (signout)
-            {
-
-                await _signInManager.SignOutAsync();
-            }
-            return Redirect("~/");
+            string returnUrl = Url.Action("Index", "Home", new { area = "" });
+            await _signInManager.SignOutAsync();
+            return LocalRedirect(returnUrl);
         }
 /*
         [HttpPost("{userId}")]

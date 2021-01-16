@@ -20,8 +20,5 @@ namespace AuthSystem.Areas.Identity.Data
         public string PostCode { get; set; }
 
         public byte[] ProfilePicture { get; set; }
-
-        public bool Banned { get; set; }
-        public string BannedReason { get; set; }
     }
 }
