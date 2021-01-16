@@ -5,7 +5,7 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-@if (SignInManager.IsSignedIn(User))
+@if (SignInManager.IsSignedIn(User) && UserManager.GetUserAsync(User).Result.UserName == "biodivercitymax010@gmail.com")
 {@*
         <li class="nav-item">
             <a id="manage" class="navbar-brand" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserAsync(User).Result.Nickname!</a>
@@ -13,11 +13,33 @@
 <li class="nav-item">
     <a class="navbar-brand" id="profile" asp-area="Identity" asp-page="/Account/Profile">@localizer["profile"]</a>
 </li>
+
+
 <li class="nav-item">
-    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" >
+    <form id="logoutForm" class="form-inline" asp-controller="Reports" asp-action="Index">
+        <button id="logout" class="navbar-brand" style="padding-left: 0px;">Reports</button>
+    </form>
+</li>
+
+<li class="nav-item">
+    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout">
         <button id="logout" class="navbar-brand" style="padding-left: 0px;">@localizer["logout"]</button>
     </form>
 </li>
+
+}
+
+else if (SignInManager.IsSignedIn(User))
+{
+<li class="nav-item">
+    <a class="navbar-brand" id="profile" asp-area="Identity" asp-page="/Account/Profile">@localizer["profile"]</a>
+</li>
+<li class="nav-item">
+    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout">
+        <button id="logout" class="navbar-brand" style="padding-left: 0px;">@localizer["logout"]</button>
+    </form>
+</li>
+
 }
 else
 {

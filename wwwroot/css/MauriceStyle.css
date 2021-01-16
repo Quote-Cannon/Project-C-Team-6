@@ -215,12 +215,17 @@ html, body {
         padding: 15px !important;
     }
 
+<<<<<<< HEAD
     .plantdesc{
         width: 100%;
     }
 
     .button-details {
         margin-top: 0px;
+=======
+    .button-details{
+        margin-top:0px;
+>>>>>>> parent of 5d7d68d... Final
     }
 
     .image1 {
