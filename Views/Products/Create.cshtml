@@ -87,7 +87,7 @@
                             <option value="Tree (Boom)">@localizer["tree"]</option>
                             <option value="Shrub (Struik)">@localizer["shrub"]</option>
                             <option value="Herb (Kruidachtige)">@localizer["herb"]</option>
-                            <option value="Ground Cover (bodembedekker)">@localizer["groundcover"]</option>
+                            <option value="Ground Cover (Bodembedekker)">@localizer["groundcover"]</option>
                             <option value="Creeper (Klimplant)">@localizer["creeper"]</option>
                             <option value="Aquatic (Waterplant)">@localizer["aquatic"]</option>
                             <option value="Other (Anders)">@localizer["other"]</option>
@@ -103,8 +103,8 @@
                             <option value="Wet (Nat)">@localizer["wet"]</option>
                             <option value="Medium (Gemiddeld)">@localizer["medium"]</option>
                             <option value="Dry (Droog)">@localizer["dry"]</option>
-                            <option value="No Requirement (Geen eisen)">@localizer["noreq"]</option>
-                            <option value="Not Sure (Weet ik niet)">@localizer["notsure"]</option>
+                            <option value="No requirements (Geen eisen)">@localizer["noreq"]</option>
+                            <option value="Not sure (Weet ik niet)">@localizer["notsure"]</option>
                         </select>
                         <span asp-validation-for="Water" class="text-danger"></span>
                     </div>
@@ -114,10 +114,10 @@
                         <label asp-for="Light" class="control-label">@localizer["light"]</label>
                         <select asp-for="Light" class="form-control" required="required">
                             <option value="" disabled selected hidden>Light</option>
-                            <option value="Sun (Son)">@localizer["sun"]</option>
-                            <option value="Partial Shadow (Halfschaduw)">@localizer["parsha"]</option>
-                            <option value="Shadow (Schaduw)">@localizer["shade"]</option>
-                            <option value="No Requirement (Geen eisen)">@localizer["noreq"]</option>
+                            <option value="Sun (Zon)">@localizer["sun"]</option>
+                            <option value="Partial shade (Halfschaduw)">@localizer["parsha"]</option>
+                            <option value="Shade (Schaduw)">@localizer["shade"]</option>
+                            <option value="No requirement (Geen eisen)">@localizer["noreq"]</option>
                             <option value="Not Sure (Weet ik niet)">@localizer["notsure"]</option>
                         </select>
                         <span asp-validation-for="Light" class="text-danger"></span>
@@ -128,8 +128,8 @@
                         <label asp-for="Trade" class="control-label">@localizer["trade"]</label>
                         <select asp-for="Trade" class="form-control" required="required">
                             <option value="" disabled selected hidden>@localizer["trade"]</option>
-                            <option value="Exchange">@localizer["exchange"]</option>
-                            <option value="Free">@localizer["noexchange"]</option>
+                            <option value="I want someting in exchange (Ik wil er iets voor terug)">@localizer["exchange"]</option>
+                            <option value="I want nothing in exchange (Ik wil er niks voor terug)">@localizer["noexchange"]</option>
                         </select>
                         <span asp-validation-for="Trade" class="text-danger"></span>
                     </div>
@@ -139,8 +139,8 @@
                         <label asp-for="Delivery" class="control-label">@localizer["delivery"]</label>
                         <select asp-for="Delivery" class="form-control" required="required">
                             <option value="" disabled selected hidden>@localizer["delivery"]</option>
-                            <option value="Meet up">@localizer["meetup"]</option>
-                            <option value="Send by mail">@localizer["sendbymail"]</option>
+                            <option value="Meet up (Samenkomen)">@localizer["meetup"]</option>
+                            <option value="Send by mail (Verzenden per post)">@localizer["sendbymail"]</option>
                         </select>
                         <span asp-validation-for="Delivery" class="text-danger"></span>
                     </div>
