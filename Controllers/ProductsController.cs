@@ -258,7 +258,7 @@ namespace AuthSystem.Controllers
             var pp = _context.Products.FirstOrDefault(p => p.Id.Equals(id));
             // Avoid overriding the EF tracking by first finding the right product, 
             //setting the image variable and detach the tracked product before updating the newer tracked product later on
-            byte[] image = pp.Picture;
+            byte[] image = pp.Picture, imagetwo = pp.PictureTwo, imagethree = pp.PictureThree;
             if (pp != null)
             {
                 // detach
@@ -361,7 +361,7 @@ namespace AuthSystem.Controllers
                 }
                 if (PictureTwo == null)
                 {
-                    product.PictureTwo = image;
+                    product.PictureTwo = imagetwo;
                 }
                 if (PictureThree != null)
                 {
@@ -380,9 +380,9 @@ namespace AuthSystem.Controllers
                         }
                     }
                 }
-                if (PictureTwo == null)
+                if (PictureThree == null)
                 {
-                    product.PictureTwo = image;
+                    product.PictureThree = imagethree;
                 }
                 _context.Update(product);
                 await _context.SaveChangesAsync();
