@@ -97,16 +97,16 @@ namespace AuthSystem.Controllers
         }
 
 
-        public  IActionResult ShowBan()
+        public async Task<IActionResult> ShowBanAsync()
         {
-            return RedirectToAction("BannedMessage");
-        }
-        public async Task<IActionResult> BannedMessage()
-        {
-            string reason = _userManager.GetUserAsync(User).Result.BannedReason;
 
-            ViewData["reason"] = reason;
+            string reason = _userManager.GetUserAsync(User).Result.BannedReason;
             await _signInManager.SignOutAsync();
+            return RedirectToAction("BannedMessage","Reports", new { r = reason});
+        }
+        public async Task<IActionResult> BannedMessage(string r)
+        {
+            ViewData["reason"] = r;
             return View();
         }
 

@@ -439,10 +439,12 @@ namespace AuthSystem.Controllers
         //}
         public async Task<IActionResult> UserDelete(string uid)
         {
+            bool signout = false;
             // Deleting the user
             ApplicationUser thisUser = _userManager.FindByIdAsync(uid).Result;
-            if (thisUser.Id == _userManager.GetUserAsync(User).Result.Id)
+            if (uid == _userManager.GetUserAsync(User).Result.Id)
             {
+                signout = true;
                 var result = await _userManager.DeleteAsync(thisUser);
                 if (!result.Succeeded)
                 {
@@ -466,7 +468,11 @@ namespace AuthSystem.Controllers
 
             //_logger.LogInformation("User with ID '{UserId}' deleted themselves.", userId);
             //return RedirectToPage("/Account/Logout", new { returnUrl = urr }) ;
-            await _signInManager.SignOutAsync();
+            if (signout)
+            {
+
+                await _signInManager.SignOutAsync();
+            }
             return Redirect("~/");
         }
 /*
