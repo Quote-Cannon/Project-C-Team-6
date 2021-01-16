@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Identity.UI.Services;
+@using AuthSystem.Areas.Identity.Data;
+@using Microsoft.AspNetCore.Mvc.TagHelpers;
+
+@model AuthSystem.Models.Report
+@inject UserManager<ApplicationUser> UserManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    ViewData["Title"] = "Banned";
+    var reason = ViewData["Reason"].ToString();
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div style="margin-left:4rem">
+        <h1>You have been banned for: </h1>
+        <p></p>
+        <h3>@reason</h3>
+    </div>
+</body>
+</html>

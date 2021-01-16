@@ -64,14 +64,10 @@ namespace AuthSystem.Controllers
             return View(report);
         }
 
-        public async Task<IActionResult> Ban(string id, string bannedreason)
+        public async Task<IActionResult> Ban(string id)
         {
-            var user = _userManager.FindByIdAsync(id).Result;
-            user.Banned = true;
-            user.BannedReason = bannedreason;
-            await _userManager.UpdateAsync(user); 
-            await _userManager.UpdateSecurityStampAsync(user);
-            return RedirectToAction(nameof(Index));
+            return RedirectToRoute("~/Identity/Pages/Account/CreateBan", id);
+
         }
 
         
@@ -99,5 +95,21 @@ namespace AuthSystem.Controllers
         {
             return View();
         }
+
+
+        public  IActionResult ShowBan()
+        {
+            return RedirectToAction("BannedMessage");
+        }
+        public async Task<IActionResult> BannedMessage()
+        {
+            string reason = _userManager.GetUserAsync(User).Result.BannedReason;
+
+            ViewData["reason"] = reason;
+            await _signInManager.SignOutAsync();
+            return View();
+        }
+
+
     }
 }

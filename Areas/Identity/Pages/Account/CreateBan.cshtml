@@ -1,0 +1,23 @@
+﻿@page "{rid}"
+@model CreateBanModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@{
+    ViewData["Title"] = "Banning User";
+}
+<div class="">
+    <form id="account" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input type="hidden" asp-for="Input.BannedId" value="@ViewData["id"].ToString()" />
+        <div class="form-group">
+            <label asp-for="Input.BanReason"></label>
+            <input asp-for="Input.BanReason" class="form-control" />
+            <span asp-validation-for="Input.BanReason" class="text-danger"></span>
+        </div>
+
+        <button type="submit" ></button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
