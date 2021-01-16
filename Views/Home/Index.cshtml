@@ -1,0 +1,160 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<AuthSystem.Models.Product>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+<!--<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>-->
+<!DOCTYPE html>
+<html lang="en">
+
+<header class="start-header">
+    <div class="slider">
+        <div class="slider2">
+            <div class="slider-text">
+                <h1>@localizer["Welcome"]</h1>
+                <p>@localizer["SubWelcome"]</p>
+            </div>
+        </div>
+    </div>
+</header>
+<body>
+    <div class="body-row2">
+        <div class="homepage">
+            <div class="homepage-text">
+                <img class="img1" src="~/images/Biodiversiteit.jpg" />
+                <h1>@localizer["HomePageHead"]</h1>
+
+                <p>
+                    @localizer["HomePageText"]
+                </p>
+                <p>
+                    <h4>
+                        @localizer["WhatMattersHead"]
+                    </h4>
+                    @localizer["WhatMattersText"]
+                </p>
+
+                @*<p>
+                        <i>
+                            Stekje over? Teveel planten op je balkon? Op zoek naar een nieuwe soort? Op deze site kun je makkelijk zaden en planten met elkaar ruilen of weggeven.
+
+                </i>
+            </p>
+            <p>
+                <i>
+                    <h4>Waar het om gaat</h4>
+                    Meer groen is goed voor bijen, vlinders en andere dieren (biodiversiteit). Maar dan moet dat wel groen zijn, zónder gif! In tuincentra en supermarkten zijn gifvrije planten moeilijk verkrijgbaar én prijzig. …… (naam ruilapp) biedt groenliefhebbers een platform om goedkoop planten, zaden én kennis met elkaar te delen, zónder gif!
+                </i>
+            </p>*@
+            <img id="cover-image" class="img2" src="~/images/Biodiversiteit.jpg" />
+        </div>
+
+    </div>
+
+    @*<div class="body-row">
+        <div class="filter-row">
+            <div class="search-pr">
+                <form asp-controller="products" asp-action="index" method="get" class="get-product">
+                    <p>search: </p>
+                    <input type="text" name="searchstring" />
+                    <input class="edit" id="sv" type="submit" value="search" />
+                </form>
+            </div>
+            <h2>filter</h2>
+            <div class="post">
+                <input type="radio" id="post" name="post" value="post" checked="checked">
+                <p>delivered by post</p>
+            </div>
+            <div class="meetup">
+                <input type="radio" id="meetup" name="post" value="meetup">
+                <p>meetup in person</p>
+            </div>
+            <hr>
+            <div class="trade">
+                <input type="radio" id="trade" name="trade" value="trade" checked="checked">
+                <p>trading</p>
+            </div>
+            <div class="notrade">
+                <input type="radio" id="notrade" name="trade" value="nodtrade">
+                <p>no trading</p>
+            </div>
+            <div class="select-boxes">
+                <div class="productsselect">
+                    <form>
+                        <select name="product" required="required">
+                            <option value="" disabled selected hidden>products</option>
+                            <option value="seed">seed</option>
+                            <option value="cutting">cutting</option>
+                            <option value="bud">bud</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="typeselect">
+                    <form>
+                        <select name="type" required="required">
+                            <option value="" disabled selected hidden>type</option>
+                            <option value="herb">herb</option>
+                            <option value="cutting">cutting</option>
+                            <option value="creeper">creeper</option>
+                            <option value="shrub">shrub</option>
+                            <option value="climber">climber</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="lightselect">
+                    <form>
+                        <select name="light" required="required">
+                            <option value="" disabled selected hidden>light</option>
+                            <option value="low">low</option>
+                            <option value="mid">mid</option>
+                            <option value="high">high</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="waterselect">
+                    <form>
+                        <select name="water" required="required">
+                            <option value="" disabled selected hidden>water</option>
+                            <option value="low">low</option>
+                            <option value="mid">mid</option>
+                            <option value="high">high</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>*@
+    @*<div class="products-row">
+                <h1>new</h1>
+                @foreach (var item in model)
+                {
+            <div class="product">
+                <img src="./images/oip.jpg">
+
+                <a href="products/details/@item.id">@item.name <i>@item.latinname</i></a>
+                <p></p>
+
+            </div>
+                }
+                <div class="product">
+            <img src="./images/oip.jpg">
+            <p>name</p>
+        </div>
+        <div class="product">
+            <img src="./images/oip.jpg">
+            <p>name</p>
+        </div>
+        <div class="product">
+            <img src="./images/oip.jpg">
+            <p>name</p>
+        </div>
+        <div class="product">
+            <img src="./images/oip.jpg">
+            <p>name</p>
+        </div>
+            </div>*@
+    </div>
+</body>
+</html>

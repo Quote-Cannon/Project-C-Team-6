@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "About us";
+}
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<body>
+
+
+
+    <div class="body-row2">
+
+
+
+        <div class="plantalon">
+            <img src="~/Images/floating-plant-2.png" style="width: 100%; height: 100%; display: inline-block; border-radius: 15px;">
+        </div>
+
+
+        <h2 class="ZATEAM" id="ZATEAM">De Kas</h2>
+
+        <p>
+            @localizer["DeKasText"]
+            <br /> <br />
+            Tel: 06 23 05 77 61
+            <br />
+            Adr: Van Beuningenstraat 22, 3039 WE Rotterdam
+            <br />
+            Email: info@stadskwekerijdekas.nl
+        </p>
+
+        <br><br>
+
+            <h2 class="ZATEAM">@localizer["TheTeamHead"]</h2>
+            <p>
+                @localizer["TheTeamText"]
+                
+</body>

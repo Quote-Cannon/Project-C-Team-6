@@ -1,0 +1,59 @@
+﻿@page
+
+@model ProfileModel
+
+@inject UserManager<ApplicationUser> UserManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    ApplicationUser loggedUser = UserManager.GetUserAsync(User).Result;
+    ViewData["Title"] = "MyProfile";
+    string GetBase64String(byte[] picture)
+    {
+        if (picture != null)
+        {
+
+            string imreBase64Data = Convert.ToBase64String(picture);
+            string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
+            return imgDataURL;
+        }
+        return "/images/pfp.jpg";
+    }
+    string pfp = GetBase64String(loggedUser.ProfilePicture);
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Kas</title>
+    <link rel="shortcut icon" type="image/jpg" href=”./Images/OIP.jpg” />
+</head>
+
+<body>
+
+    <div class="pdiv">
+        <div class="editdiv">
+            <a href="/Identity/Account/Manage" class="edit" id="edit">@localizer["editacc"]</a>
+        </div>
+        <div class="pfpdiv" style="background-image:url('@pfp')"></div>
+    </div>
+
+    <p class="hiprofile">@localizer["greeting"]@loggedUser.Nickname!</p>
+    <div class="profilebuttons">
+
+        <div class="but">
+            <a class="pfbutton" id="add" asp-controller="Products" asp-action="Create"><img class="butid" src="/Images/Layer 2.png" alt=""></a>
+            <p class="butext" id="add">@localizer["addprod"]</p>
+        </div>
+        <div class="but">
+            <a class="pfbutton" id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@UserManager.GetUserAsync(User).Result.Id"><img class="butid" src="/Images/Layer 3.png" alt=""></a>
+
+            <p class="butext" id="myprods">@localizer["urprod"]</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+
+.biomandiv {
+    display: inline;
+}
+
+.bioman {
+    display: inline;
+    text-align: end;
+    float:right;
+    max-width: 100%;
+    margin-right:1rem;
+}
+
+#logout {
+    border: none;
+    background-color: #b3dea2;
+}
+
+.editdiv {
+    text-align: left;
+    margin-left: 3rem;
+}
+
+.custom-file-upload{
+    border: 0.01rem solid black;
+    padding:0.2rem 0.5rem;
+    border-radius:0.5rem;
+}
+
+.custom-file-upload:hover, a.edit:hover {
+    cursor: pointer;
+    color:white;
+    background-color: rgb(122, 184, 0);
+    transition: background-color 0.5s, color 0.2s;
+    transition-timing-function: ease-out;
+}
+
+.custom-file-upload:active, a.edit:active {
+    background-color: rgb(170, 255, 0);
+    transition: background-color 0.5s, color 0.2s;
+    color: black;
+}
+
+
+
+.pdiv {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.pfpdiv {
+    margin-top: 1rem;
+    width: 8rem;
+    height: 8rem;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 0.02rem solid rgba(0,0,0,0.5);
+}
+
+.regpfpdiv {
+    display: inline-block;
+}
+
+.regpfp {
+    display: block;
+    width: 6rem;
+    border-radius: 10%;
+    border: 0.02rem solid rgba(0,0,0,0.1);
+}
+/*.pfpdiv .pfp {
+    height: 100%;*//*
+    display: block;
+    border-radius: 5%;
+    border: 0.02rem solid rgba(0,0,0,0.1);*/
+/*}*/
+
+.hiprofile {
+    font-size: 1.6rem;
+    text-align: center;
+    color: #6e6e6e;
+    margin-bottom: 3rem;
+}
+
+
+
+.profilebuttons {
+    text-align: center;
+}
+
+.profilebuttons > .pfbutton {
+    margin: 5em;
+    letter-spacing: 15em;
+}
+
+.but {
+    display: inline-block;
+    text-align: center;
+    width:25rem;
+}
+
+.butid {
+    width: 12em;
+    border: 0.01em solid black;
+    border-radius: 5%;
+    padding: 5%;
+}
+
+
+.butext {
+    text-align:center;
+    font-size: 2em;
+}
+
+
+
+a.edit {
+    display: inline-block;
+    padding: 0.3em 1.5em;
+    border: 0.1em solid black;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: initial;
+    color: white;
+    background-color: #475E48;
+    margin: 1rem 1rem;
+}
+
+a#edit {
+    padding: 0.5em 1.5em !important;
+}
+
+.butid:hover, a.edit:hover {
+    cursor: pointer;
+    background-color: rgb(122, 184, 0);
+    transition: background-color 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.butid:active, a.edit:active {
+    background-color: rgb(170, 255, 0);
+    transition: background-color 0.3s, color 0.3s;
+    color: black;
+}
+

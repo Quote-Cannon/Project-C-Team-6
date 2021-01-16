@@ -1,0 +1,126 @@
+.custom-file-upload {
+    border: 1rem solid rgb(0, 0, 0);
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+
+.pfp{
+    
+    margin-top: 2em;
+    margin-right: auto;
+    margin-left: auto;
+    width: 10rem;
+}
+
+
+.pfpdiv{
+    height: auto;
+    margin: 0 auto;
+}
+
+.inp{
+    text-align: center;
+}
+.editacc{
+    width: 95%;
+    font-size: 1rem;
+    padding: 0.5em;
+    display: block;
+    margin-top: 0.5em;
+    border: 0.01em solid rgb(110, 109, 109);
+    border-radius: 0.2em;
+}
+
+#ph{
+    display: inline-block;
+    width: 16rem;
+}
+#pc{
+    display: inline-block;
+}
+
+
+
+
+a.edit {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    border: 0.1em solid black;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: initial;
+    color:white;
+    background-color: #475E48;
+    text-align: center;
+}
+a.upload {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    border: 0.1em solid black;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: initial;
+    color: white;
+    background-color: #475E48;
+    text-align: center;
+}
+
+.edit:hover, #upload:hover{
+    
+    background-color: rgb(138, 206, 3);
+    transition: background-color 0.5s ;
+    transition-timing-function: ease-out;
+}
+
+.edit:active, #upload:active{
+    background-color: green;
+    color:black;
+    background-color: rgb(170, 255, 0);
+    transition: background-color 0.3s, color 0.3s ;
+}
+
+
+
+#upload{
+    background-color: white;
+    color: black;
+    border: 0.1em solid #475E48;
+    text-align: center;
+    width: fit-content;
+    padding: 0.2rem 2rem ;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+#rst{
+    width:  26rem;
+    margin-top: 1em;
+    display: block;
+    font-size: 1rem;
+}
+
+#sv{
+    margin-top: 1rem;
+    width:  26rem;
+    display: block;
+    font-size: 2rem;
+    padding: 1.5rem;
+    border: 0.1rem solid black;
+}
+
+
+#cr{
+    margin-top: 1rem;
+    font-size: 2rem;
+    border: 0.1rem solid black;
+}
+
+.row{
+    text-align: center;
+}
+
+label.reglabel{
+    margin-bottom: 0rem;
+}

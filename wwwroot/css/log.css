@@ -1,0 +1,109 @@
+.r{
+    text-align: center;
+}
+
+.editacc{
+    font-size: 2rem;
+}
+
+
+h2{
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.ZATEAM {
+    text-align: left;
+}
+#ZATEAM {
+    margin-top: 2rem;
+}
+
+#forgotpass{
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    text-align:center;
+
+}
+.forgot{
+    font-size:1rem;
+}
+
+.dk{
+    display: inline;
+    margin-top: 1.5em;
+    margin-right: auto;
+    margin-left: auto;
+    width: 40rem;
+}
+
+.dkdiv{
+    position: relative;
+    text-align: center;
+    height: auto;
+    width:50rem;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.dktext{
+    display: inline;
+    cursor: default;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+}
+
+.dkdiv:hover, .dktext:hover{
+    color: rgb(0, 95, 0);
+    filter: contrast(120%);
+
+    transition: color 0.2s, filter 0.2s;
+}
+
+.ddd{
+    margin-top: 3rem;
+}
+
+#loggingin {
+    margin-left: 50%;
+    margin-right: 50%;
+    margin: auto;
+    width: 30% 
+}
+
+#flexxer{
+    display: flex;
+}
+
+
+#login.login {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    border: 0.1em solid black;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: initial;
+    color: white;
+    background-color: #475E48;
+    text-align: center;
+    width: 100%;
+}
+
+#login.login:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(122, 184, 0);
+    transition: background-color 0.5s, color 0.2s;
+    transition-timing-function: ease-out;
+}
+
+#login.login:active {
+    background-color: rgb(170, 255, 0);
+    transition: background-color 0.5s, color 0.2s;
+    color: black;
+}

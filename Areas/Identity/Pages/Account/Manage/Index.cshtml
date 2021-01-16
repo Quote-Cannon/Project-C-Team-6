@@ -1,0 +1,64 @@
+﻿@page
+@model IndexModel
+@inject UserManager<ApplicationUser> UserManager
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@{
+    ViewData["Title"] = @localizer["profile"];
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+@{
+    ApplicationUser loggedUser = UserManager.GetUserAsync(User).Result;
+    string GetBase64String(byte[] picture)
+    {
+        if (picture != null)
+        {
+
+            string imreBase64Data = Convert.ToBase64String(picture);
+            string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
+            return imgDataURL;
+        }
+        return "/images/pfp.jpg";
+    }
+    string pfp = GetBase64String(loggedUser.ProfilePicture);
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<div class="row">
+    <div id="editingpages" class="col-md-6">
+        <form id="profile-form" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="regpfpdiv">
+                <img class="regpfp" src="@pfp" alt="">
+            </div>
+
+            <div class="form-group">
+                <label for="file-upload" class="custom-file-upload">
+                    <i class="fa fa-cloud-upload"></i> Verander profiel foto
+                </label>
+                <input id="file-upload"  type="file" asp-for="Input.ProfilePicture" style="display:none;">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.PhoneNumber">@localizer["inputphonenr"]</label>
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <button id="blauwnaargroen" type="submit" class="btn btn-primary">@localizer["save"]</button>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#file-upload').change(function () {
+        var i = $(this).prev('label').clone();
+        var file = $('#file-upload')[0].files[0].name;
+        $(this).prev('label').text(file);
+    });
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

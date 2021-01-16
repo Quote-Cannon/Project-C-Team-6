@@ -1,0 +1,11 @@
+﻿@page
+@model LogoutModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@{
+    ViewData["Title"] = @localizer["logout"];
+}
+
+<header>
+    <h1>@ViewData["Title"]</h1>
+    <p>@localizer["loggedout"]</p>
+</header>

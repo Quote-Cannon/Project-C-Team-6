@@ -1,0 +1,120 @@
+﻿@using System;
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Identity.UI.Services;
+@using AuthSystem.Areas.Identity.Data
+
+@model IEnumerable<AuthSystem.Models.Product>
+
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    ViewData["Title"] = "Your products";
+    var userIclickedOn = ViewData["id"].ToString();
+    ApplicationUser thisUser = UserManager.FindByIdAsync(userIclickedOn).Result;
+
+    string GetBase64String(byte[] picture)
+    {
+
+        if (picture != null)
+        {
+
+            string imreBase64Data = Convert.ToBase64String(picture);
+            string imgDataURL = string.Format("data:image/jpeg;base64,{0}", imreBase64Data);
+            return imgDataURL;
+        }
+        return "/images/pfp.jpg";
+    }
+    string pfp = GetBase64String(thisUser.ProfilePicture);
+}
+
+<!DOCTYPE html>
+<header class="start-header product-pro2">
+    <div class="product-pro">
+        <div class="slider">
+            <div class="slider2">
+                <div class="slider-text">
+                    <h1>@thisUser.Nickname's @localizer["products"]</h1>
+                    <div class="pfpdiv" style="background-image:url('@pfp')"></div>
+                    @* <div class="pfpdiv" style="background-image:url('@GetBase64String(prod)')"></div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<html lang="en">
+<body>
+    <div class="body-row">
+        <div class="filter-row">
+            <div class="search-pr">
+                <form asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@thisUser.Id"  class="get-product">
+                    <p>@localizer["search"]: </p>
+                    <input type="text" name="SearchString" />
+                    <input class="edit" id="sv" type="submit" value="Search" />
+                </form>
+            </div>
+
+            <h2>@localizer["filter"]</h2>
+            <form asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@thisUser.Id"  class="get-product2">
+                <hr>
+                <h4>@localizer["prodoffer"]</h4>
+                <div class="seeds">
+                    <input type="checkbox" name="productOffer" value="seeds" /><p>@localizer["seeds"]</p>
+                </div>
+                <div class="bulb">
+                    <input type="checkbox" name="productOffer" value="bulb" /><p>@localizer["bulb"]</p>
+                </div>
+                <div class="cutting">
+                    <input type="checkbox" name="productOffer" value="cutting" /><p>@localizer["cutting"]</p>
+                </div>
+                <div class="seedling">
+                    <input type="checkbox" name="productOffer" value="seedling" /> <p>@localizer["seedling"]</p>
+                </div>
+                <div class="bud">
+                    <input type="checkbox" name="productOffer" value="bud" /> <p>@localizer["buds"]</p>
+                </div>
+                <div class="grownplant">
+                    <input type="checkbox" name="productOffer" value="grownplant" /> <p>@localizer["grown"]</p>
+                </div>
+                <hr>
+                <h4>@localizer["producttype"]</h4>
+                <div class="tree">
+                    <input type="checkbox" name="productType" value="tree" /> <p>@localizer["tree"]</p>
+                </div>
+                <div class="shrub">
+                    <input type="checkbox" name="productType" value="shrub" /> <p>@localizer["shrub"]</p>
+                </div>
+                <div class="herb">
+                    <input type="checkbox" name="productType" value="herb" /> <p>@localizer["herb"]</p>
+                </div>
+                <div class="ground cover">
+                    <input type="checkbox" name="productType" value="ground cover" /> <p>@localizer["groundcover"]</p>
+                </div>
+                <div class="creeper">
+                    <input type="checkbox" name="productType" value="creeper" /> <p>@localizer["creeper"]</p>
+                </div>
+                <div class="aquatic">
+                    <input type="checkbox" name="productType" value="aquatic" /> <p>@localizer["aquatic"]</p>
+                </div>
+                <input class="edit" id="sv" type="submit" value="Filter" />
+            </form>
+
+
+        </div>
+
+
+        <div class="pro-page products-row">
+            @foreach (var item in Model)
+            {
+                
+                    <div class="product">
+                        <img src="@GetBase64String(item.Picture)" id="cover-image" />
+                        <a href="/Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
+                    </div>
+                
+            }
+        </div>
+    </div>
+</body>
+</html>
