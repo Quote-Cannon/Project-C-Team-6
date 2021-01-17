@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Banning User";
 }
-<div class="">
+<div class="body-row2">
     <form id="account" method="post">
         <div asp-validation-summary="All" class="text-danger"></div>
         <input type="hidden" asp-for="Input.BannedId" value="@ViewData["banningemail"].ToString()" />
