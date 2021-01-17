@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AuthSystem.Migrations
 {
-    public partial class Reports : Migration
+    public partial class Admin : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,6 +30,8 @@ namespace AuthSystem.Migrations
                     Nickname = table.Column<string>(type: "varchar(100)", nullable: true),
                     PostCode = table.Column<string>(type: "varchar(6)", nullable: true),
                     ProfilePicture = table.Column<byte[]>(type: "bytea", nullable: true),
+                    Banned = table.Column<bool>(type: "boolean", nullable: false),
+                    BannedReason = table.Column<string>(type: "text", nullable: true),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -86,7 +88,8 @@ namespace AuthSystem.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ReportedUserId = table.Column<string>(type: "text", nullable: true),
                     Reporter = table.Column<string>(type: "text", nullable: true),
-                    Reason = table.Column<string>(type: "text", nullable: true)
+                    ReportedItemId = table.Column<string>(type: "text", nullable: true),
+                    Subject = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {

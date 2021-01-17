@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthSystem.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20210116091213_Reports")]
-    partial class Reports
+    [Migration("20210116235735_Admin")]
+    partial class Admin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,12 @@ namespace AuthSystem.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
+
+                    b.Property<bool>("Banned")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("BannedReason")
+                        .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -166,7 +172,7 @@ namespace AuthSystem.Migrations
                         .HasColumnType("integer")
                         .UseIdentityByDefaultColumn();
 
-                    b.Property<string>("Reason")
+                    b.Property<string>("ReportedItemId")
                         .HasColumnType("text");
 
                     b.Property<string>("ReportedUserId")
@@ -174,6 +180,11 @@ namespace AuthSystem.Migrations
 
                     b.Property<string>("Reporter")
                         .HasColumnType("text");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
 
                     b.HasKey("Id");
 
