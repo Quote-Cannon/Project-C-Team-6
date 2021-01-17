@@ -440,8 +440,11 @@ namespace AuthSystem.Controllers
         public async Task<IActionResult> UserDelete(string uid)
         {
             bool signout = false;
+            
             // Deleting the user
             ApplicationUser thisUser = _userManager.FindByIdAsync(uid).Result;
+            bool banned = thisUser.Banned;
+            string email = thisUser.Email;
             if (uid == _userManager.GetUserAsync(User).Result.Id)
             {
                 signout = true;
@@ -470,8 +473,12 @@ namespace AuthSystem.Controllers
             //return RedirectToPage("/Account/Logout", new { returnUrl = urr }) ;
             if (signout)
             {
-
                 await _signInManager.SignOutAsync();
+            }
+
+            if (banned)
+            {
+                return RedirectToAction("BannedConfirm","Reports",new {xemail = email });
             }
             return Redirect("~/");
         }

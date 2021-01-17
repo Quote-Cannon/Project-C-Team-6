@@ -16,13 +16,13 @@ using Microsoft.Extensions.Logging;
 namespace AuthSystem.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class CreateBanModel : PageModel
+    public class BanConfirmedModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public CreateBanModel(SignInManager<ApplicationUser> signInManager, 
+        public BanConfirmedModel(SignInManager<ApplicationUser> signInManager, 
             ILogger<LoginModel> logger,
             UserManager<ApplicationUser> userManager)
         {
@@ -31,31 +31,10 @@ namespace AuthSystem.Areas.Identity.Pages.Account
             _logger = logger;
         }
 
-        [BindProperty]
-        public InputModel Input { get; set; }
-
-        public class InputModel
+        public async Task OnGetAsync(string did)
         {
-            public string BanReason { get; set; }
-            public string BannedId { get; set; }
+            ViewData["bannedemail"] = did;
         }
 
-        public async Task OnGetAsync(string rid)
-        {
-            ViewData["banningemail"] = rid;
-        }
-
-        public async Task<IActionResult> OnPostAsync()
-        {
-
-
-            var user = _userManager.FindByNameAsync(Input.BannedId).Result;
-            user.Banned = true;
-            user.BannedReason = Input.BanReason;
-            await _userManager.UpdateAsync(user);
-            await _userManager.UpdateSecurityStampAsync(user);
-
-            return RedirectToAction("UserDelete", "Products", new { uid = user.Id });
-        }
     }
 }

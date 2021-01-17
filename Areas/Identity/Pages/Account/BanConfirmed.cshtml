@@ -1,0 +1,14 @@
+﻿@page "{did}"
+@model BanConfirmedModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@{
+    ViewData["Title"] = "Ban succesful";
+    string bannedemail = ViewData["bannedemail"].ToString();
+}
+<div class="">
+    <h1>The user with email: @bannedemail, has been banned</h1>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

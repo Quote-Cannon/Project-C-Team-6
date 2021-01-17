@@ -16,13 +16,16 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ReportedUserId)
+                Reported:
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Reporter)
+                Reporter:
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Subject)
+                Subject:
+            </th>
+            <th>
+
             </th>
         </tr>
 
@@ -33,10 +36,10 @@
             @Html.DisplayFor(modelItem => item.ReportedUserId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Reporter);
+            @Html.DisplayFor(modelItem => item.Reporter)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Subject);
+            @Html.DisplayFor(modelItem => item.Subject)
         </td>
 
         <td>

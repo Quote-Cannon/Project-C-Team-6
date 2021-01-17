@@ -70,13 +70,21 @@ namespace AuthSystem.Controllers
 
         }
 
-        
+        public async Task<IActionResult> BannedConfirm(string xemail)
+        {
+            ViewData["bannedemail"] = xemail;
+            return View();
+
+        }
+
+
         //[HttpGet("{repid}")]
         public async Task<IActionResult> Create(string repitemid)
         {
             int itemid =  Int32.Parse(repitemid);
             var repid = _context.Products.FirstOrDefault(x => x.Id == itemid).UserId;
-            ViewData["ReportedId"] = repid;
+            var email = _userManager.FindByIdAsync(repid).Result.Email;
+            ViewData["ReportedEmail"] = email;
             ViewData["ReportedItemId"] = repitemid;
             return View();
         }

@@ -90,8 +90,6 @@ namespace AuthSystem.Areas.Identity.Pages.Account
                 if(result.Succeeded)
                 {
                     banned = _userManager.FindByNameAsync(Input.Email).Result.Banned;
-
-                    
                 }
                 if (banned)
                 {
