@@ -39,7 +39,8 @@
             Reported item ID:
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ReportedItemId)
+            <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.ReportedItemId">Go to reported item</a>
+            
         </dd>
     </dl>
 </div>
