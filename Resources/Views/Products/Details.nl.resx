@@ -141,6 +141,9 @@
   <data name="create" xml:space="preserve">
     <value>Creëer</value>
   </data>
+  <data name="createacc" xml:space="preserve">
+    <value>Log in om te zien of dit product bij u in de buurt beschikbaar is</value>
+  </data>
   <data name="creeper" xml:space="preserve">
     <value>Klimplant</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="descriptionhint" xml:space="preserve">
     <value>Denk bijvoorbeeld aan de kleur, hoogte, bodemsoort, speciale kenmerken etc.</value>
+  </data>
+  <data name="difreg" xml:space="preserve">
+    <value>Deze persoon woont niet in dezelfde regio als u</value>
   </data>
   <data name="dry" xml:space="preserve">
     <value>Droog</value>
@@ -192,11 +198,20 @@
   <data name="name" xml:space="preserve">
     <value>Naam</value>
   </data>
+  <data name="near" xml:space="preserve">
+    <value>Deze persoon woont bij u in de buurt</value>
+  </data>
+  <data name="nearneigh" xml:space="preserve">
+    <value>Deze persoon woont in een wijk bij u in de buurt.</value>
+  </data>
   <data name="noexchange" xml:space="preserve">
     <value>Ik wil er niets voor terug</value>
   </data>
   <data name="noreq" xml:space="preserve">
     <value>Geen eisen</value>
+  </data>
+  <data name="notnearneigh" xml:space="preserve">
+    <value>Deze persoon woont niet bij u in de buurt</value>
   </data>
   <data name="notsure" xml:space="preserve">
     <value>Weet ik niet</value>
@@ -254,5 +269,8 @@
   </data>
   <data name="wet" xml:space="preserve">
     <value>Nat</value>
+  </data>
+  <data name="yourneigh" xml:space="preserve">
+    <value>Deze persoon woont bij u in de wijk</value>
   </data>
 </root>
