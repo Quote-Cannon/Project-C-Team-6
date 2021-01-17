@@ -10,11 +10,11 @@
 @{
     ViewData["Title"] = "Create";
     string reporteduser = @ViewData["ReportedEmail"].ToString();
-    string reporter =  @UserManager.GetUserAsync(User).Result.Email;
+    string reporter = @UserManager.GetUserAsync(User).Result.Email;
     string reporteditemid = ViewData["ReportedItemId"].ToString();
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<div class="body-row2">
 <h1>Create</h1>
 
 <h4>Report</h4>
@@ -45,7 +45,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
+</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

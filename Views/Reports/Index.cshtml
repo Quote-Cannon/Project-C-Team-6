@@ -12,46 +12,47 @@
 
 
     <h2>Reports</h2>
+    <div class="body-row2">
+        <table class="table">
+            <tr>
+                <th>
+                    Reported:
+                </th>
+                <th>
+                    Reporter:
+                </th>
+                <th>
+                    Subject:
+                </th>
+                <th>
 
-    <table class="table">
-        <tr>
-            <th>
-                Reported:
-            </th>
-            <th>
-                Reporter:
-            </th>
-            <th>
-                Subject:
-            </th>
-            <th>
+                </th>
+            </tr>
 
-            </th>
-        </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReportedUserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Reporter)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject)
+                    </td>
 
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReportedUserId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Reporter)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subject)
-        </td>
+                    <td>
+                        <a asp-controller="Reports" asp-action="Details" asp-route-id="@item.Id">Click to see details</a>
+                    </td>
+                    @* <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                        </td>*@
+                </tr>
+            }
 
-        <td>
-            <a asp-controller="Reports" asp-action="Details" asp-route-id="@item.Id">Click to see details</a>
-        </td>
-        @* <td>
-            @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
-        </td>*@
-    </tr>
-    }
-
-</table>
+        </table>
+    </div>
 </body>
 </html>
