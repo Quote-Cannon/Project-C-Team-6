@@ -100,11 +100,13 @@
         <div class="pro-page products-row">
             @foreach (var item in Model)
              {
-                <div class="product">
-                    <img src="@GetBase64String(item.Picture)" id="cover-image"  />
-                    <a href="Products/Details/@item.Id">@item.Name <i>@item.LatinName</i></a>
-                    <p>@localizer["by"] @item.PublisherName</p>
-                </div>
+            <div class="product">
+                <a href="Products/Details/@item.Id">
+                    <img src="@GetBase64String(item.Picture)" id="cover-image" />
+                    @item.Name <i>@item.LatinName</i>
+                </a>
+                <p>@localizer["by"] @item.PublisherName</p>
+            </div>
              }
         </div>
     </div>

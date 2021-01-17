@@ -10,14 +10,15 @@
 @{
     ViewData["Title"] = "Create";
     string reporteduser = @ViewData["ReportedEmail"].ToString();
-    string reporter =  @UserManager.GetUserAsync(User).Result.Email;
+    string reporter = @UserManager.GetUserAsync(User).Result.Email;
     string reporteditemid = ViewData["ReportedItemId"].ToString();
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<div class="body-row2">
+<h1>@localizer["createrepo"]</h1>
 
-<h4>Report</h4>
+<h4>@localizer["report"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -29,23 +30,23 @@
             <input type="hidden" asp-for="ReportedItemId" class="form-control" value="@reporteditemid" />
 
             <div class="form-group">
-                <label asp-for="Subject" class="control-label"></label>
+                <label asp-for="Subject" class="control-label">@localizer["subject"]</label>
                 <input asp-for="Subject" class="form-control" />
                 <span asp-validation-for="Subject" class="text-danger"></span>
             </div>
 
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="@localizer["create"]" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">@localizer["back"]</a>
 </div>
-
+</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
