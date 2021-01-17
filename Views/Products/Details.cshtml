@@ -35,16 +35,16 @@
             string homeCode = UserManager.GetUserAsync(User).Result.PostCode;
             string goalCode = thisUser.PostCode;
             if (homeCode.Substring(0, 2) != goalCode.Substring(0, 2))
-                return "This person does not live in the same region as you.";
+                return localizer["difreg"].Value;
             if (homeCode.Substring(4, 2) == goalCode.Substring(4, 2))
-                return "This person lives near you";
+                return localizer["near"].Value;
             if (homeCode.Substring(2, 2) == goalCode.Substring(2, 2))
-                return "This person lives in your neighborhood.";
+                return localizer["yourneigh"].Value;
             if (Math.Abs(int.Parse(homeCode.Substring(2, 2)) - int.Parse(goalCode.Substring(2, 2))) < 10)
-                return "This person lives in a neighborhood near yours.";
-            return "This person does not live in a neighborhood near yours.";
+                return localizer["nearneigh"].Value;
+            return localizer["notnearneigh"].Value;
         }
-        return "Create an account to see if this item is nearby!";
+        return localizer["createacc"].Value;
     }
     string GetUserEmail()
     {
