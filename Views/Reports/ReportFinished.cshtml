@@ -1,6 +1,8 @@
-﻿<div style="margin-left:4rem">
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
-    <h1>User has been reported to the administrator.</h1>
+<div style="margin-left:4rem">
 
-    <a asp-controller="Products" asp-action="Index">Click here to go back to the product page</a>
+    <h1>@localizer["repcomp"]</h1>
+
+    <a asp-controller="Products" asp-action="Index">@localizer["clickback"]</a>
 </div>

@@ -11,18 +11,18 @@
     @*    <span>@Model.FirstOrDefault(m => m == m).TestReport()</span>*@
 
 
-    <h2>Reports</h2>
+    <h2>@localizer["report"]</h2>
 
     <table class="table">
         <tr>
             <th>
-                Reported:
+                @localizer["reported"]:
             </th>
             <th>
-                Reporter:
+                @localizer["reporter"]:
             </th>
             <th>
-                Subject:
+                @localizer["subject"]:
             </th>
             <th>
 
@@ -43,7 +43,7 @@
         </td>
 
         <td>
-            <a asp-controller="Reports" asp-action="Details" asp-route-id="@item.Id">Click to see details</a>
+            <a asp-controller="Reports" asp-action="Details" asp-route-id="@item.Id">@localizer["details"]</a>
         </td>
         @* <td>
             @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
