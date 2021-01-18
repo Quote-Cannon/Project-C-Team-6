@@ -129,4 +129,7 @@
   <data name="password" xml:space="preserve">
     <value>Wachtwoord</value>
   </data>
+  <data name="register" xml:space="preserve">
+    <value>Nog geen account, klik hier om te registeren</value>
+  </data>
 </root>
