@@ -5,13 +5,14 @@
     ViewData["Title"] = "Report Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div div class="body-row2">
 
 <h1>@localizer["detail"]</h1>
 
 <div>
     <h4>@localizer["report"]</h4>
     <hr />
-    <dl class="row">
+    <dl class="row" style="text-align:left;">
         <dt class="col-sm-2">
             Report ID:
         </dt>
@@ -51,7 +52,7 @@
     <form method="get" asp-area="Identity" asp-page="/Account/CreateBan" asp-route-rid="@Model.ReportedUserId">
         <div asp-validation-summary="ModelOnly" method="post" class="create-form"></div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="@localizer["btnban"]" />
+            <input type="submit" id="blauwnaargroen" class="btn btn-primary" value="@localizer["btnban"]" />
         </div>
     </form>
     <a asp-action="Index">@localizer["back"]s</a>

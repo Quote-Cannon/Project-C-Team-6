@@ -15,6 +15,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="body-row2">
 <h1>@localizer["createrepo"]</h1>
 
 <h4>@localizer["report"]</h4>
@@ -45,7 +46,7 @@
 <div>
     <a asp-action="Index">@localizer["back"]</a>
 </div>
-
+</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
