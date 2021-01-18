@@ -45,6 +45,7 @@
                 <input type="file" name="Picture" />
                 <span asp-validation-for="Picture" class="text-danger"></span>
             </div>
+            <label class="control-label">@localizer["afbeeldingnaam"]</label>
             <div class="form-group">
                 <input type="file" name="PictureTwo" />
             </div>
@@ -53,14 +54,14 @@
             </div>
             <div class="form-group form-check">
                 @*<div class="form-group form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" asp-for="Trade" /> @Html.DisplayNameFor(model => model.Trade): Offering to get something in exchange.
-                        </label>
-                        <br />
-                        <label class="form-check-label">
-                            <input class="form-check-input" asp-for="Post" /> @Html.DisplayNameFor(model => model.Post): Send the product by post.
-                        </label>
-                    </div>*@
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Trade" /> @Html.DisplayNameFor(model => model.Trade): Offering to get something in exchange.
+                </label>
+                <br />
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Post" /> @Html.DisplayNameFor(model => model.Post): Send the product by post.
+                </label>
+            </div>*@
             </div>
             <div class="sel-boxes">
                 <div class="select-box">
@@ -149,10 +150,10 @@
 
             <div class="product-date">
                 @*<div class="form-group">
-                        <label asp-for="Soil" class="control-label">Soil </label>
-                        <input asp-for="Soil" class="form-control" placeholder="Soil Type"/>
-                        <span asp-validation-for="Soil" class="text-danger"></span>
-                    </div>*@
+                <label asp-for="Soil" class="control-label">Soil </label>
+                <input asp-for="Soil" class="form-control" placeholder="Soil Type"/>
+                <span asp-validation-for="Soil" class="text-danger"></span>
+            </div>*@
                 <div class="button-cre">
                     <div class="form-group">
                         <input type="submit" value="@localizer["create"]" class="edit" id="sv" />
