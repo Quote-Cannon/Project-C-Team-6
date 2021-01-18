@@ -56,6 +56,8 @@
 <body>
     <div class="container" style="margin-top: -25px;">
         <div class="textbox-grey">
+
+
             <div class="body-row2">
                 <div class="plantdesc">
                     <h1> @localizer["name"]: @Html.DisplayFor(model => model.Name)</h1>
@@ -86,8 +88,8 @@
                     <img src="@GetBase64String(Model.Picture)" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;" />
 
                     @*
-            @Html.DisplayNameFor(model => model.Picture)
-            @Html.DisplayFor(model => model.Trade)
+                @Html.DisplayNameFor(model => model.Picture)
+                @Html.DisplayFor(model => model.Trade)
                     *@
                     @*<img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(@Model.getImage()))" style="width: 100%; height: auto; display: inline-block; border-radius: 15px;">*@
 
@@ -136,7 +138,11 @@
                 }
             }
             <a class="edit" id="sv" href="##" onClick="history.go(-1); return false;">@localizer["backtoprodpage"]</a>
-            <a class="edit" id="sv" style="width: 200px;   margin-right: 0px !important;" asp-controller="Reports" asp-action="Create" asp-route-repitemid="@itemid">Report this user</a>
+
+            @if (SignInManager.IsSignedIn(User) && UserManager.GetUserAsync(User).Result.Email != thisUser.Email)
+            {
+                <a class="edit" id="sv" style="width: 200px;   margin-right: 0px !important;" asp-controller="Reports" asp-action="Create" asp-route-repitemid="@itemid">Report this user</a>
+            }
         </div>
         </div>
     </div>
