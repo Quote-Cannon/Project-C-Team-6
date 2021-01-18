@@ -1,4 +1,10 @@
 ﻿@model IEnumerable<AuthSystem.Models.Product>
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Identity.UI.Services;
+@using AuthSystem.Areas.Identity.Data;
+@using Microsoft.AspNetCore.Mvc.TagHelpers;
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
 @{
@@ -13,11 +19,11 @@
 }
 <!DOCTYPE html>
 <header class="start-header">
-    <div class="slider">    
+    <div class="slider">
         <div class="slider2">
-            <div class="slider-text">  
+            <div class="slider-text">
                 <h1>@localizer["products"]</h1>
-                
+
                 <p>@localizer["subprod"]</p>
             </div>
         </div>
@@ -41,7 +47,7 @@
                 <hr>
                 <h4>@localizer["prodoffer"]</h4>
                 <div class="seeds">
-                    <input type="checkbox" name="productOffer" value="seeds"/><p>@localizer["seeds"]</p>
+                    <input type="checkbox" name="productOffer" value="seeds" /><p>@localizer["seeds"]</p>
                 </div>
                 <div class="bulb">
                     <input type="checkbox" name="productOffer" value="bulb" /><p>@localizer["bulb"]</p>
@@ -94,21 +100,27 @@
                 </div>
                 <input class="edit" id="sv" type="submit" value="Filter" />
             </form>
+            @if(SignInManager.IsSignedIn(User)) { 
+            <div class="but">
+
+                <a class="edit" style="border-radius: 2px;" id="sv" asp-controller="Products" asp-action="Create">@localizer["addprod"]</a>
+            </div>
+            }
 
         </div>
 
         <div class="pro-page products-row">
             @foreach (var item in Model)
-             {
-            <div class="product">
-                <a href="Products/Details/@item.Id">
-                    <img src="@GetBase64String(item.Picture)" id="cover-image" />
-                    @item.Name <i>@item.LatinName</i>
-                </a>
-                <p>@localizer["by"] @item.PublisherName</p>
-            </div>
-             }
+            {
+                <div class="product">
+                    <a href="Products/Details/@item.Id">
+                        <img src="@GetBase64String(item.Picture)" id="cover-image" />
+                        @item.Name <i>@item.LatinName</i>
+                    </a>
+                    <p>@localizer["by"] @item.PublisherName</p>
+                </div>
+            }
         </div>
     </div>
-</body> 
+</body>
 </html>
