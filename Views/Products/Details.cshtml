@@ -56,10 +56,6 @@
 <body>
     <div class="container" style="margin-top: -25px;">
         <div class="textbox-grey">
-            @if (SignInManager.IsSignedIn(User) && UserManager.GetUserAsync(User).Result.Email != thisUser.Email)
-            {
-                <a asp-controller="Reports" asp-action="Create" asp-route-repitemid="@itemid">Report this user</a>
-            }
 
 
             <div class="body-row2">
@@ -142,7 +138,11 @@
                 }
             }
             <a class="edit" id="sv" href="##" onClick="history.go(-1); return false;">@localizer["backtoprodpage"]</a>
-            <a class="edit" id="sv" style="width: 200px;   margin-right: 0px !important;" asp-controller="Reports" asp-action="Create" asp-route-repitemid="@itemid">Report this user</a>
+
+            @if (SignInManager.IsSignedIn(User) && UserManager.GetUserAsync(User).Result.Email != thisUser.Email)
+            {
+                <a class="edit" id="sv" style="width: 200px;   margin-right: 0px !important;" asp-controller="Reports" asp-action="Create" asp-route-repitemid="@itemid">Report this user</a>
+            }
         </div>
         </div>
     </div>
