@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using AuthSystem.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace AuthSystem.Areas.Identity.Data
 {

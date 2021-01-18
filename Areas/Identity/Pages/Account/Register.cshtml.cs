@@ -64,7 +64,7 @@ namespace AuthSystem.Areas.Identity.Pages.Account
             [Display(Name = "PhoneNumber")]
             public string PhoneNumber { get; set; }
 
-            
+            [Required]
             [Display(Name = "Postal Code")]
             [StringLength(6, ErrorMessage = "The {0} must be 6 characters long.", MinimumLength = 6)]
             public string PostCode { get; set; }
