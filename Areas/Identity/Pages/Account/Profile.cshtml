@@ -36,9 +36,6 @@
 <body>
 
     <div class="pdiv">
-        <div class="editdiv">
-            <a href="/Identity/Account/Manage" class="edit" id="edit">@localizer["editacc"]</a>
-        </div>
         <div class="pfpdiv" style="background-image:url('@pfp')"></div>
     </div>
 
@@ -46,8 +43,8 @@
     <div class="profilebuttons">
 
         <div class="but">
-            <a class="pfbutton" id="add" asp-controller="Products" asp-action="Create"><img class="butid" src="/Images/Layer 2.png" alt=""></a>
-            <p class="butext" id="add">@localizer["addprod"]</p>
+            <a class="pfbutton" id="add"  href="/Identity/Account/Manage"><img class="butid" src="/Images/Layer 2.png" alt=""></a>
+            <p class="butext" id="add">@localizer["editacc"]</p>
         </div>
         <div class="but">
             <a class="pfbutton" id="myprods" asp-controller="Products" asp-action="SomeUserProducts" asp-route-publisher="@UserManager.GetUserAsync(User).Result.Id"><img class="butid" src="/Images/Layer 3.png" alt=""></a>
