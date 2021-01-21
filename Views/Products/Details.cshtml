@@ -141,7 +141,7 @@
 
             @if (SignInManager.IsSignedIn(User) && UserManager.GetUserAsync(User).Result.Email != thisUser.Email)
             {
-                <a class="edit" id="sv" style="width: 200px;   margin-right: 0px !important;" asp-controller="Reports" asp-action="Create" asp-route-repitemid="@itemid">Report this user</a>
+                <a class="edit" id="sv" style="width: 200px;   margin-right: 0px !important;" asp-controller="Reports" asp-action="Create" asp-route-repitemid="@itemid">@localizer["repuser"]</a>
             }
         </div>
         </div>

@@ -129,8 +129,8 @@
                         <label asp-for="Trade" class="control-label">@localizer["trade"]</label>
                         <select asp-for="Trade" class="form-control" required="required">
                             <option value="" disabled selected hidden>@localizer["trade"]</option>
-                            <option value="Exchange">@localizer["exchange"]</option>
-                            <option value="Free">@localizer["noexchange"]</option>
+                            <option value="Exchange (Ruilen)">@localizer["exchange"]</option>
+                            <option value="Free (Gratis)">@localizer["noexchange"]</option>
                         </select>
                         <span asp-validation-for="Trade" class="text-danger"></span>
                     </div>
@@ -140,8 +140,8 @@
                         <label asp-for="Delivery" class="control-label">@localizer["delivery"]</label>
                         <select asp-for="Delivery" class="form-control" required="required">
                             <option value="" disabled selected hidden>@localizer["delivery"]</option>
-                            <option value="Meet up">@localizer["meetup"]</option>
-                            <option value="Send by mail">@localizer["sendbymail"]</option>
+                            <option value="Meet up (Samenkomen)">@localizer["meetup"]</option>
+                            <option value="Send by mail (Versturen per post)">@localizer["sendbymail"]</option>
                         </select>
                         <span asp-validation-for="Delivery" class="text-danger"></span>
                     </div>
