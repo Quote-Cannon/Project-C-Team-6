@@ -47,7 +47,7 @@ namespace AuthSystem
                         new CultureInfo("en"),
                         new CultureInfo("nl")
                     };
-                    opt.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("");
+                    opt.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("nl");
                     opt.SupportedCultures = supportedCultures;
                     opt.SupportedUICultures = supportedCultures;
                 });

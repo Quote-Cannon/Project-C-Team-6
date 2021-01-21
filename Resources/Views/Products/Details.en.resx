@@ -162,6 +162,9 @@
   <data name="descriptionhint" xml:space="preserve">
     <value>Think along the lines of colour, height, soil type, special traits, etc.</value>
   </data>
+  <data name="difreg" xml:space="preserve">
+    <value>This person does not live in the same region as you</value>
+  </data>
   <data name="dry" xml:space="preserve">
     <value>Dry</value>
   </data>
@@ -195,11 +198,20 @@
   <data name="name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="near" xml:space="preserve">
+    <value>This person lives near you</value>
+  </data>
+  <data name="nearneigh" xml:space="preserve">
+    <value>This person lives in a neighborhood near you.</value>
+  </data>
   <data name="noexchange" xml:space="preserve">
     <value>I want nothing in exchange</value>
   </data>
   <data name="noreq" xml:space="preserve">
     <value>No requirements</value>
+  </data>
+  <data name="notnearneigh" xml:space="preserve">
+    <value>This person does not live near you</value>
   </data>
   <data name="notsure" xml:space="preserve">
     <value>Not sure</value>
@@ -260,5 +272,8 @@
   </data>
   <data name="wet" xml:space="preserve">
     <value>Wet</value>
+  </data>
+  <data name="yourneigh" xml:space="preserve">
+    <value>This person lives in your neighborhood</value>
   </data>
 </root>
